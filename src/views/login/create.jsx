@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-function SignInPage() {
+function CreatePage() {
     return (
-        <div className="SignInPage">
+        <div className="CreatePage">
             <div class="container py-5 h-auto">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-xl-10">
@@ -15,7 +15,7 @@ function SignInPage() {
                                             <h4 class="mt-1 mb-5 pb-1">We are DUYAYVY coffee shop</h4>
                                         </div>
                                         <form>
-                                            <p class="text-center">Please login to your account</p>
+                                            <p class="text-center">Create your account</p>
                                             <div class="form-outline mb-2">
                                                 <label class="form-label" for="form2Example11">Username</label>
                                                 <input type="email" id="form2Example11" class="form-control"
@@ -28,21 +28,13 @@ function SignInPage() {
                                             </div>
 
                                             <div class="text-center pt-1 mb-5 align-items-center">
-                                                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 px-3 ml-5"
-                                                    type="button">Login</button>
-                                                <a class="text-muted text-decoration-none align-items-center" href="#!">Forgot password?</a>
-                                            </div>
-
-                                            <div class="d-flex align-items-center justify-content-center pb-4">
-                                                <p class="mb-0 me-2">Don't have an account?</p>
-                                                <Link to="/create">
-                                                    <button type="button" class="btn btn-outline-danger">Create new</button>
+                                                <Link to="/signin">
+                                                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 px-3 ml-5"
+                                                        type="button">Create</button>
                                                 </Link>
 
                                             </div>
-
                                         </form>
-
                                     </div>
                                 </div>
                                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -56,8 +48,8 @@ function SignInPage() {
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        </div >
+    )
 }
 
-export default SignInPage;
+export default CreatePage;
