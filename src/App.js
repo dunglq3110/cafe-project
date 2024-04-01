@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ManagerPage from "./views/manager/ManagerPage";
 import SignInPage from "./views/login/signin";
-import CreatePage from "./views/login/create";
-import HomePage from './views/HomePage';
+import VisitPage from './views/VisitPage';
 
 
 function App() {
@@ -10,9 +9,8 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/signin" element={<SignInPage />} />
-                <Route path="/create" element={<CreatePage />} />
                 <Route path="/manager" element={<ManagerPage />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<VisitPage />} />
             </Routes>
         </Router>
     );
