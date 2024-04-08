@@ -1,14 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @import 'bootstrap/dist/css/bootstrap.css';
 
 .gradient-custom-2 {
-    /* fallback for old browsers */
+
     background: #fccb90;
-
-    /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.admin_page{
+    height:100vh;
+
+}
+.full{
+    display: flex;
+    height: 100%;
+}
+.user{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_user{
+    width: 30%;
+    height: auto;
+}
+.col-3{
+    background-color:#C08B5C ;
+    height: 100%;
+    width: 20%;
+}
+.col-7{
+    background-color: #FFEBB2;
+    height: 100%;
+    width: 80%;
+}
+
+.text-center{
+    display: flex;
+    text-align: center;
+}
+
+.side-button{
+    padding:10px;
+    margin: 4px;
+
 }
 
 @media (min-width: 768px) {
@@ -23,3 +59,8 @@
         border-bottom-right-radius: .3rem;
     }
 }
+
+
+
+/* nav bar */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");

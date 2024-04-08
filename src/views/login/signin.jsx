@@ -27,20 +27,13 @@ function SignInPage() {
                                                 <input type="password" id="form2Example22" class="form-control" />
                                             </div>
 
-                                            <div class="text-center pt-1 mb-5 align-items-center">
+                                            <div class="text-center pt-1 mb-2 align-items-center">
                                                 <button class="btn btn-primary btn-block fa-lg gradient-custom-2 px-3 ml-5"
                                                     type="button">Login</button>
+                                            </div>
+                                            <div class="text-center pt-1 mb-5 align-items-center">
                                                 <a class="text-muted text-decoration-none align-items-center" href="#!">Forgot password?</a>
                                             </div>
-
-                                            <div class="d-flex align-items-center justify-content-center pb-4">
-                                                <p class="mb-0 me-2">Don't have an account?</p>
-                                                <Link to="/create">
-                                                    <button type="button" class="btn btn-outline-danger">Create new</button>
-                                                </Link>
-
-                                            </div>
-
                                         </form>
 
                                     </div>
