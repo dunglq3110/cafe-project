@@ -1,4 +1,4 @@
-function ManagerPage() {
+function StaffView() {
     return (
         <div className="StaffView">
             <h1>
@@ -8,4 +8,4 @@ function ManagerPage() {
     );
 }
 
-export default ManagerPage;
+export default StaffView;

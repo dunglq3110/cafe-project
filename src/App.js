@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ManagerPage from "./views/manager/ManagerPage";
 import SignInPage from "./views/login/signin";
 import VisitPage from './views/VisitPage';
+import NavBar from './views/manager/NavBar';
 
 
 function App() {

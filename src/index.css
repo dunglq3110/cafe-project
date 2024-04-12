@@ -1,57 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @import 'bootstrap/dist/css/bootstrap.css';
 
+::root {
+    --primary-color: #fccb90;
+    --secondary-color: #ee7724;
+    --tertiary-color: #d8363a;
+    --quaternary-color: #dd3675;
+    --quinary-color: #b44593;
+    --hover-sidecolor: #D1BB9E;
+}
+
+
 .gradient-custom-2 {
 
     background: #fccb90;
     background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
     background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 }
-.admin_page{
-    height:100vh;
+
+.admin_page {
+    height: 100vh;
 
 }
-.full{
+
+.full {
     display: flex;
     height: 100%;
 }
-.user{
+
+.user {
     display: grid;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    align-content: center;
+    justify-items: center;
+    padding: 10px;
 }
 
-.image_user{
+.image_user {
     width: 30%;
     height: auto;
+    flex-direction: column;
 }
-.col-3{
-    background-color:#C08B5C ;
+
+.col-3 {
+    background-color: #C08B5C;
     height: 100%;
     width: 20%;
 }
-.col-7{
+
+.col-7 {
     background-color: #FFEBB2;
     height: 100%;
     width: 80%;
+    display: inline-block;
+    overflow: hidden;
 }
 
-.text-center{
+.text-center {
     display: flex;
     text-align: center;
+    font-size: 26px;
 }
 
-.side-button{
-    padding:10px;
-    margin: 4px;
-
+.center-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
+
+.side-button {
+    padding: 10px 30px;
+    margin: 10px;
+    background-color: #D9D9D9;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 64px;
+}
+
+.side-button:hover {
+    background-color: #DBA2A2;
+}
+
+@media (max-width: 700px) {
+    .navbar-inner p {
+        width: 100%;
+        display: none !important;
+    }
+
+    .navbar-inner .text-center {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+
+/* end of nav bar */
+
 
 @media (min-width: 768px) {
     .gradient-form {
         height: 100vh !important;
     }
 }
+
+
+
 
 @media (min-width: 769px) {
     .gradient-custom-2 {
