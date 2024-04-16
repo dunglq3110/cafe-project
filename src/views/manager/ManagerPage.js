@@ -1,6 +1,6 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-import StaffView from './staff/StaffView';
+import Menu_page from './Menu_page';
 import NavBar from './NavBar';
 function ManagerPage() {
     return (
@@ -11,14 +11,12 @@ function ManagerPage() {
 
                     </NavBar>
                 </div>
-
                 <div class="col-7">
-                    <div class="" id="mainpage">
-                        <StaffView>
+                    <Menu_page>
 
-                        </StaffView>
-                    </div>
+                    </Menu_page>
                 </div>
+
             </div>
         </div >
     );
