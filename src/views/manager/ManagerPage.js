@@ -105,11 +105,11 @@ function ManagerPage() {
 
                         </Employee_page>
                     </div> */}
-                    {/* <div class="text-align-center">
+                    <div class="text-align-center">
                         <Employee_detail>
 
                         </Employee_detail>
-                    </div> */}
+                    </div>
                 <div>
                     <Order>
 
