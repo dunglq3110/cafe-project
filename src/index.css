@@ -99,11 +99,10 @@
 }
 
 .col-3 {
-    /* background-color: #C08B5C; */
     background-color: var(--sidecolor);
     height: 100%;
     width: 20%;
-}
+} 
 
 .col-7 {
     background-color: #FFEBB2;
