@@ -300,6 +300,19 @@
     }
 }
 
+/* search bar*/
+.ml-auto{
+    margin-left: auto;
+}
+.mr-2{
+    margin-right:10px;
+}
+.w-15{
+    width: 15%;
+}
+
+
+
 /* nav bar */
 /* Menu_page  */
 .menu_container {
@@ -313,3 +326,6 @@
 }
 
 /* Employee detail */
+.bg-custom{
+    background-color: var(--bs-warning-border-subtle);
+}

@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Searchbar from './searchbar';
 import Employee_detail from './Employee_detail';
 import Order from './Order';
+import Product_detail from './Product_detail';
 function ManagerPage() {
     // const navbarhide = document.querySelector('#close');
     // navbarhide.addEventListener("click", close);
@@ -91,7 +92,7 @@ function ManagerPage() {
 
                 </nav>
 
-                <div class="col-7 overflow-auto"  data-bs-spy="scroll">
+                <div class="col-7 overflow-auto" data-bs-spy="scroll">
                     <Searchbar>
                     </Searchbar>
                     {/* <div class="">
@@ -105,16 +106,21 @@ function ManagerPage() {
 
                         </Employee_page>
                     </div> */}
-                    <div class="text-align-center">
+                    {/* <div class="text-align-center">
                         <Employee_detail>
 
                         </Employee_detail>
-                    </div>
-                <div>
-                    <Order>
+                    </div> */}
+                    {/* <div>
+                        <Order>
 
-                    </Order>
-                </div>
+                        </Order>
+                    </div> */}
+                    <div>
+                        <Product_detail>
+
+                        </Product_detail>
+                    </div>
                 </div>
 
             </div>

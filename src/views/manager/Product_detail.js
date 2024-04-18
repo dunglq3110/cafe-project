@@ -1,11 +1,11 @@
-import ech from './image/ech.jpg';
-function Employee_detail() {
+import coffee from "./image/coffee-cup.png"
+function Product_detail() {
     return (
-        <div className="Employee_detail">
-            <div class="mx-2 bg-custom rounded">
+        <div className="Product_detail">
+            <div class="mx-3 bg-custom rounded">
                 <div class="row mx-2 my-2">
                     <div class="col col-4 d-inline align-items-center justify-content-center mt-4">
-                        <img src={ech} class="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
+                        <img src={coffee} class="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
                         <div class="mt-4 d-flex justify-content-around">
                             <button type="button" class="btn btn-danger">Remove</button>
                             <button type="button" class="btn btn-info">Edit</button>
@@ -66,4 +66,4 @@ function Employee_detail() {
     );
 }
 
-export default Employee_detail;
+export default Product_detail;
