@@ -9,6 +9,7 @@ function NavBar() {
     //         navbarInner.style.width = "50%"; // You can adjust the width as needed
     //     }
     // }
+
     return (
         <div className="NavBar">
             <div class="navbar-inner">
@@ -41,19 +42,19 @@ function NavBar() {
                     </div>
                 </div>
                 <div id="option">
-                    <div class="side-button text-center">
+                    <div class="side-button text-center" id="home">
                         <div class="material-symbols-outlined center-layout">
                             home
                         </div>
                         <p class="m-0 px-2 center-layout">Home</p>
                     </div>
-                    <div class="side-button text-center">
+                    <div class="side-button text-center" id="dashboard">
                         <div class="material-symbols-outlined center-layout">
                             dashboard
                         </div>
                         <p class="m-0 px-2 center-layout">DaskBoard</p>
                     </div>
-                    <div class="side-button text-center">
+                    <div class="side-button text-center" id="order">
                         <div class="material-symbols-outlined center-layout text-center">
                             dvr
                         </div>

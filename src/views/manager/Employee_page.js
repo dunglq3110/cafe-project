@@ -1,32 +1,29 @@
+import right from './image/right.png'
 function Employee_page() {
     return (
         <div className="Employee_page">
             <div id="filter-bar">'
             </div>
-            <div className="container">
+            <div className="">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Gentle</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Role</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
+                            <th scope="row">1</th>
+                            <td>Vu Tien Trinh</td>
+                            <td>Male</td>
+                            <td>Active</td>
+                            <td>Admin</td>
+                            <td><img src={right} alt="right" class="button-transition" /></td>
                         </tr>
                     </tbody>
                 </table>
