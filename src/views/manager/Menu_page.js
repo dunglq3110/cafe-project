@@ -44,18 +44,17 @@ function Menu_page() {
                                             <li><a class="dropdown-item" href="#">Link 2</a></li>
                                         </ul>
                                     </div>
-                                    <div id="apply" class="col">
-                                        Apply
-                                    </div>
                                     <div id="reset" class="col">
-                                        Reset
+                                        <div>
+                                            Reset
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="list-food" class="d-flex row">
                                     <div class="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
-                                        <img class="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div class="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" class=" text-align-center">
+                                        <img class="w-100 h-100 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div class="d-flex w-100 align-items-center pt-1 justify-content-between my-2">
+                                            <div id="cost" class="text-align-center pl-1">
                                                 100$
                                             </div>
                                             <div id="orderbtn">
@@ -64,7 +63,7 @@ function Menu_page() {
                                         </div>
                                     </div>
                                     <div class="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
-                                        <img class="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <img class="w-100 h-100 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div class="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
                                             <div id="cost" class=" text-align-center">
                                                 100$
@@ -76,7 +75,7 @@ function Menu_page() {
                                     </div>
 
                                     <div class="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
-                                        <img class="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <img class="w-100 h-100 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div class="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
                                             <div id="cost" class=" text-align-center">
                                                 100$
@@ -88,7 +87,7 @@ function Menu_page() {
                                     </div>
 
                                     <div class="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
-                                        <img class="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <img class="w-100 h-100 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div class="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
                                             <div id="cost" class=" text-align-center">
                                                 100$
@@ -100,7 +99,7 @@ function Menu_page() {
                                     </div>
 
                                     <div class="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
-                                        <img class="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <img class="w-100 h-100 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div class="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
                                             <div id="cost" class=" text-align-center">
                                                 100$
@@ -110,7 +109,6 @@ function Menu_page() {
                                             </div>
                                         </div>
                                     </div>
-
 
                                 </div>
                             </div>

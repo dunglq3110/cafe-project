@@ -7,6 +7,7 @@ import Searchbar from './searchbar';
 import Employee_detail from './Employee_detail';
 import Order from './Order';
 import Product_detail from './Product_detail';
+import Product_list from './Product_list';
 function ManagerPage() {
     // const navbarhide = document.querySelector('#close');
     // navbarhide.addEventListener("click", close);
@@ -51,12 +52,6 @@ function ManagerPage() {
                         </div>
                     </div>
                     <div id="option">
-                        <div class="side-button text-center" id="home">
-                            <div class="material-symbols-outlined center-layout">
-                                home
-                            </div>
-                            <p class="m-0 px-2 center-layout">Home</p>
-                        </div>
                         <div class="side-button text-center" id="dashboard">
                             <div class="material-symbols-outlined center-layout">
                                 dashboard
@@ -87,6 +82,12 @@ function ManagerPage() {
                             </div>
                             <p class="m-0 px-2 center-layout">Customer</p>
                         </div>
+                        <div class="side-button text-center">
+                            <div class="material-symbols-outlined">
+                                category
+                            </div>
+                            <p class="m-0 px-2 center-layout">Product</p>
+                        </div>
 
                     </div>
 
@@ -95,32 +96,36 @@ function ManagerPage() {
                 <div class="col-7 overflow-auto" data-bs-spy="scroll">
                     <Searchbar>
                     </Searchbar>
-                    {/* <div class="">
-                        <Menu_page>
+                        <div class="">
+                            <Menu_page>
 
-                        </Menu_page>
-                    </div> */}
-
-                    {/* <div class="">
+                            </Menu_page>
+                        </div>
+{/* 
+                    <div class="">
                         <Employee_page>
 
                         </Employee_page>
-                    </div> */}
-                    {/* <div class="text-align-center">
+                    </div>
+                    <div class="text-align-center">
                         <Employee_detail>
 
                         </Employee_detail>
-                    </div> */}
-                    {/* <div>
+                    </div>
+                    <div>
                         <Order>
 
                         </Order>
-                    </div> */}
+                    </div>
                     <div>
                         <Product_detail>
 
                         </Product_detail>
                     </div>
+
+                    <Product_list>
+
+                    </Product_list> */}
                 </div>
 
             </div>
