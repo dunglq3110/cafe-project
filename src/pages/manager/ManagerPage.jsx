@@ -1,5 +1,6 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
 import NavBar from '../../components/NavBar';
@@ -19,7 +20,7 @@ const ManagerPage = () => {
     //     }
     // }
     return (
-        <div className="ManagerPage" className="admin_page">
+        <div className="ManagerPage" class="admin_page">
             <div className="full">
                 <nav className="navbar-inner col-3">
                     <div className="h-25" id="infor" >

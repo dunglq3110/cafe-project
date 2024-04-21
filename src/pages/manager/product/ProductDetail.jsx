@@ -1,5 +1,5 @@
 import coffee from "../../../assets/images/coffee-cup.png"
-function ProductDetail() {
+const ProductDetail = ()=> {
     return (
         <div className="Product_detail">
             <div className="mx-3 bg-custom rounded">

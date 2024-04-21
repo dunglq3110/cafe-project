@@ -1,6 +1,6 @@
 import coffeecup from '../../../assets/images/coffee-cup.png';
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-function MenuPage() {
+const MenuPage= ()=>{
     return (
         <div className="Menu_page">
             <div className="menu_container h-100">

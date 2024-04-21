@@ -1,5 +1,5 @@
 import right from '../../../assets/images/right.png'
-function Order() {
+const Order= ()=> {
     return (
         <div className="Order">
             <div className="container my-3">

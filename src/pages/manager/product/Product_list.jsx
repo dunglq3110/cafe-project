@@ -1,5 +1,5 @@
 import right from "./image/right.png"
-function Product_list() {
+const Product_list= ()=> {
     return (
         <div className="Product_list">
             <div class="container my-3">
