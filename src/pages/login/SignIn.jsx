@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-function SignInPage() {
+const SignIn = () => {
     return (
         <div className="SignInPage">
             <div class="container py-5 h-auto">
@@ -53,4 +53,4 @@ function SignInPage() {
     );
 }
 
-export default SignInPage;
+export default SignIn;
