@@ -95,20 +95,19 @@ const ManagerPage = () => {
                 <div className="col-7 overflow-auto" data-bs-spy="scroll">
                     <SearchBar>
                     </SearchBar>
-                    <div className="">
+                    {/* <div className="">
                         <EmployeePage>
 
                         </EmployeePage>
-                    </div>
-                    {/* <div className="">*/}
+                    </div> */}
                     {/*    <MenuPage>*/}
 
                     {/*    </MenuPage>*/}
                     {/*</div>*/}
                     {/*<div className="text-align-center">*/}
-                    {/*    <EmployeeDetail>*/}
+                    <EmployeeDetail>
 
-                    {/*    </EmployeeDetail>*/}
+                    </EmployeeDetail>
                     {/*</div>*/}
                     {/*<div>*/}
                     {/*    <Order>*/}
