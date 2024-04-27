@@ -254,7 +254,7 @@
 .side-button {
     padding: 10px 30px;
     margin: 10px;
-    background-color: #D9D9D9;
+    background-color: #fde68a;
     border: 1px solid black;
     border-radius: 15px;
     height: 60px;
@@ -336,4 +336,26 @@
 /* Employee detail */
 .bg-custom{
     background-color: var(--bs-warning-border-subtle);
+}
+
+
+
+
+
+.full-view {
+    transition: all 0.5s ease;
+}
+
+.split-view {
+    transition: all 0.5s ease;
+}
+
+.order-detail.hide {
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.order-detail.show {
+    display: block; 
+    transition: all 0.5s ease;
 }

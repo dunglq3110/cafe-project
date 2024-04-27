@@ -8,6 +8,8 @@ import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
+import avata from'../../assets/images/user.png';
+import Customer from './staff/Customer';
 const ManagerPage = () => {
     // const navbarhide = document.querySelector('#close');
     // navbarhide.addEventListener("click", close);
@@ -39,7 +41,7 @@ const ManagerPage = () => {
 
                                     </div>
                                 </div>
-                                <img className="image_user text-center" src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png' alt='image user' />
+                                <img className="image_user text-center rounded-circle" src={avata} alt='image user' />
                                 <div className="">
                                     <div>
                                         User name
@@ -96,30 +98,9 @@ const ManagerPage = () => {
                 <div className="col-7 overflow-auto" data-bs-spy="scroll">
                     <SearchBar>
                     </SearchBar>
-                    {/* <div className="">
-                        <EmployeePage>
+                    <Customer></Customer>
 
-                        </EmployeePage>
-                    </div> */}
-                    {/*    <MenuPage>*/}
 
-                    {/*    </MenuPage>*/}
-                    {/*</div>*/}
-                    {/*<div className="text-align-center">*/}
-                    <EmployeeDetail>
-
-                    </EmployeeDetail>
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <Order>*/}
-
-                    {/*    </Order>*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <ProductDetail>*/}
-
-                    {/*    </ProductDetail>*/}
-                    {/*</div>*/}
                 </div>
 
             </div>
