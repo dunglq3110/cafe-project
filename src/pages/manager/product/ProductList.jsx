@@ -1,9 +1,9 @@
-import right from "./image/right.png"
+import right from '../../../assets/images/right.png'
 const ProductList= ()=> {
     return (
-        <div className="ProductList">
-            <div class="container my-3">
-                <div class="mx-1 my-1 bg-custom p-2 rounded">
+        <div className="ProductList h-100">
+            <div class="container my-3 h-100">
+                <div class="h-100 mx-1 my-1 bg-custom p-2 rounded">
                     <div class="d-flex " id="filter-bar">
                         <div class="dropdown w-15">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">

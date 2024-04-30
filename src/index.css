@@ -298,12 +298,12 @@
 }
 
 .display {
-    background-color: #E3D7C5;
+    /* background-color: #E3D7C5; */
     width: 100%;
     height: 100%;
     margin-top: 0;
     overflow-y: scroll;
-    scrollbar-color: #b20000 #cdcbb1;
+    scrollbar-color: #928233 #3e3d35;
 }
 
 .search-bar {
@@ -382,6 +382,7 @@
 }
 
 /* search bar*/
+
 .ml-auto {
     margin-left: auto;
 }
@@ -444,8 +445,8 @@
 
 
 /* Menu custom */
-.food-option{
-    
+.food-option {
+
 }
 
 
@@ -463,13 +464,17 @@
 /* animation for information of user */
 
 
+
+
 .fade-enter {
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transform: scale(0.9);
 }
 
 .fade-enter-active {
     opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
 }
 
 .fade-exit {
@@ -478,5 +483,6 @@
 
 .fade-exit-active {
     opacity: 0;
-    transition: opacity 0.5s ease-out;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }

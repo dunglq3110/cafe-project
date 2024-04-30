@@ -1,20 +1,19 @@
 import coffeecup from '../../../assets/images/coffee-cup.png';
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-const MenuPage= ()=>{
+const MenuPage = () => {
     return (
         <div className="Menu_page h-100">
             <div className="menu_container h-100">
                 <div id="drink-show" className="h-100 ">
-                    <div id="drink-item" className="row container h-100 overflow-auto">
-                        <div id="food-option" className="d-flex flex-column col-2 bg-secondary food-option">
-                            <div className="side-button">Drink 1</div>
-                            <div className="side-button">Drink 1</div>
-                            <div className="side-button">Drink 1</div>
+                    <div id="drink-item" className="row container h-100">
+                        <div id="food-option" className="d-flex flex-column text-align-center col-2 food-option">
+                            <div className="side-button center-layout">Drink 1</div>
+                            <div className="side-button center-layout">Drink 1</div>
+                            <div className="side-button center-layout">Drink 1</div>
                         </div>
-
                         <div id="item" className="flex col-10 bg-menu rounded">
                             <div id="food-show" className="mt-2">
-                                <div className="row d-flex align-items-center" id="filter-bar">
+                                <div className="row d-flex align-items-center mx-2" id="filter-bar">
                                     <div className="dropdown col">
                                         <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                                             Product
