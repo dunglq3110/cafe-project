@@ -8,101 +8,28 @@ import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
-import avata from'../../assets/images/user.png';
+import avata from '../../assets/images/user.png';
 import Customer from './staff/Customer';
 const ManagerPage = () => {
-    // const navbarhide = document.querySelector('#close');
-    // navbarhide.addEventListener("click", close);
-    //
-    // function close() {
-    //     const navbarInner = document.querySelector('.navbar-inner');
-    //     if (navbarInner) {
-    //         // Decrease the width of the navbar-inner
-    //         navbarInner.style.width = "5%"; // You can adjust the width as needed
-    //     }
-    // }
     return (
         <div className="ManagerPage" class="admin_page">
-            <div className="full">
-                <nav className="navbar-inner col-3">
-                    <div className="h-25" id="infor" >
-                        <div className="h-100">
-                            <div className="h-100 user" id="user">
-                                <div id="transition">
-                                    <div id="open" className="button-transition">
-                                        <span className="material-symbols-outlined">
-                                            double_arrow
-                                        </span>
-                                    </div>
-                                    <div id="close" className="button-transition">
-                                        <span className="material-symbols-outlined">
-                                            keyboard_double_arrow_left
-                                        </span>
-
-                                    </div>
-                                </div>
-                                <img className="image_user text-center rounded-circle" src={avata} alt='image user' />
-                                <div className="">
-                                    <div>
-                                        User name
-                                    </div>
-                                    <div className="button-out">
-                                        Logout
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="option">
-                        <div className="side-button text-center" id="home">
-                            <div className="material-symbols-outlined center-layout">
-                                home
-                            </div>
-                            <p className="m-0 px-2 center-layout">Home</p>
-                        </div>
-                        <div className="side-button text-center" id="dashboard">
-                            <div className="material-symbols-outlined center-layout">
-                                dashboard
-                            </div>
-                            <p className="m-0 px-2 center-layout">DaskBoard</p>
-                        </div>
-                        <div className="side-button text-center" id="order">
-                            <div className="material-symbols-outlined center-layout text-center">
-                                dvr
-                            </div>
-                            <p className="m-0 px-2 center-layout">Order</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout">
-                                category
-                            </div>
-                            <p className="m-0 px-2 center-layout">Product</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout">
-                                group
-                            </div>
-                            <p className="m-0 px-2 center-layout">Employee</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout text-center">
-                                account_circle
-                            </div>
-                            <p className="m-0 px-2 center-layout">Customer</p>
-                        </div>
-
-                    </div>
-
-                </nav>
-
-                <div className="col-7 overflow-auto" data-bs-spy="scroll">
-                    <SearchBar>
-                    </SearchBar>
-                    <Customer></Customer>
-
+            <div class="d-flex">
+                <div className='nav_bar'>
+                    <NavBar></NavBar>
 
                 </div>
+                <div className="main_display">
+                    <div className='search_bar'>
+                        <SearchBar>
 
+                        </SearchBar>    
+                    </div>
+
+                    <div className="display">
+                        <MenuPage></MenuPage>
+                    </div>
+
+                </div>
             </div>
         </div >
     );

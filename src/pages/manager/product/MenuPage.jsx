@@ -2,11 +2,11 @@ import coffeecup from '../../../assets/images/coffee-cup.png';
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
 const MenuPage= ()=>{
     return (
-        <div className="Menu_page">
+        <div className="Menu_page h-100">
             <div className="menu_container h-100">
                 <div id="drink-show" className="h-100 ">
-                    <div id="drink-item" className="row container h-100 overflow-auto mt-2">
-                        <div id="food-option" className="h-100 d-flex flex-column col-2 bg-secondary">
+                    <div id="drink-item" className="row container h-100 overflow-auto">
+                        <div id="food-option" className="d-flex flex-column col-2 bg-secondary food-option">
                             <div className="side-button">Drink 1</div>
                             <div className="side-button">Drink 1</div>
                             <div className="side-button">Drink 1</div>
@@ -51,7 +51,7 @@ const MenuPage= ()=>{
                                         Reset
                                     </div>
                                 </div>
-                                <div id="list-food" className="d-flex row">
+                                <div id="list-food" className="d-flex row justify-content-center">
                                     <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
                                         <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
@@ -100,6 +100,97 @@ const MenuPage= ()=>{
                                     </div>
 
                                     <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
+                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
+                                        <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
+                                            <div id="cost" className=" text-align-center">
+                                                100$
+                                            </div>
+                                            <div id="orderbtn">
+                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>                                    <div className="col-3 mx-3 my-3 pt-3 pb-3 bg-light rounded d-flex flex-column align-items-center border border-2 border-dark">
                                         <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
                                         <div className="d-flex w-100 align-items-center pt-1 justify-content-around my-2">
                                             <div id="cost" className=" text-align-center">

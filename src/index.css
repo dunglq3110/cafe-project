@@ -204,33 +204,34 @@
 
 .admin_page {
     height: 100vh;
-}
-
-.full {
-    display: flex;
-    height: 100%;
+    margin: 0;
+    background-color: #D1BB9E;
 }
 
 .navbar-inner {
     user-select: none;
     overflow-y: scroll;
-    scrollbar-color: #525947 #cdcbb1;
+    scrollbar-color: #000000 #cdcbb1;
+    background-color: #D1BB9E;
+    width: auto;
     height: 100%;
 }
 
-.main-display {
-    overflow-y: scroll;
-    scrollbar-color: #525947 #cdcbb1;
-    height: 100%;
+.nav_bar {
+    width: 25%;
+    height: 100vh;
 }
+
 
 .user {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
     justify-items: center;
     padding: 10px;
+    margin: 0;
 }
 
 .button-transition {
@@ -286,18 +287,34 @@
     flex-direction: column;
 }
 
-.col-3 {
-    background-color: var(--sidecolor);
-    height: 100%;
-    width: 20%;
+.main_display {
+    background-color: #E3D7C5;
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-.col-7 {
-    background-color: #FFEBB2;
+.display {
+    background-color: #E3D7C5;
+    width: 100%;
     height: 100%;
-    width: 80%;
-    display: inline-block;
-    overflow: hidden;
+    margin-top: 0;
+    overflow-y: scroll;
+    scrollbar-color: #b20000 #cdcbb1;
+}
+
+.search-bar {
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    /* Align to the top */
+    width: 100%;
+    /* Full width */
+    z-index: 1000;
+    /* Ensure it stays on top of other content */
 }
 
 .text-center {
@@ -316,23 +333,24 @@
 .side-button {
     padding: 10px 30px;
     margin: 10px;
-    background-color: #fde68a;
-    border: 1px solid black;
+    background-color: #B1855E;
+    border: 3px solid #5A3F34;
     border-radius: 15px;
     height: 60px;
     min-width: fit-content(20em);
     margin-bottom: 20px;
+    color: white;
 }
 
 .side-button:hover {
-    background-color: #DBA2A2;
+    background-color: #886346;
 }
 
 .side-button:active {
-    background-color: #DBA2A2;
+    background-color: #6d4d3b;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 950px) {
     .navbar-inner p {
         width: 100%;
         display: none !important;
@@ -421,4 +439,44 @@
 .order-detail.show {
     display: block;
     transition: all 0.5s ease;
+}
+
+
+
+/* Menu custom */
+.food-option{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* animation for information of user */
+
+
+.fade-enter {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-enter-active {
+    opacity: 1;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
