@@ -7,7 +7,7 @@ const Order = () => {
     
     return (
         <div className="Order" class="h-100">
-            <div className="container my-3 h-100">
+            <div className="my-3 h-100">
                 <div className="mx-2 my-1 bg-custom p-2 rounded h-100">
                     <div className="d-flex " id="filter-bar">
                         <div className="col-3">
