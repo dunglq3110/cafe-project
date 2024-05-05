@@ -1,7 +1,7 @@
 import ech from '../../../assets/images/ech.jpg';
 const EmployeeDetail = () => {
     return (
-        <div className="Employee_detail h-100">
+        <div className="Employee_detail h-75">
             <div className="mx-2 bg-custom rounded h-100">
                 <div className="row mx-2 my-2">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">

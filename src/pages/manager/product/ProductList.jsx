@@ -1,7 +1,7 @@
 import right from '../../../assets/images/right.png'
 const ProductList= ()=> {
     return (
-        <div className="ProductList h-100">
+        <div className="ProductList h-100 w-100">
             <div class="container my-3 h-100">
                 <div class="h-100 mx-1 my-1 bg-custom p-2 rounded">
                     <div class="d-flex " id="filter-bar">

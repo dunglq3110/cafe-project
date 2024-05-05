@@ -1,7 +1,7 @@
 import coffee from "../../../assets/images/coffee-cup.png"
 const ProductDetail = () => {
     return (
-        <div className="Product_detail h-100">
+        <div className="Product_detail h-75 w-100">
             <div className="mx-3 bg-custom rounded h-100">
                 <div className="row mx-2 my-3">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">

@@ -9,7 +9,7 @@ const MenuPage = () => {
 
                         <div id="item" className="w-100 rounded">
                             <div id="food-show" className="mt-2">
-                                <div className="title merriweather-regular-italic my-4" id="filter-bar">
+                                <div className="title merriweather-regular-italic" id="filter-bar">
                                     Our Menu
                                 </div>
                                 {/* <div className="row d-flex align-items-center mx-2" id="filter-bar">
@@ -49,51 +49,19 @@ const MenuPage = () => {
                                         Reset
                                     </div>
                                 </div> */}
-                                <div id="food-option" className="d-flex flex-row text-align-center justify-content-center">
+                                <div id="food-option" className="d-flex flex-row text-align-center justify-content-center my-2">
                                     <div className="side-button center-layout">Drink 1</div>
                                     <div className="side-button center-layout">Drink 1</div>
                                     <div className="side-button center-layout">Drink 1</div>
                                 </div>
                                 <div id="list-food" className="grid-container">
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div>Espresso</div>
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
+                                    <div class="card item-drink d-flex align-items-center">
+                                        <img src={coffeecup}
+                                            class="card-img-top w-75 h-75" alt="Laptop" />
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="mb-0">Espresso </h5>
+                                                <h5 class="text-dark mb-0 mx-3">$44</h5>
                                             </div>
                                             <div id="orderbtn">
                                                 <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
@@ -101,59 +69,17 @@ const MenuPage = () => {
                                         </div>
                                     </div>
 
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-drink d-flex align-items-center">
-                                        <img className="w-75 h-75 justify-contents-center border border-2 border-secondary rounded" src={coffeecup} />
-                                        <div className="w-100 align-items-center pt-1 justify-content-around my-2">
-                                            <div id="cost" className=" text-align-center">
-                                                100$
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded">Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
+
+        </div >
     );
 }
 

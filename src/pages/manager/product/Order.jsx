@@ -8,7 +8,7 @@ const Order = () => {
     return (
         <div className="Order" class="h-100">
             <div className="my-3 h-100">
-                <div className="mx-2 my-1 bg-custom p-2 rounded h-100">
+                <div className="mx-3 my-1 bg-custom p-2 rounded h-100">
                     <div className="d-flex " id="filter-bar">
                         <div className="col-3">
                             <input type="date" className="form-control w-75" id="inputBirthday" placeholder="" />
@@ -37,7 +37,7 @@ const Order = () => {
                             Reset
                         </div>
                     </div>
-                    <div className='d-flex h-100'>
+                    <div className='d-flex h-100 my-4'>
                         <div className={`${isVisible ? 'col-md-8':'col-md-12'}`}>
                             <table className="table table-striped table-bordered rounded table-hover mt-1">
                                 <caption>List of Orders</caption>
@@ -131,7 +131,6 @@ const Order = () => {
                                                 <label for="inputDiscount" className="form-label">Discount</label>
                                                 <input type="text" className="form-control" id="inputName" />
                                             </div>
-                                            <button className="col-6 bg-success mt-4 rounded" style={{ height: '50px' }}>Payment</button>
                                         </form>
                                     </div>
                                 </div>
