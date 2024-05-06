@@ -2,7 +2,7 @@ import right from '../../../assets/images/right.png'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useFetch from '../../../hooks/useFetch'
-
+import StaffService from '../../../services/staff.serice'
 const EmployeePage = () => {
 
     const [staff, status, setStaff] = useFetch('http://localhost:8080/manager/staffs');

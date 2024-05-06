@@ -38,7 +38,6 @@ const ManagerPage = () => {
                         <SearchBar>
                         </SearchBar>
                     </div>
-
                     <div className="display">
                         {/* <MenuPage></MenuPage> */}
                         {/* <Menuitem></Menuitem>  */}
@@ -51,9 +50,7 @@ const ManagerPage = () => {
                         {/* <Customer></Customer> */}
                          <EmployeePage></EmployeePage>
                         {/*<EmployeeDetail></EmployeeDetail>*/}
-
                     </div>
-
                 </div>
             </div>
         </div >
