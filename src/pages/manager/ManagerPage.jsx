@@ -22,8 +22,8 @@ const ManagerPage = () => {
     };
 
     return(
-        <div className="ManagerPage" class="admin_page">
-            <div class="d-flex">
+        <div className="ManagerPage" className="admin_page">
+            <div className="d-flex">
                 <div className='nav_bar'>
                     <NavBar></NavBar>
                 </div>
@@ -49,8 +49,8 @@ const ManagerPage = () => {
                         {/* <ProductDetail></ProductDetail> */}
                         {/* <ProductList></ProductList> */}
                         {/* <Customer></Customer> */}
-                        {/* <EmployeePage></EmployeePage> */}
-                        <EmployeeDetail></EmployeeDetail>
+                         <EmployeePage></EmployeePage>
+                        {/*<EmployeeDetail></EmployeeDetail>*/}
 
                     </div>
 

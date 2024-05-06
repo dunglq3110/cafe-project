@@ -5,7 +5,7 @@ import useFetch from '../../../hooks/useFetch'
 
 const EmployeePage = () => {
 
-    const [staff, status, setStaff] = useFetch('http://localhost:8080/staff');
+    const [staff, status, setStaff] = useFetch('http://localhost:8080/manager/staffs');
 
     return (
         <div className="Employee_page">
