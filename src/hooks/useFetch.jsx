@@ -24,4 +24,6 @@ const useFetch = (stringUrl) => {
     }, [stringUrl]);
     return [data, status, setData];
 }
+
+
 export default useFetch;

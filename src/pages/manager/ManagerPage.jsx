@@ -23,8 +23,8 @@ const ManagerPage = () => {
         console.log('');
     };
 
-    return(
-        <div className="ManagerPage admin_page">
+    return (
+        <div className="ManagerPage">
             <div className="d-flex">
                 <div className='nav_bar'>
                     <NavBar></NavBar>
@@ -52,9 +52,13 @@ const ManagerPage = () => {
                             {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                            {/* <ProductDetail></ProductDetail> */}
-                            {/*<EmployeeDetail></EmployeeDetail>*/}
+                        {/* <ProductDetail></ProductDetail> */}
+                        {/* <ProductList></ProductList> */}
+                        {/* <Customer></Customer> */}
+                        <EmployeePage></EmployeePage>
+                        {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
+
                     </div>
                 </div>
             </div>
