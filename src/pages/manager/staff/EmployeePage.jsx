@@ -21,6 +21,7 @@ const EmployeePage = () => {
             });
     }, []);
 
+
     return (
         <div className="Employee_page">
             <div className="container my-3">
@@ -47,29 +48,29 @@ const EmployeePage = () => {
                         {status === 'finish' && (
                             <table className="table table-striped  table-hover">
                                 <thead className="thead-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Phone Number</th>
-                                    <th scope="col"></th>
-                                </tr>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col"></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                {staff.slice(1).filter(employee => roleFilter === 'ALL' || employee.role === roleFilter).map((employee, index) => (
+                                    {staff.slice(1).filter(employee => roleFilter === 'ALL' || employee.role === roleFilter).map((employee, index) => (
 
-                                    <tr key={index}>
-                                        <th scope="row">{employee.id}</th>
-                                        <td>{employee.firstName}</td>
-                                        <td>{employee.lastName}</td>
-                                        <td>{employee.role}</td>
-                                        <td>{employee.phoneNumber}</td>
-                                        <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right"
-                                                                                             className="button-transition"/></Link>
-                                        </td>
-                                    </tr>
-                                ))}
+                                        <tr key={index}>
+                                            <th scope="row">{employee.id}</th>
+                                            <td>{employee.firstName}</td>
+                                            <td>{employee.lastName}</td>
+                                            <td>{employee.role}</td>
+                                            <td>{employee.phoneNumber}</td>
+                                            <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right"
+                                                className="button-transition" /></Link>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         )}

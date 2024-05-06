@@ -7,10 +7,10 @@ function VisitPage() {
     return (
         <div className="VisitPage" style={{
             backgroundImage: `url(${welcome})`,
-            backgroundSize: 'cover', // This will make the image cover the full screen
-            backgroundPosition: 'center', // This centers the image in the container
-            backgroundRepeat: 'no-repeat', // This will prevent the image from repeating
-            height: '100vh' // This makes the div take the full height of the viewport
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center', 
+            backgroundRepeat: 'no-repeat', 
+            height: '100vh'
         }}>
 
             <section class="page-section clearfix">
