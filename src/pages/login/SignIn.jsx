@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthService from "../../services/auth.service"
+import {jwtDecode} from 'jwt-decode';
+
 const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -8,41 +11,51 @@ const SignIn = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        AuthService.login(username, password).then(
+            (data) => {
+                const decodedToken = jwtDecode(data.result.token);
+                const userRole = decodedToken.scope;
 
-        const response = await fetch('http://localhost:8080/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+                switch(userRole) {
+                    case 'MANAGER':
+                        navigate("/manager");
+                        break;
+                    case 'ADMIN':
+                        navigate("/admin");
+                        break;
+                    case 'STAFF':
+                        navigate("/staff");
+                        break;
+                    default:
+                        navigate("/");
+                }
+
+                window.location.reload();
             },
-            body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.json();
-
-        if (data.code === 0 && data.result.authenticated) {
-            const token = data.result.token;
-            const decodedToken = JSON.parse(atob(token.split('.')[1]));
-
-            if (decodedToken.scope === 'MANAGER') {
-                navigate('/manager');
-            } else if (decodedToken.scope === 'STAFF') {
-                navigate('/staff');
+            error => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+                alert(resMessage);
             }
-        }
+        );
     };
 
     return (
         <div className="SignInPage">
-            <div class="container py-5 h-auto">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-xl-10">
-                        <div class="card rounded-3 text-black">
-                            <div class="row g-0">
-                                <div class="col-lg-6">
-                                    <div class="card-body p-md-5 mx-md-4">
-                                        <div class="text-center">
-                                            <img src="https://th.bing.com/th/id/OIP.GGKTC8EqZA81L_KBvEqNWgHaHa?rs=1&pid=ImgDetMainhttps://th.bing.com/th/id/OIP.GGKTC8EqZA81L_KBvEqNWgHaHa?rs=1&pid=ImgDetMain" alt="logo" class="w-50 rounded-circle"></img>
-                                            <h4 class="mt-1 mb-5 pb-1">We are DUYAYVY coffee shop</h4>
+            <div className="container py-5 h-auto">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-xl-10">
+                        <div className="card rounded-3 text-black">
+                            <div className="row g-0">
+                                <div className="col-lg-6">
+                                    <div className="card-body p-md-5 mx-md-4">
+                                        <div className="text-center">
+                                            <img src="https://th.bing.com/th/id/OIP.GGKTC8EqZA81L_KBvEqNWgHaHa?rs=1&pid=ImgDetMainhttps://th.bing.com/th/id/OIP.GGKTC8EqZA81L_KBvEqNWgHaHa?rs=1&pid=ImgDetMain" alt="logo" className="w-50 rounded-circle"></img>
+                                            <h4 className="mt-1 mb-5 pb-1">We are DUYAYVY coffee shop</h4>
                                         </div>
                                         <form onSubmit={handleSubmit}>
                                             <p className="text-center">Please login to your account</p>
@@ -65,10 +78,10 @@ const SignIn = () => {
 
                                     </div>
                                 </div>
-                                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                                    <div class="text-white px-3 py-4 p-md-5 mx-md-4 ">
-                                        <h3 class="mb-4 d-flex align-items-center justify-content-center">Caffeine and Kindness</h3>
-                                        <p class="small mb-0 text-center ">Feel free to use it or let me know if you’d like more options!</p>
+                                <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                    <div className="text-white px-3 py-4 p-md-5 mx-md-4 ">
+                                        <h3 className="mb-4 d-flex align-items-center justify-content-center">Caffeine and Kindness</h3>
+                                        <p className="small mb-0 text-center ">Feel free to use it or let me know if you’d like more options!</p>
                                     </div>
                                 </div>
                             </div>
