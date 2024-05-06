@@ -7,7 +7,6 @@ import useFetch from '../../../hooks/useFetch'
 const EmployeePage = () => {
 
     const [staff, status, setStaff] = useFetch('http://localhost:8080/manager/staffs');
-    const [roleFilter, setRoleFilter] = useState('ALL');
 
     return (
         <div className="Employee_page">
