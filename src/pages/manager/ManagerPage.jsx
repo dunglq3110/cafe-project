@@ -52,13 +52,12 @@ const ManagerPage = () => {
                             {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                        {/* <ProductDetail></ProductDetail> */}
-                        {/* <ProductList></ProductList> */}
-                        {/* <Customer></Customer> */}
-                        <EmployeePage></EmployeePage>
-                        {/*<EmployeeDetail></EmployeeDetail>*/}
+                            {/* <ProductDetail></ProductDetail> */}
+                            {/* <ProductList></ProductList> */}
+                            {/* <Customer></Customer> */}
+                            <EmployeePage></EmployeePage>
+                            {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
-
                     </div>
                 </div>
             </div>
