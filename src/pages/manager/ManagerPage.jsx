@@ -1,126 +1,60 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
 import NavBar from '../../components/NavBar';
+import Cart from '../../pages/manager/staff/Cart';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
+import avata from '../../assets/images/user.png';
+import Customer from './staff/Customer';
+import ProductList from './product/ProductList';
+import Menuitem from './product/MenuItem';
+import bg from '../../assets/images/bg.jpg';
+import { render } from '@testing-library/react';
 const ManagerPage = () => {
-    // const navbarhide = document.querySelector('#close');
-    // navbarhide.addEventListener("click", close);
-    //
-    // function close() {
-    //     const navbarInner = document.querySelector('.navbar-inner');
-    //     if (navbarInner) {
-    //         // Decrease the width of the navbar-inner
-    //         navbarInner.style.width = "5%"; // You can adjust the width as needed
-    //     }
-    // }
-    return (
-        <div className="ManagerPage" className="admin_page">
-            <div className="full">
-                <nav className="navbar-inner col-3">
-                    <div className="h-25" id="infor" >
-                        <div className="h-100">
-                            <div className="h-100 user" id="user">
-                                <div id="transition">
-                                    <div id="open" className="button-transition">
-                                        <span className="material-symbols-outlined">
-                                            double_arrow
-                                        </span>
-                                    </div>
-                                    <div id="close" className="button-transition">
-                                        <span className="material-symbols-outlined">
-                                            keyboard_double_arrow_left
-                                        </span>
+    const handleSearchButtonClick = () => {
+        // Logic to open the desired component
+        console.log('');
+    };
 
-                                    </div>
-                                </div>
-                                <img className="image_user text-center" src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png' alt='image user' />
-                                <div className="">
-                                    <div>
-                                        User name
-                                    </div>
-                                    <div className="button-out">
-                                        Logout
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="option">
-                        <div className="side-button text-center" id="home">
-                            <div className="material-symbols-outlined center-layout">
-                                home
-                            </div>
-                            <p className="m-0 px-2 center-layout">Home</p>
-                        </div>
-                        <div className="side-button text-center" id="dashboard">
-                            <div className="material-symbols-outlined center-layout">
-                                dashboard
-                            </div>
-                            <p className="m-0 px-2 center-layout">DaskBoard</p>
-                        </div>
-                        <div className="side-button text-center" id="order">
-                            <div className="material-symbols-outlined center-layout text-center">
-                                dvr
-                            </div>
-                            <p className="m-0 px-2 center-layout">Order</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout">
-                                category
-                            </div>
-                            <p className="m-0 px-2 center-layout">Product</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout">
-                                group
-                            </div>
-                            <p className="m-0 px-2 center-layout">Employee</p>
-                        </div>
-                        <div className="side-button text-center">
-                            <div className="material-symbols-outlined center-layout text-center">
-                                account_circle
-                            </div>
-                            <p className="m-0 px-2 center-layout">Customer</p>
-                        </div>
-
-                    </div>
-
-                </nav>
-
-                <div className="col-7 overflow-auto" data-bs-spy="scroll">
-                    <SearchBar>
-                    </SearchBar>
-                    {/* <div className="">
-                        <EmployeePage>
-
-                        </EmployeePage>
-                    </div> */}
-                    {/*    <MenuPage>*/}
-
-                    {/*    </MenuPage>*/}
-                    {/*</div>*/}
-                    {/*<div className="text-align-center">*/}
-                    <EmployeeDetail>
-
-                    </EmployeeDetail>
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <Order>*/}
-
-                    {/*    </Order>*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <ProductDetail>*/}
-
-                    {/*    </ProductDetail>*/}
-                    {/*</div>*/}
+    return(
+        <div className="ManagerPage" class="admin_page">
+            <div class="d-flex">
+                <div className='nav_bar'>
+                    <NavBar></NavBar>
                 </div>
+                <div className="main_display" style={{
+                    backgroundImage: `url(${bg})`,
+                    backgroundSize: 'cover', // This will make the image cover the full screen
+                    backgroundPosition: 'center', // This centers the image in the container
+                    backgroundRepeat: 'no-repeat', // This will prevent the image from repeating
+                    height: '100vh' // This makes the div take the full height of the viewport
+                }}>
+                    <div className='search_bar'>
+                        <SearchBar>
+                        </SearchBar>
+                    </div>
 
+                    <div className="display">
+                        {/* <MenuPage></MenuPage> */}
+                        {/* <Menuitem></Menuitem>  */}
+                        {/* <Order></Order> */}
+                        {/* <div class="w-100 h-100">
+                            <Cart></Cart>
+                        </div> */}
+                        {/* <ProductDetail></ProductDetail> */}
+                        {/* <ProductList></ProductList> */}
+                        {/* <Customer></Customer> */}
+                        {/* <EmployeePage></EmployeePage> */}
+                        <EmployeeDetail></EmployeeDetail>
+
+                    </div>
+
+                </div>
             </div>
         </div >
     );
