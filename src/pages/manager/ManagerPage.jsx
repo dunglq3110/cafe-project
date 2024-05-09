@@ -53,6 +53,8 @@ const ManagerPage = () => {
 
     return (
         <div className="ManagerPage">
+
+
             <div className="d-flex">
                 <div className='nav_bar'>
                     <NavBar></NavBar>
@@ -69,6 +71,7 @@ const ManagerPage = () => {
                         </SearchBar>
                     </div>
                     <div className="display">
+<<<<<<< HEAD
                         <Routes>
                             <Route path="home" element={<Home />} />
                             <Route path="dashboard" element={<DashBoard />} />
@@ -103,6 +106,22 @@ const ManagerPage = () => {
                             <EmployeePage></EmployeePage>
                             {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
+=======
+                        <MenuPage></MenuPage>
+                        {/* <Menuitem></Menuitem>  */}
+                        {/* <Order></Order> */}
+                        {/* <div class="w-100 h-100">
+                            <Cart></Cart>
+                        </div> */}
+                        {/* <ProductDetail></ProductDetail> */}
+                        {/* <ProductList></ProductList> */}
+                        {/* <Customer></Customer> */}
+
+                        {/* <EmployeePage></EmployeePage> */}
+
+                        {/*<EmployeeDetail></EmployeeDetail>*/}
+
+>>>>>>> beb03da (Complete Fetch API)
                     </div>
                 </div>
             </div>
