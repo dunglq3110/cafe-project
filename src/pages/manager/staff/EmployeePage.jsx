@@ -1,8 +1,9 @@
 import right from '../../../assets/images/right.png'
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import useFetch from '../../../hooks/useFetch'
-import StaffService from '../../../services/staff.serice'
+
 const EmployeePage = () => {
 
     const [staff, status, setStaff] = useFetch('http://localhost:8080/manager/staffs');
@@ -19,7 +20,8 @@ const EmployeePage = () => {
                             </button>
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('ALL')}>All</a></li>
-                                <li><a className="dropdown-item" onClick={() => setRoleFilter('MANAGER')}>Manager</a></li>
+                                <li><a className="dropdown-item" onClick={() => setRoleFilter('MANAGER')}>Manager</a>
+                                </li>
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('STAFF')}>Staff</a></li>
                             </ul>
 
@@ -41,13 +43,16 @@ const EmployeePage = () => {
                                 </thead>
                                 <tbody>
                                 {staff.slice(1).filter(employee => roleFilter === 'ALL' || employee.role === roleFilter).map((employee, index) => (
+
                                     <tr key={index}>
                                         <th scope="row">{employee.id}</th>
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.role}</td>
                                         <td>{employee.phoneNumber}</td>
-                                        <td><img src={right} alt="right" className="button-transition" /></td>
+                                        <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right"
+                                                                                             className="button-transition"/></Link>
+                                        </td>
                                     </tr>
                                 ))}
                                 </tbody>

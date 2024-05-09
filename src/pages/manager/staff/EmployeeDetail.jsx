@@ -1,5 +1,25 @@
 import ech from '../../../assets/images/ech.jpg';
+import { useState, useEffect } from 'react';
+
+import { useParams } from 'react-router-dom';
+import useFetchObject from '../../../hooks/useFetchObject';
+
 const EmployeeDetail = () => {
+
+    const { id } = useParams();
+    const [staff, status, setStaff] = useFetchObject(`http://localhost:8080/manager/staffs/${id}`);
+
+    if (status === 'process') {
+        return <div>Loading...</div>; // Or some loading spinner
+    }
+
+    if (status === 'error') {
+        return <div>Error loading data</div>; // Or some error message
+    }
+
+    if (status === 'empty' || !staff) {
+        return <div>No data found</div>; // Or some empty state
+    }
     return (
         <div className="Employee_detail h-75">
             <div className="mx-2 bg-custom rounded h-100">
@@ -17,7 +37,7 @@ const EmployeeDetail = () => {
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-12">
-                                    <label for="inputName" className="form-label">Name</label>
+                                    <label for="inputName" className="form-label">{staff.firstName + staff.lastName + staff.id}</label>
                                     <input type="text" className="form-control" id="inputName" />
                                 </div>
                                 <div className="col-md-8 mt-2">
