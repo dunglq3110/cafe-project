@@ -25,6 +25,8 @@ const ManagerPage = () => {
 
     return (
         <div className="ManagerPage">
+
+
             <div className="d-flex">
                 <div className='nav_bar'>
                     <NavBar></NavBar>
