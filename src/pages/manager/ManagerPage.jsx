@@ -9,12 +9,15 @@ import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
+import AddStaff from './staff/AddStaff';
 import avata from '../../assets/images/user.png';
 import Customer from './staff/Customer';
 import ProductList from './product/ProductList';
 import Menuitem from './product/MenuItem';
 import bg from '../../assets/images/bg.jpg';
 import { render } from '@testing-library/react';
+import { Routes, Route } from 'react-router-dom';
+
 const ManagerPage = () => {
     const handleSearchButtonClick = () => {
         // Logic to open the desired component
@@ -22,9 +25,7 @@ const ManagerPage = () => {
     };
 
     return (
-        <div className="ManagerPage">
-
-
+        <div className="ManagerPage admin_page">
             <div className="d-flex">
                 <div className='nav_bar'>
                     <NavBar></NavBar>
@@ -40,24 +41,21 @@ const ManagerPage = () => {
                         <SearchBar>
                         </SearchBar>
                     </div>
-
                     <div className="display">
-                        <MenuPage></MenuPage>
-                        {/* <Menuitem></Menuitem>  */}
-                        {/* <Order></Order> */}
-                        {/* <div class="w-100 h-100">
+                        <Routes>
+                            <Route path="staffs" element={<EmployeePage />} />
+                            <Route path="staffs/:id" element={<EmployeeDetail />} />
+                            <Route path="customers" element={<Customer />} />
+                            <Route path="order" element={<Order />} />
+                            <Route path="products" element={<ProductList />} />
+                            <Route path="addstaff" element={<AddStaff />} />
+                            {/* <MenuPage></MenuPage> */}
+                            {/* <Menuitem></Menuitem>  */}
+                            {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                        {/* <ProductDetail></ProductDetail> */}
-                        {/* <ProductList></ProductList> */}
-                        {/* <Customer></Customer> */}
-
-                        {/* <EmployeePage></EmployeePage> */}
-
-                        {/*<EmployeeDetail></EmployeeDetail>*/}
-
+                        </Routes>
                     </div>
-
                 </div>
             </div>
         </div >

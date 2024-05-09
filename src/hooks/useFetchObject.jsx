@@ -2,15 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import authHeader from "../services/authHeader";
 
-
-const useFetch = (stringUrl) => {
-    const [data, setData] = useState([]);
+const useFetchObject = (stringUrl) => {
+    const [data, setData] = useState(null);
     const [status, setStatus] = useState('process');
 
     useEffect(() => {
         axios.get(stringUrl, { headers: authHeader() })
             .then(response => {
-                if (response.data.result && response.data.result.length > 0) {
+                if (response.data.result) {
                     setData(response.data.result);
                     setStatus('finish');
                 } else {
@@ -22,6 +21,8 @@ const useFetch = (stringUrl) => {
                 setStatus('error');
             });
     }, [stringUrl]);
+
     return [data, status, setData];
 }
-export default useFetch;
+
+export default useFetchObject;

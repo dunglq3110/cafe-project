@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect
 import { useNavigate } from 'react-router-dom';
 import AuthService from "../../services/auth.service"
 import {jwtDecode} from 'jwt-decode';
@@ -8,6 +8,10 @@ const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        AuthService.logout();
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
