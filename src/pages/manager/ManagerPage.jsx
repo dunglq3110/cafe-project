@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
 import NavBar from '../../components/NavBar';
-import Cart from '../../pages/manager/staff/Cart';
+import Cart from './product/Cart';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
 import avata from '../../assets/images/user.png';
-import Customer from './staff/Customer';
+import Customer from './customer/CustomerPage';
 import ProductList from './product/ProductList';
 import Menuitem from './product/MenuItem';
 import bg from '../../assets/images/bg.jpg';
@@ -52,8 +52,6 @@ const ManagerPage = () => {
                             {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                            {/* <ProductDetail></ProductDetail> */}
-                            {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
                     </div>
                 </div>
