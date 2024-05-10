@@ -52,7 +52,7 @@ const EmployeeDetail = () => {
                             <form className="row">
                                 <div className="col-md-12">
                                     <label for="inputName" className="form-label">Full name</label>
-                                    <input type="text" className="form-control" id="inputName" value={staff.firstName + ' ' + staff.lastName + ' ' + staff.address} />
+                                    <input type="text" className="form-control" id="inputName" value={staff.firstName +' ' + staff.lastName + ' ' + staff.address} />
                                 </div>
                                 <div className="col-md-8 mt-2">
                                     <label for="inputEmail" className="form-label">Email</label>
