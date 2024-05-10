@@ -12,11 +12,8 @@ function App() {
                 <Route path="/signin" element={<SignIn/>}/>
                 <Route path="/manager/*" element={<ManagerPage/>}/>
                 <Route path="/staff" element={<StaffPage/>}/>
-<<<<<<< HEAD
                 <Route path="/" element={<VisitPage/>}/>
-=======
                 <Route path="/" element={<SignIn/>}/>
->>>>>>> 08b0a952171c18315c841fcd1e4e2cbede9e0958
                 
             </Routes>
         </Router>

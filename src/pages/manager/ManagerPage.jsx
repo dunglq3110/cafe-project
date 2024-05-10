@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
 import NavBar from '../../components/NavBar';
-import Cart from './product/Cart';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
@@ -24,11 +23,7 @@ const ManagerPage = () => {
         console.log('');
     };
 
-<<<<<<< HEAD
-    return (
-=======
     return(
->>>>>>> 08b0a952171c18315c841fcd1e4e2cbede9e0958
         <div className="ManagerPage admin_page">
             <div className="d-flex">
                 <div className='nav_bar'>
