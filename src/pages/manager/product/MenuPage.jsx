@@ -12,43 +12,6 @@ const MenuPage = () => {
                                 <div className="title merriweather-regular-italic" id="filter-bar">
                                     Our Menu
                                 </div>
-                                {/* <div className="row d-flex align-items-center mx-2" id="filter-bar">
-                                    <div className="dropdown col">
-                                        <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                                            Product
-                                        </button>
-                                        <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 1</a></li>
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 2</a></li>
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 3</a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="dropdown col">
-                                        <button type="button" className="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
-                                            Type
-                                        </button>
-                                        <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 1</a></li>
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 2</a></li>
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 3</a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="dropdown col">
-                                        <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">
-                                            Status
-                                        </button>
-                                        <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 1</a></li>
-                                            <li><a className="dropdown-item" href="./MenuPage#">Link 2</a></li>
-                                        </ul>
-                                    </div>
-                                    <div id="apply" className="col">
-                                        Apply
-                                    </div>
-                                    <div id="reset" className="col">
-                                        Reset
-                                    </div>
-                                </div> */}
                                 <div id="food-option" className="d-flex flex-row text-align-center justify-content-center my-2">
                                     <div className="side-button center-layout">Drink 1</div>
                                     <div className="side-button center-layout">Drink 1</div>
