@@ -1,4 +1,5 @@
 import right from '../../../assets/images/right.png'
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,29 @@ import useFetch from '../../../hooks/useFetch'
 const EmployeePage = () => {
 
     const [staff, status, setStaff] = useFetch('http://localhost:8080/manager/staffs');
+=======
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import StaffService from '../../../services/staff.service'
+
+const EmployeePage = () => {
+
+    const [roleFilter, setRoleFilter] = useState('ALL');
+    const [staff, setStaff] = useState(null);
+    const [status, setStatus] = useState('process');
+
+    useEffect(() => {
+        StaffService.getListStaff()
+            .then(data => {
+                setStaff(data);
+                setStatus('finish');
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setStatus('error');
+            });
+    }, []);
+>>>>>>> b01b2e5 (service layer)
 
     return (
         <div className="Employee_page">

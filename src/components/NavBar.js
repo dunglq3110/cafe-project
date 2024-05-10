@@ -53,6 +53,7 @@ const NavBar = () => {
                             </div>
                             <div style={{width: '100%', height: '1px', background: 'black', marginTop: '5px'}}>
                             </div>
+
                         </>
                     </CSSTransition>
                 </div>
