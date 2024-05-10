@@ -1,13 +1,27 @@
 import ech from '../../../assets/images/ech.jpg';
-import { useState, useEffect } from 'react';
 
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import useFetchObject from '../../../hooks/useFetchObject';
+import StaffService from '../../../services/staff.service'
+
 
 const EmployeeDetail = () => {
 
     const { id } = useParams();
-    const [staff, status, setStaff] = useFetchObject(`http://localhost:8080/manager/staffs/${id}`);
+    const [staff, setStaff] = useState(null);
+    const [status, setStatus] = useState('process');
+
+    useEffect(() => {
+        StaffService.getStaffById(id)
+            .then(data => {
+                setStaff(data);
+                setStatus('finish');
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setStatus('error');
+            });
+    }, [id]);
 
     if (status === 'process') {
         return <div>Loading...</div>; // Or some loading spinner
@@ -37,8 +51,8 @@ const EmployeeDetail = () => {
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-12">
-                                    <label for="inputName" className="form-label">{staff.firstName + staff.lastName + staff.id}</label>
-                                    <input type="text" className="form-control" id="inputName" />
+                                    <label for="inputName" className="form-label">Full name</label>
+                                    <input type="text" className="form-control" id="inputName" value={staff.firstName +' ' + staff.lastName + ' ' + staff.address} />
                                 </div>
                                 <div className="col-md-8 mt-2">
                                     <label for="inputEmail" className="form-label">Email</label>
