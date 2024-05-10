@@ -24,7 +24,11 @@ const ManagerPage = () => {
         console.log('');
     };
 
+<<<<<<< HEAD
     return (
+=======
+    return(
+>>>>>>> 08b0a952171c18315c841fcd1e4e2cbede9e0958
         <div className="ManagerPage admin_page">
             <div className="d-flex">
                 <div className='nav_bar'>
