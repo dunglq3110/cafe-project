@@ -36,13 +36,12 @@ const EmployeePage = () => {
                             </button>
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('ALL')}>All</a></li>
-                                <li><a className="dropdown-item" onClick={() => setRoleFilter('MANAGER')}>Manager</a>
-                                </li>
+                                <li><a className="dropdown-item" onClick={() => setRoleFilter('MANAGER')}>Manager</a></li>
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('STAFF')}>Staff</a></li>
                             </ul>
                         </div>
-                        <div class="" style={{marginRight:'0px',marginLeft:'auto'}}>
-                            <a href="addstaff" class="btn btn-success">
+                        <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
+                            <a href="add-staff" className="btn btn-success">
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>

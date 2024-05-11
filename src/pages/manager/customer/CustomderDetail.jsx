@@ -3,18 +3,19 @@ import ech from '../../../assets/images/ech.jpg';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import StaffService from '../../../services/staff.service'
+import customerService from '../../../services/customer.service';
 
 
-const EmployeeDetail = () => {
+const CustomerDetail = () => {
 
     const { id } = useParams();
-    const [staff, setStaff] = useState(null);
+    const [customer, setCustomer] = useState(null);
     const [status, setStatus] = useState('process');
 
     useEffect(() => {
-        StaffService.getStaffById(id)
+        customerService.getCustomerById(id)
             .then(data => {
-                setStaff(data);
+                setCustomer(data);
                 setStatus('finish');
             })
             .catch(error => {
@@ -31,7 +32,7 @@ const EmployeeDetail = () => {
         return <div>Error loading data</div>; // Or some error message
     }
 
-    if (status === 'empty' || !staff) {
+    if (status === 'empty' || !customer) {
         return <div>No data found</div>; // Or some empty state
     }
     return (
@@ -52,7 +53,7 @@ const EmployeeDetail = () => {
                             <form className="row">
                                 <div className="col-md-12">
                                     <label for="inputName" className="form-label">Full name</label>
-                                    <input type="text" className="form-control" id="inputName" value={staff.firstName + ' ' + staff.lastName + ' ' + staff.address} />
+                                    <input type="text" className="form-control" id="inputName" value={customer.firstName + ' ' + customer.lastName} />
                                 </div>
                                 <div className="col-md-8 mt-2">
                                     <label for="inputEmail" className="form-label">Email</label>
@@ -100,4 +101,4 @@ const EmployeeDetail = () => {
     );
 }
 
-export default EmployeeDetail;
+export default CustomerDetail;

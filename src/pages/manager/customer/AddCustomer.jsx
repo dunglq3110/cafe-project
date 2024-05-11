@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 
-const AddStaff = () => {
+const AddCustomer = () => {
 
     const firstNameRef = useRef();
     const lastNameRef = useRef();
@@ -116,4 +116,4 @@ const AddStaff = () => {
     );
 }
 
-export default AddStaff;
+export default AddCustomer;
