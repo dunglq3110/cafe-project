@@ -34,16 +34,13 @@ class CustomerService {
             });
     }
     addCustomer(customer) {
+        console.log(customer)
         return axios.post(`${API_URL}`, customer, { headers: authHeader() })
             .then(response => {
-                if (response.data.code === 0) {
-                    return response.data.result;
-                } else {
-                    throw new Error('Failed to add staff');
-                }
+                return response.data.result
             })
             .catch(error => {
-                console.error('There was an error!', error);
+                console.error('There was an Customer!', error);
                 throw error;
             });
     }
