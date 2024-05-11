@@ -15,6 +15,8 @@ import Menuitem from './product/MenuItem';
 import bg from '../../assets/images/bg.jpg';
 import { render } from '@testing-library/react';
 import { Routes, Route } from 'react-router-dom';
+import CustomerDetail from './customer/CustomderDetail';
+import AddCustomer from './customer/AddCustomer';
 
 const ManagerPage = () => {
     const handleSearchButtonClick = () => {
@@ -22,7 +24,7 @@ const ManagerPage = () => {
         console.log('');
     };
 
-    return(
+    return (
         <div className="ManagerPage admin_page">
             <div className="d-flex">
                 <div className='nav_bar'>
@@ -43,12 +45,19 @@ const ManagerPage = () => {
                         <Routes>
                             <Route path="staffs" element={<EmployeePage />} />
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
+                            <Route path="add-staff" element={<AddStaff />} />
+
                             <Route path="customers" element={<Customer />} />
+                            <Route path="customers/:id" element={<CustomerDetail />} />
+                            <Route path="add-customer" element={<AddCustomer />} />
+
+
+
                             <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
-                            {/* <div class="w-100 h-100">
+                            {/* <div className="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
                         </Routes>
