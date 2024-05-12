@@ -14,6 +14,7 @@ function App() {
                 <Route path="/staff" element={<StaffPage/>}/>
                 <Route path="/" element={<VisitPage/>}/>
                 
+                
             </Routes>
         </Router>
     );

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
-import addStaff from './staff/AddStaff';
+import Cart from './product/Cart';
 import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
+import AddStaff from './staff/AddStaff';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
-import avata from '../../assets/images/user.png';
+import Receipt from './product/Receipt';
 import ProductList from './product/ProductList';
 import Menuitem from './product/MenuItem';
 import bg from '../../assets/images/bg.jpg';
@@ -25,9 +26,7 @@ const ManagerPage = () => {
     return (
         <div className="ManagerPage">
             <div className="d-flex">
-                <div className='nav_bar'>
-                    <NavBar></NavBar>
-                </div>
+                <NavBar></NavBar>
                 <div className="main_display" style={{
                     backgroundImage: `url(${bg})`,
                     backgroundSize: 'cover', // This will make the image cover the full screen
@@ -45,17 +44,21 @@ const ManagerPage = () => {
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
                             <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
-                            <Route path="add" element={<addStaff />} />
+                            <Route path="cart" element={<Cart />} />
+                            <Route path="receipt" element={<Receipt />} />
+                            <Route path="addstaff" element={<AddStaff />} />
+
+
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
                             {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                        {/* <ProductDetail></ProductDetail> */}
-                        {/* <ProductList></ProductList> */}
-                        {/* <Customer></Customer> */}
-                        {/* <EmployeePage></EmployeePage> */}
-                        {/*<EmployeeDetail></EmployeeDetail>*/}
+                            {/* <ProductDetail></ProductDetail> */}
+                            {/* <ProductList></ProductList> */}
+                            {/* <Customer></Customer> */}
+                            {/* <EmployeePage></EmployeePage> */}
+                            {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
                     </div>
                 </div>

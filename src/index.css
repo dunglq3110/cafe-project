@@ -338,6 +338,13 @@
     background-color: #D1BB9E;
 }
 
+.nav_bar_change {
+    width: 10%;
+    height: 100vh;
+    background-color: #D1BB9E;
+}   
+
+
 
 .main_display {
     background-color: #E3D7C5;
@@ -347,6 +354,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.Order.dim {
+    opacity: 0.5;
+}
+
+.order-detail {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    transform: translate(-38%, -35%);
+    /* Other styles for your order detail component go here */
 }
 
 .display {
@@ -474,7 +494,7 @@
 }
 
 .item-drink {
-    background-color: rgba(255, 255, 255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     border-radius: 5%;
     padding: 20px;
@@ -504,14 +524,14 @@
 
 /* Employee detail */
 .bg-custom {
-    background-color:#f7e7dd;
+    background-color: #f7e7dd;
 }
 
 
 
 
 
-.full-view {
+/* .full-view {
     transition: all 0.5s ease;
 }
 
@@ -528,7 +548,7 @@
     display: block;
     transition: all 0.5s ease;
 }
-
+ */
 
 
 /* Menu custom */
@@ -641,4 +661,11 @@
         border-bottom-left-radius: 16px;
         border-bottom-right-radius: 16px;
     }
+}
+
+
+
+.close{
+    text-decoration: none;
+    color: #000;
 }

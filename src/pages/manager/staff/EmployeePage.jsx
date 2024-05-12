@@ -1,10 +1,12 @@
 import right from '../../../assets/images/right.png'
+
 import add from '../../../assets/images/add.png'
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import StaffService from '../../../services/staff.service'
 
 const EmployeePage = () => {
+
 
     const [roleFilter, setRoleFilter] = useState('ALL');
     const [staff, setStaff] = useState(null);
@@ -21,13 +23,14 @@ const EmployeePage = () => {
                 setStatus('error');
             });
     }, []);
+
     return (
         <div className="Employee_page">
             <div className="container my-3">
                 <div className="mx-1 my-1 bg-custom p-2 rounded">
                     <div className="d-flex" id="filter-bar">
                         <div className="dropdown w-15 d-flex">
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" className="btn btn-primary dropdown-toggle w-50" data-bs-toggle="dropdown">
                                 {roleFilter}
                             </button>
                             <ul className="dropdown-menu">
@@ -37,10 +40,10 @@ const EmployeePage = () => {
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('STAFF')}>Staff</a></li>
                             </ul>
                         </div>
-                        <div class="" style={{marginRight:'0px',marginLeft:'auto'}}>
-                            <a href="add" class="btn btn-success">
-                                <img src={add} alt="add" className="button-transition" />
-                            </a>
+                        <div class="" style={{ marginRight: '0px', marginLeft: 'auto',width:'10%' }}>
+                                <a class="btn btn-success w-100" href='addstaff'>
+                                    <img src={add} alt="add" className="button-transition" />
+                                </a>
                         </div>
                     </div>
                     <div className="mt-3">

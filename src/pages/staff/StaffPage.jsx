@@ -1,4 +1,5 @@
-
+import SearchBar from "../../components/SearchBar";
+import NavBar from "../../components/NavBar";
 const StaffPage = () => {
     return (
         <>

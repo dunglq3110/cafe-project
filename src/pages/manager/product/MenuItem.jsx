@@ -1,8 +1,7 @@
 import bg from '../../../assets/images/coffee-cup.png'
-
 const MenuItem = () => {
     return (
-        <div className="w-25 h-75 container bg-white px-0 rounded">
+        <div className="w-50 h-75 container bg-white px-0 rounded">
             <div className="h-25 w-100 d-flex align-items-center rounded" style={{ backgroundColor: "#885b46" }}>
                 <div className="w-100 d-flex justify-content-center align-items-center" style={{ marginTop: "25%" }}>
                     <img src={bg} className="rounded d-block img-thumbnail z-1" style={{ width: "20%", backgroundColor: "#b1835e" }} />
