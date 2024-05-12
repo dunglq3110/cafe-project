@@ -45,7 +45,6 @@ const ManagerPage = () => {
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
                             <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
-                            <Route path="add" element={<addStaff />} />
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
                             {/* <div class="w-100 h-100">
