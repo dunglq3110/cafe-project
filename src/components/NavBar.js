@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import {CSSTransition} from 'react-transition-group';
-import {Link} from 'react-router-dom';
+import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -36,8 +36,8 @@ const NavBar = () => {
                         <>
                             <div className='h-100 w-100 user' id="infor_user">
                                 <img className="image_user text-center"
-                                     src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png'
-                                     alt='image user'/>
+                                    src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png'
+                                    alt='image user' />
                                 <div className="w-100 user">
                                     <div className="w-100 bg-secondary" style={{
                                         background: "#B1855E",
@@ -51,7 +51,7 @@ const NavBar = () => {
                                     </Link>
                                 </div>
                             </div>
-                            <div style={{width: '100%', height: '1px', background: 'black', marginTop: '5px'}}>
+                            <div style={{ width: '100%', height: '1px', background: 'black', marginTop: '5px' }}>
                             </div>
 
                         </>

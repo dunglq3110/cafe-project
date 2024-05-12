@@ -19,7 +19,7 @@ const SearchBar = ({ onSearchButtonClick }) => {
                 </div>
             </div>
             <div style={{ marginLeft: 'auto', marginRight: '1%', userSelect: 'none' }}>
-                <button type="button" className="btn d-flex justify-content-center align-items-center h-100 mr-0 ml-auto" style={{ userSelect: 'none' ,width:'15%'}}>
+                <button type="button" className="btn btn-outline-success d-flex justify-content-center align-items-center h-100 mr-0 ml-auto" style={{ userSelect: 'none' ,width:'15%'}}>
                     <img src={shopping} style={{width:'50%'}}/>
                 </button>
             </div>

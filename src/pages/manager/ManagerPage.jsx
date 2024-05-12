@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
+import addStaff from './staff/AddStaff';
 import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
@@ -44,6 +45,17 @@ const ManagerPage = () => {
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
                             <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
+                            <Route path="add" element={<addStaff />} />
+                            {/* <MenuPage></MenuPage> */}
+                            {/* <Menuitem></Menuitem>  */}
+                            {/* <div class="w-100 h-100">
+                            <Cart></Cart>
+                        </div> */}
+                        {/* <ProductDetail></ProductDetail> */}
+                        {/* <ProductList></ProductList> */}
+                        {/* <Customer></Customer> */}
+                        {/* <EmployeePage></EmployeePage> */}
+                        {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
                     </div>
                 </div>
