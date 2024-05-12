@@ -1,13 +1,12 @@
 import right from '../../../assets/images/right.png'
+
 import add from '../../../assets/images/add.png'
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import useFetch from '../../../hooks/useFetch'
 import StaffService from '../../../services/staff.service'
 
-
 const EmployeePage = () => {
+
 
     const [roleFilter, setRoleFilter] = useState('ALL');
     const [staff, setStaff] = useState(null);

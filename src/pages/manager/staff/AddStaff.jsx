@@ -49,7 +49,7 @@ const AddStaff = () => {
 
 
     return (
-        <div className="">
+        <div className="AddStaff">
             <div className="mx-5 my-2 bg-custom rounded h-100">
                 <div className="row mx-2 my-2">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">

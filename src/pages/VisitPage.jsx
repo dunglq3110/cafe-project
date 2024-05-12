@@ -7,10 +7,10 @@ function VisitPage() {
     return (
         <div className="VisitPage" style={{
             backgroundImage: `url(${welcome})`,
-            backgroundSize: 'cover', // This will make the image cover the full screen
-            backgroundPosition: 'center', // This centers the image in the container
-            backgroundRepeat: 'no-repeat', // This will prevent the image from repeating
-            height: '100vh' // This makes the div take the full height of the viewport
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh'
         }}>
 
             <section class="page-section clearfix">
@@ -21,7 +21,7 @@ function VisitPage() {
                             {
                                 display: 'flex',
                                 flexDirection: 'column',
-                                userSelect:'none'
+                                userSelect: 'none'
                             }
                         }>
                             <h2 class="section-heading mb-4">
@@ -30,7 +30,10 @@ function VisitPage() {
                             </h2>
                             <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!</p>
                             <Link to="/manager">
-                                <div class="intro-button mx-auto"><a class="btn btn-xl" style={{height:'50px', background:'#fccb90'}} href="#!">Visit Us Today!</a></div>
+                                <div class="intro-button mx-auto">
+                                    <a class="btn btn-xl w-50 d-flex justify-content-center align-items-center fw-bold" style={{ height: '50px', background: '#fccb90'}} href="#!">VISIT US TODAY!
+                                    </a>
+                                </div>
                             </Link>
                         </div>
                     </div>
