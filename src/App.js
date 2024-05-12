@@ -4,6 +4,8 @@ import SignIn from "./pages/login/SignIn";
 import NavBar from './components/NavBar';
 import StaffPage from './pages/staff/StaffPage'
 import VisitPage from './pages/VisitPage'
+import Home from './pages/manager/Home';
+import DashBoard from './pages/manager/DashBoard';
 
 function App() {
     return (

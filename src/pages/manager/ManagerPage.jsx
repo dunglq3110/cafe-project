@@ -1,22 +1,49 @@
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { Link } from 'react-router-dom';
+// React related imports
 import React, { useState } from 'react';
-import MenuPage from './product/MenuPage';
-import EmployeePage from './staff/EmployeePage';
+import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
+// Testing library
+import { render } from '@testing-library/react';
+
+// React-pro-sidebar components
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+
+// Components
 import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
+
+// Order related imports
+import MenuPage from './order/MenuPage';
+import Order from './order/Order';
+import Menuitem from './order/MenuItem';
+
+// Staff related imports
+import EmployeePage from './staff/EmployeePage';
 import EmployeeDetail from './staff/EmployeeDetail';
-import Order from './product/Order';
+import AddStaff from './staff/AddStaff';
+
+// Product related imports
 import ProductDetail from './product/ProductDetail';
-import avata from '../../assets/images/user.png';
-import Customer from './customer/CustomerPage';
 import ProductList from './product/ProductList';
-import Menuitem from './product/MenuItem';
-import bg from '../../assets/images/bg.jpg';
-import { render } from '@testing-library/react';
-import { Routes, Route } from 'react-router-dom';
+import AddProduct from './product/AddProduct';
+
+// Condiment related imports
+import CondimentDetail from './condiment/CondimentDetail';
+import CondimentList from './condiment/CondimentList';
+import AddCondiment from './condiment/AddCondiment';
+
+// Customer related imports
+import Customer from './customer/CustomerPage';
 import CustomerDetail from './customer/CustomderDetail';
 import AddCustomer from './customer/AddCustomer';
+
+// Assets
+import avata from '../../assets/images/user.png';
+import bg from '../../assets/images/bg.jpg';
+import Home from './Home';
+import DashBoard from './DashBoard';
+
 
 const ManagerPage = () => {
     const handleSearchButtonClick = () => {
@@ -43,6 +70,10 @@ const ManagerPage = () => {
                     </div>
                     <div className="display">
                         <Routes>
+                            <Route path="home" element={<Home />} />
+                            <Route path="dashboard" element={<DashBoard />} />
+
+
                             <Route path="staffs" element={<EmployeePage />} />
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
                             <Route path="add-staff" element={<AddStaff />} />
@@ -52,9 +83,15 @@ const ManagerPage = () => {
                             <Route path="add-customer" element={<AddCustomer />} />
 
 
+                            <Route path="products" element={<ProductList />} />
+                            <Route path="products/:id" element={<ProductDetail />} />
+                            <Route path="add-product" element={<AddProduct />} />
+
+                            <Route path="condiments" element={<CondimentList />} />
+                            <Route path="condiments/:id" element={<CondimentDetail />} />
+                            <Route path="add-condiment" element={<AddCondiment />} />
 
                             <Route path="order" element={<Order />} />
-                            <Route path="products" element={<ProductList />} />
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
                             {/* <div className="w-100 h-100">

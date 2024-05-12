@@ -58,18 +58,22 @@ const NavBar = () => {
                     </CSSTransition>
                 </div>
                 <div id="side-button">
-                    <div className="side-button text-center" id="home">
-                        <div className="material-symbols-outlined center-layout">
-                            home
+                    <Link to="/manager/home" className="nav-link">
+                        <div className="side-button text-center" id="home">
+                            <div className="material-symbols-outlined center-layout">
+                                home
+                            </div>
+                            <p className="m-0 px-2 center-layout">Home</p>
                         </div>
-                        <p className="m-0 px-2 center-layout">Home</p>
-                    </div>
-                    <div className="side-button text-center" id="dashboard">
-                        <div className="material-symbols-outlined center-layout">
-                            dashboard
+                    </Link>
+                    <Link to="/manager/dashboard" className="nav-link">
+                        <div className="side-button text-center" id="dashboard">
+                            <div className="material-symbols-outlined center-layout">
+                                dashboard
+                            </div>
+                            <p className="m-0 px-2 center-layout">DaskBoard</p>
                         </div>
-                        <p className="m-0 px-2 center-layout">DaskBoard</p>
-                    </div>
+                    </Link>
                     <Link to="/manager/order" className="nav-link">
                         <div className="side-button text-center" id="order">
                             <div className="material-symbols-outlined center-layout text-center">
@@ -85,6 +89,14 @@ const NavBar = () => {
                                 category
                             </div>
                             <p className="m-0 px-2 center-layout">Product</p>
+                        </div>
+                    </Link>
+                    <Link to="/manager/condiments" className="nav-link">
+                        <div className="side-button text-center">
+                            <div className="material-symbols-outlined center-layout">
+                                category
+                            </div>
+                            <p className="m-0 px-2 center-layout">Condiment</p>
                         </div>
                     </Link>
                     <Link to="/manager/staffs" className="nav-link">
