@@ -1,5 +1,37 @@
 import coffee from "../../../assets/images/coffee-cup.png"
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import productService from "../../../services/product.service";
 const ProductDetail = () => {
+
+
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
+    const [status, setStatus] = useState('process');
+
+    useEffect(() => {
+        productService.getById(id)
+            .then(data => {
+                setProduct(data);
+                setStatus('finish');
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setStatus('error');
+            });
+    }, [id]);
+
+    if (status === 'process') {
+        return <div>Loading...</div>; // Or some loading spinner
+    }
+
+    if (status === 'error') {
+        return <div>Error loading data</div>; // Or some error message
+    }
+
+    if (status === 'empty' || !product) {
+        return <div>No data found</div>; // Or some empty state
+    }
     return (
         <div className="Product_detail h-75 w-100">
             <div className="mx-3 bg-custom rounded h-100">
@@ -14,34 +46,32 @@ const ProductDetail = () => {
                             <form className="row">
                                 <div className="col-md-12 mt-5">
                                     <label for="inputName" className="form-label">Name</label>
-                                    <input type="text" className="form-control" id="inputName" />
-                                </div>
-                                <div className="col-md-6 mt-4">
-                                    <label for="inputType" className="form-label">Type</label>
-                                    <select id="inputType" className="form-select">
-                                        <option selected>Type 1</option>
-                                        <option>Type 2</option>
-                                    </select>
-                                </div>
-                                <div className="col-md-6 mt-4">
-                                    <label for="inputStatus" className="form-label">Status</label>
-                                    <select id="inputStatus" className="form-select">
-                                        <option selected>Active</option>
-                                        <option>Inactive</option>
-                                    </select>
+                                    <input type="text" className="form-control" id="inputName" value={product.name} />
                                 </div>
                                 <div className="col-md-4 mt-4">
-                                    <label for="inputSize" className="form-label">Size</label>
-                                    <select id="inputSize" className="form-select">
-                                        <option selected>L</option>
-                                        <option>M</option>
-                                        <option>S</option>
-                                    </select>
+                                    <label for="inputType" className="form-label">Type</label>
+                                    <input type="text" className="form-control" id="inputName" value={product.productType} />
                                 </div>
-                                <div className="col-md-8 mt-4">
-                                    <label for="inputPrice" className="form-label">Price</label>
-                                    <input type="text" className="form-control" id="inputPrice" />
+                                <div className="col-md-4 mt-4">
+                                    <label for="inputStatus" className="form-label">Status</label>
+                                    <input type="text" className="form-control" id="inputName" value={product.productStatus} />
                                 </div>
+                                <div className="col-md-4 mt-4">
+                                    <label for="inputStatus" className="form-label">Discount</label>
+                                    <input type="text" className="form-control" id="inputName" value={parseFloat(product.discount) * 100 + "%"} />
+                                </div>
+                                {product.sizes.map((productSize, index) => (
+                                    <>
+                                        <div className="col-md-6 mt-4">
+                                            <label for="inputStatus" className="form-label">Size name</label>
+                                            <input type="text" className="form-control" id="inputName" value={productSize.name} />
+                                        </div>
+                                        <div className="col-md-6 mt-4">
+                                            <label for="inputStatus" className="form-label">Price</label>
+                                            <input type="text" className="form-control" id="inputName" value={"$" + productSize.price} />
+                                        </div>
+                                    </>
+                                ))}
                                 <div className="mt-4 d-flex justify-content-around">
                                     <button type="button" className="btn btn-danger w-15">Remove</button>
                                     <button type="button" className="btn btn-info w-15">Edit</button>

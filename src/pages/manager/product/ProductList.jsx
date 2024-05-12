@@ -1,8 +1,25 @@
-import { useState } from 'react';
 import right from '../../../assets/images/right.png'
+import productService from '../../../services/product.service';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import add from '../../../assets/images/add.png'
 const ProductList = () => {
 
     const [productStatusFilter, setProductStatusFilter] = useState("ALL")
+    const [products, setProducts] = useState(null);
+    const [status, setStatus] = useState('process');
+
+    useEffect(() => {
+        productService.getAll()
+            .then(data => {
+                setProducts(data);
+                setStatus('finish');
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setStatus('error');
+            });
+    }, []);
 
     return (
         <div className="ProductList h-100 w-100">
@@ -33,43 +50,46 @@ const ProductList = () => {
                         <div id="reset" class="d-flex px-3 rounded align-items-center bg-warning">
                             Reset
                         </div>
+                        <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
+                            <a href="add-product" className="btn btn-success">
+                                <img src={add} alt="add" className="button-transition" />
+                            </a>
+                        </div>
                     </div>
-                    <div class="mt-3">
-                        <table class="table table-striped  table-hover">
-                            <caption>List of Products</caption>
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Status</th>
+                    <div className="mt-3">
 
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Espresso</td>
-                                    <td>$100</td>
-                                    <td>Coffee</td>
-                                    <td>Active</td>
-                                    <td><img src={right} alt="right" class="button-transition" /></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Espresso</td>
-                                    <td>$100</td>
-                                    <td>Coffee</td>
-                                    <td>Active</td>
-                                    <td><img src={right} alt="right" class="button-transition" /></td>
-                                </tr>
+                        {status === 'process' && <h1>Loading...</h1>}
+                        {status === 'finish' && (
+                            <table className="table table-striped  table-hover">
+                                <thead className="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Discount</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products.map((product, index) => (
 
-                            </tbody>
-
-                        </table>
-
+                                        <tr key={index}>
+                                            <th scope="row">{product.id}</th>
+                                            <td>{product.name}</td>
+                                            <td>{product.productType}</td>
+                                            <td>{product.discount}</td>
+                                            <td>{product.productStatus}</td>
+                                            <td><Link to={`/manager/products/${product.id}`}><img src={right} alt="right"
+                                                className="button-transition" /></Link>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        )}
+                        {status === 'error' && <h1>Đợi 1 xíu...</h1>}
+                        {status === 'empty' && <h1>Empty...</h1>}
 
                     </div>
                 </div>
