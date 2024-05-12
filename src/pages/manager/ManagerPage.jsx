@@ -1,6 +1,17 @@
 // React related imports
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import MenuPage from './product/MenuPage';
+import EmployeePage from './staff/EmployeePage';
+import NavBar from '../../components/NavBar';
+import SearchBar from '../../components/SearchBar';
+import EmployeeDetail from './staff/EmployeeDetail';
+import Order from './product/Order';
+import ProductDetail from './product/ProductDetail';
+import avata from '../../assets/images/user.png';
+import ProductList from './product/ProductList';
+import Menuitem from './product/MenuItem';
+import bg from '../../assets/images/bg.jpg';
+import { render } from '@testing-library/react';
 import { Routes, Route } from 'react-router-dom';
 
 // Testing library
