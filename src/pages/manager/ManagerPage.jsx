@@ -87,13 +87,7 @@ const ManagerPage = () => {
 
                             <Route path="staffs" element={<EmployeePage />} />
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
-                            <Route path="add-staff" element={<AddStaff />} />
-
-                            <Route path="customers" element={<Customer />} />
-                            <Route path="customers/:id" element={<CustomerDetail />} />
-                            <Route path="add-customer" element={<AddCustomer />} />
-
-
+                            <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
                             <Route path="products/:id" element={<ProductDetail />} />
                             <Route path="add-product" element={<AddProduct />} />
@@ -108,11 +102,11 @@ const ManagerPage = () => {
                             {/* <div className="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                            {/* <ProductDetail></ProductDetail> */}
-                            {/* <ProductList></ProductList> */}
-                            {/* <Customer></Customer> */}
-                            <EmployeePage></EmployeePage>
-                            {/*<EmployeeDetail></EmployeeDetail>*/}
+                        {/* <ProductDetail></ProductDetail> */}
+                        {/* <ProductList></ProductList> */}
+                        {/* <Customer></Customer> */}
+                        {/* <EmployeePage></EmployeePage> */}
+                        {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
                     </div>
                 </div>
