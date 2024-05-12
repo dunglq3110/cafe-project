@@ -4,13 +4,11 @@ import React, { useState } from 'react';
 import MenuPage from './product/MenuPage';
 import EmployeePage from './staff/EmployeePage';
 import NavBar from '../../components/NavBar';
-import Cart from '../../pages/manager/staff/Cart';
 import SearchBar from '../../components/SearchBar';
 import EmployeeDetail from './staff/EmployeeDetail';
 import Order from './product/Order';
 import ProductDetail from './product/ProductDetail';
 import avata from '../../assets/images/user.png';
-import Customer from './staff/Customer';
 import ProductList from './product/ProductList';
 import Menuitem from './product/MenuItem';
 import bg from '../../assets/images/bg.jpg';
@@ -44,7 +42,6 @@ const ManagerPage = () => {
                         <Routes>
                             <Route path="staffs" element={<EmployeePage />} />
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
-                            <Route path="customers" element={<Customer />} />
                             <Route path="order" element={<Order />} />
                             <Route path="products" element={<ProductList />} />
                             {/* <MenuPage></MenuPage> */}
@@ -55,7 +52,7 @@ const ManagerPage = () => {
                         {/* <ProductDetail></ProductDetail> */}
                         {/* <ProductList></ProductList> */}
                         {/* <Customer></Customer> */}
-                        <EmployeePage></EmployeePage>
+                        {/* <EmployeePage></EmployeePage> */}
                         {/*<EmployeeDetail></EmployeeDetail>*/}
                         </Routes>
 
