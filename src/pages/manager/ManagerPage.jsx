@@ -8,8 +8,9 @@ import { render } from '@testing-library/react';
 
 // React-pro-sidebar components
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-
-// Components
+import MenuPage from './product/MenuPage';
+import EmployeePage from './staff/EmployeePage';
+import Cart from './product/Cart';
 import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
 
@@ -25,6 +26,9 @@ import AddStaff from './staff/AddStaff';
 
 // Product related imports
 import ProductDetail from './product/ProductDetail';
+import Order from './product/Order';
+import ProductDetail from './product/ProductDetail';
+import Receipt from './product/Receipt';
 import ProductList from './product/ProductList';
 import AddProduct from './product/AddProduct';
 
@@ -54,9 +58,7 @@ const ManagerPage = () => {
     return (
         <div className="ManagerPage admin_page">
             <div className="d-flex">
-                <div className='nav_bar'>
-                    <NavBar></NavBar>
-                </div>
+                <NavBar></NavBar>
                 <div className="main_display" style={{
                     backgroundImage: `url(${bg})`,
                     backgroundSize: 'cover', // This will make the image cover the full screen
@@ -96,6 +98,10 @@ const ManagerPage = () => {
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
                             {/* <div className="w-100 h-100">
+                            <Route path="cart" element={<Cart />} />
+                            <Route path="receipt" element={<Receipt />} />
+                            <Route path="addstaff" element={<AddStaff />} />
+                            {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
                             {/* <ProductDetail></ProductDetail> */}
@@ -103,10 +109,10 @@ const ManagerPage = () => {
                             {/* <Customer></Customer> */}
                             {/* <EmployeePage></EmployeePage> */}
                             {/*<EmployeeDetail></EmployeeDetail>*/}
-                        </Routes>
-                    </div>
-                </div>
-            </div>
+                        </Routes >
+                    </div >
+                </div >
+            </div >
         </div >
     );
 }
