@@ -1,8 +1,15 @@
 import right from '../../../assets/images/right.png'
+<<<<<<< HEAD
 import productService from '../../../services/product.service';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import add from '../../../assets/images/add.png'
+=======
+import { useState, useEffect } from 'react';
+import productService from '../../../services/product.service';
+import add from '../../../assets/images/add.png'
+import { Link } from 'react-router-dom';
+>>>>>>> 0035080 (fix merge conflix after test)
 const ProductList = () => {
 
     const [productStatusFilter, setProductStatusFilter] = useState("ALL")
@@ -50,8 +57,13 @@ const ProductList = () => {
                         <div id="reset" class="d-flex px-3 rounded align-items-center bg-warning">
                             Reset
                         </div>
+<<<<<<< HEAD
                         <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
                             <a href="add-product" className="btn btn-success">
+=======
+                        <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
+                            <a class="btn btn-success w-100" href='add-product'>
+>>>>>>> 0035080 (fix merge conflix after test)
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>

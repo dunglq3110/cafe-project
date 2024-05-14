@@ -19,8 +19,7 @@ import { render } from '@testing-library/react';
 
 // React-pro-sidebar components
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-
-// Components
+import Cart from './product/Cart';
 import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
 
@@ -36,6 +35,7 @@ import AddStaff from './staff/AddStaff';
 
 // Product related imports
 import ProductDetail from './product/ProductDetail';
+import Receipt from './product/Receipt';
 import ProductList from './product/ProductList';
 import AddProduct from './product/AddProduct';
 
