@@ -1,4 +1,8 @@
 import right from '../../../assets/images/right.png'
+import { useState, useEffect } from 'react';
+import productService from '../../../services/product.service';
+import add from '../../../assets/images/add.png'
+import { Link } from 'react-router-dom';
 const ProductList = () => {
     const [productStatusFilter, setProductStatusFilter] = useState("ALL")
     const [products, setProducts] = useState(null);
@@ -45,7 +49,7 @@ const ProductList = () => {
                             Reset
                         </div>
                         <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
-                            <a class="btn btn-success w-100" href=''>
+                            <a class="btn btn-success w-100" href='add-product'>
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>
