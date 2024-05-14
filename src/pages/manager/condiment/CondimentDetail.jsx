@@ -1,18 +1,18 @@
 import coffee from "../../../assets/images/coffee-cup.png"
+import condimentService from "../../../services/condiment.service";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import productService from "../../../services/product.service";
-const ProductDetail = () => {
+const CondimentDetail = () => {
 
 
     const { id } = useParams();
-    const [product, setProduct] = useState(null);
+    const [condiment, setCondiment] = useState(null);
     const [status, setStatus] = useState('process');
 
     useEffect(() => {
-        productService.getById(id)
+        condimentService.getById(id)
             .then(data => {
-                setProduct(data);
+                setCondiment(data);
                 setStatus('finish');
             })
             .catch(error => {
@@ -29,9 +29,10 @@ const ProductDetail = () => {
         return <div>Error loading data</div>; // Or some error message
     }
 
-    if (status === 'empty' || !product) {
+    if (status === 'empty' || !condiment) {
         return <div>No data found</div>; // Or some empty state
     }
+
     return (
         <div className="Product_detail h-75 w-100">
             <div className="mx-3 bg-custom rounded h-100">
@@ -46,32 +47,17 @@ const ProductDetail = () => {
                             <form className="row">
                                 <div className="col-md-12 mt-5">
                                     <label for="inputName" className="form-label">Name</label>
-                                    <input type="text" className="form-control" id="inputName" value={product.name} />
+                                    <input type="text" className="form-control" id="inputName" value={condiment.name} />
                                 </div>
-                                <div className="col-md-4 mt-4">
-                                    <label for="inputType" className="form-label">Type</label>
-                                    <input type="text" className="form-control" id="inputName" value={product.productType} />
+                                <div className="col-md-6 mt-4">
+                                    <label for="inputType" className="form-label">Price</label>
+                                    <input type="text" className="form-control" id="inputPrice" value={"$" + condiment.unitPrice} />
                                 </div>
-                                <div className="col-md-4 mt-4">
+                                <div className="col-md-6 mt-4">
                                     <label for="inputStatus" className="form-label">Status</label>
-                                    <input type="text" className="form-control" id="inputName" value={product.productStatus} />
+                                    <input type="text" className="form-control" id="inputStatus" value={condiment.productStatus} />
                                 </div>
-                                <div className="col-md-4 mt-4">
-                                    <label for="inputStatus" className="form-label">Discount</label>
-                                    <input type="text" className="form-control" id="inputName" value={parseFloat(product.discount) * 100 + "%"} />
-                                </div>
-                                {product.sizes.map((productSize, index) => (
-                                    <>
-                                        <div className="col-md-6 mt-4">
-                                            <label for="inputStatus" className="form-label">Size name</label>
-                                            <input type="text" className="form-control" id="inputName" value={productSize.name} />
-                                        </div>
-                                        <div className="col-md-6 mt-4">
-                                            <label for="inputStatus" className="form-label">Price</label>
-                                            <input type="text" className="form-control" id="inputName" value={"$" + productSize.price} />
-                                        </div>
-                                    </>
-                                ))}
+
                                 <div className="mt-4 d-flex justify-content-around">
                                     <button type="button" className="btn btn-danger w-15">Remove</button>
                                     <button type="button" className="btn btn-info w-15">Edit</button>
@@ -87,4 +73,4 @@ const ProductDetail = () => {
     );
 }
 
-export default ProductDetail;
+export default CondimentDetail;

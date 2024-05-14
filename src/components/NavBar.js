@@ -46,67 +46,84 @@ const NavBar = () => {
                     <div style={{ width: '100%', height: '1px', background: 'black', marginTop: '5px' }}>
                     </div>
                 </div>
+
                 <div id="side-button" style={{ marginTop: isVisible ? '' : '75%' }}>
-                    <div className="side-button text-center" id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                        <div className="material-symbols-outlined center-layout" >
-                            home
-                        </div>
-                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Home</p>
-                    </div>
-                    <div className="side-button text-center" id="dashboard" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                        <div className="material-symbols-outlined center-layout">
-                            dashboard
-                        </div>
-                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>DaskBoard</p>
-                    </div>
-                    <Link to="/manager/receipt" className="nav-link" >
-                        <div className="side-button text-center active" id="receipt" role="button" aria-pressed="true" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div class="material-symbols-outlined center-layout text-center">
-                                receipt_long
+                    <Link to="/manager/home" className="nav-link" >
+                        <div className="side-button text-center" id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                            <div className="material-symbols-outlined center-layout" >
+                                home
                             </div>
-                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Receipt</p>
+                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Home</p>
                         </div>
                     </Link>
+                    <Link to="/manager/dashboard" className="nav-link" >
 
-                    <Link to="/manager/order" className="nav-link">
-                        <div className="side-button text-center" id="order" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout text-center">
-                                dvr
-                            </div>
-                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Order</p>
-                        </div>
-                    </Link>
-
-                    <Link to="/manager/products" className="nav-link">
-                        <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="side-button text-center" id="dashboard" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout">
-                                category
+                                dashboard
                             </div>
-                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Product</p>
-                        </div>
-                    </Link>
-                    <Link to="/manager/staffs" className="nav-link">
-                        <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout">
-                                group
-                            </div>
-                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Employee</p>
-                        </div>
-                    </Link>
-
-                    <Link to="/manager/customers" className="nav-link">
-                        <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout text-center">
-                                account_circle
-                            </div>
-                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Customer</p>
+                            <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>DaskBoard</p>
                         </div>
                     </Link>
 
                 </div>
-            </div>
 
+                <Link to="/manager/receipt" className="nav-link" >
+                    <div className="side-button text-center active" id="receipt" role="button" aria-pressed="true" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div class="material-symbols-outlined center-layout text-center">
+                            receipt_long
+                        </div>
+                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Receipt</p>
+                    </div>
+                </Link>
+
+                <Link to="/manager/order" className="nav-link">
+                    <div className="side-button text-center" id="order" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="material-symbols-outlined center-layout text-center">
+                            dvr
+                        </div>
+                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Order</p>
+                    </div>
+                </Link>
+
+                <Link to="/manager/products" className="nav-link">
+                    <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="material-symbols-outlined center-layout">
+                            category
+                        </div>
+                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Product</p>
+                    </div>
+                </Link>
+                <Link to="/manager/condiments" className="nav-link">
+                    <div className="side-button text-center">
+                        <div className="material-symbols-outlined center-layout">
+                            category
+                        </div>
+                        <p className="m-0 px-2 center-layout">Condiment</p>
+                    </div>
+                </Link>
+                <Link to="/manager/staffs" className="nav-link">
+                    <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="material-symbols-outlined center-layout">
+                            group
+                        </div>
+                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Employee</p>
+                    </div>
+                </Link>
+
+                <Link to="/manager/customers" className="nav-link">
+                    <div className="side-button text-center" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="material-symbols-outlined center-layout text-center">
+                            account_circle
+                        </div>
+                        <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Customer</p>
+                    </div>
+                </Link>
+
+            </div>
         </div>
+
+
     );
 }
 export default NavBar;

@@ -2,10 +2,10 @@ import axios from "axios";
 import authHeader from "./authHeader";
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = "http://localhost:8080/manager/staffs";
-class StaffService {
+const API_URL = "http://localhost:8080/condiment";
+class CondimentService {
 
-    getListStaff() {
+    getAll() {
         return axios.get(`${API_URL}`, { headers: authHeader() })
             .then(response => {
                 if (response.data.result) {
@@ -20,7 +20,7 @@ class StaffService {
             });
     }
 
-    getStaffById(id) {
+    getById(id) {
         return axios.get(`${API_URL}/${id}`, { headers: authHeader() })
             .then(response => {
                 if (response.data.result) {
@@ -34,8 +34,8 @@ class StaffService {
                 throw error;
             });
     }
-    addStaff(staff) {
-        return axios.post(`${API_URL}`, staff, { headers: authHeader() })
+    addCondiment(condiment) {
+        return axios.post(`${API_URL}`, condiment, { headers: authHeader() })
             .then(response => {
                 if (response.data.code === 0) {
                     return response.data.result;
@@ -50,4 +50,4 @@ class StaffService {
     }
 }
 
-export default new StaffService();
+export default new CondimentService();

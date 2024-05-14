@@ -8,63 +8,51 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import CustomerService from '../../../services/customer.service';
 
 
-const AddStaff = () => {
+const AddCustomer = () => {
 
     const firstNameRef = useRef();
     const lastNameRef = useRef();
-    const usernameRef = useRef();
-    const passwordRef = useRef();
-    const emailRef = useRef();
+    const dateOfBirthRef = useRef();
     const phoneNumberRef = useRef();
-    const addressRef = useRef();
     const genderRef = useRef();
 
     const navigate = useNavigate();
 
     const handleAddClick = () => {
-        const staff = {
+        const customer = {
             firstName: firstNameRef.current.value,
             lastName: lastNameRef.current.value,
-            username: usernameRef.current.value,
-            password: passwordRef.current.value,
-            email: emailRef.current.value,
+            dateOfBirth: dateOfBirthRef.current.value,
             phoneNumber: phoneNumberRef.current.value,
-            address: addressRef.current.value,
             gender: genderRef.current.value,
         };
-
-        StaffService.addStaff(staff)
+        console.log(customer)
+        CustomerService.addCustomer(customer)
             .then(data => {
-                console.log('Staff added:', data);
-                toast.success('Staff added successfully!');
+                console.log('Customer added:', data);
+                toast.success('Customer added successfully!');
 
             })
             .catch(error => {
-                console.error('Failed to add staff:', error);
-                toast.error('Failed to add staff');
+                console.error('Failed to add Customer:', error);
+                toast.error('Failed to add Customer');
             });
     };
 
 
     return (
-        <div className="container my-2 h-75">
-            <div className="mx-2 bg-custom rounded h-100">
-                <div className="row mx-2 my-2 h-100">
-                    <a href='staffs' class="close text-center align-items-center">
-                        <div class="material-symbols-outlined ">
-                            close
-                        </div>
-                    </a>
-                    <div className="col col-4 d-flex flex-column align-items-center justify-content-center mt-4">
-                        <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
-                        <button type="button" className="btn btn-outline-success mt-1 d-flex flex-column align-items-center justify-content-center"><span class="material-symbols-outlined">
-                            add_a_photo
-                        </span></button>
-
+        <div className="">
+            <div className="mx-5 my-2 bg-custom rounded h-100">
+                <div className="row mx-2 my-2">
+                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
+                        <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
                     </div>
                     <div className="col col-8">
+                        <div className="row">
+                        </div>
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-6">
@@ -76,31 +64,19 @@ const AddStaff = () => {
                                     <input type="text" className="form-control" id="inputLastName" ref={lastNameRef} />
                                 </div>
                                 <div className="col-md-6 mt-2">
-                                    <label htmlFor="inputUsername" className="form-label text-uppercase fw-bold">Username</label>
-                                    <input type="text" className="form-control" id="inputUsername" ref={usernameRef} />
+                                    <label htmlFor="inputDateOfBirth" className="form-label text-uppercase fw-bold">Date of Birth</label>
+                                    <input type="date" className="form-control" id="inputDateOfBirth" ref={dateOfBirthRef} />
                                 </div>
                                 <div className="col-md-6 mt-2">
-                                    <label htmlFor="inputPassword" className="form-label text-uppercase fw-bold">Password</label>
-                                    <input type="password" className="form-control" id="inputPassword" ref={passwordRef} />
-                                </div>
-                                <div className="col-md-6 mt-2">
-                                    <label htmlFor="inputEmail" className="form-label text-uppercase fw-bold">Email</label>
-                                    <input type="email" className="form-control" id="inputEmail" ref={emailRef} />
-                                </div>
-                                <div className="col-md-6 mt-2">
-                                    <label htmlFor="inputPhoneNumber" className="form-label text-uppercase fw-bold">Phone Number</label>
-                                    <input type="tel" className="form-control" id="inputPhoneNumber" ref={phoneNumberRef} />
-                                </div>
-                                <div className="col-12 mt-2">
-                                    <label htmlFor="inputAddress" className="form-label text-uppercase fw-bold">Address</label>
-                                    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" ref={addressRef} />
-                                </div>
-                                <div className="col-12 mt-2">
                                     <label htmlFor="inputGender" className="form-label text-uppercase fw-bold">Gender</label>
                                     <select id="inputGender" className="form-select" ref={genderRef}>
                                         <option value="MALE" selected>Male</option>
                                         <option value="FEMALE">Female</option>
                                     </select>
+                                </div>
+                                <div className="col-12 mt-2">
+                                    <label htmlFor="inputPhoneNumber" className="form-label text-uppercase fw-bold">Phone Number</label>
+                                    <input type="tel" className="form-control" id="inputPhoneNumber" ref={phoneNumberRef} />
                                 </div>
 
                                 <div className="mt-4 d-flex justify-content-around">
@@ -113,13 +89,15 @@ const AddStaff = () => {
                                 </div>
                             </form>
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
             <ToastContainer />
         </div>
-    )
+    );
 }
 
-export default AddStaff;
+export default AddCustomer;
