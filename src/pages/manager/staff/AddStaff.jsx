@@ -49,15 +49,22 @@ const AddStaff = () => {
 
 
     return (
-        <div className="">
-            <div className="mx-5 my-2 bg-custom rounded h-100">
-                <div className="row mx-2 my-2">
-                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
-                        <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
+        <div className="container my-2 h-75">
+            <div className="mx-2 bg-custom rounded h-100">
+                <div className="row mx-2 my-2 h-100">
+                    <a href='staffs' class="close text-center align-items-center">
+                        <div class="material-symbols-outlined ">
+                            close
+                        </div>
+                    </a>
+                    <div className="col col-4 d-flex flex-column align-items-center justify-content-center mt-4">
+                        <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
+                        <button type="button" className="btn btn-outline-success mt-1 d-flex flex-column align-items-center justify-content-center"><span class="material-symbols-outlined">
+                            add_a_photo
+                        </span></button>
+
                     </div>
                     <div className="col col-8">
-                        <div className="row">
-                        </div>
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-6">
@@ -107,13 +114,12 @@ const AddStaff = () => {
                             </form>
                         </div>
                     </div>
-
                 </div>
 
             </div>
             <ToastContainer />
         </div>
-    );
+    )
 }
 
 export default AddStaff;

@@ -35,8 +35,11 @@ const EmployeeDetail = () => {
         return <div>No data found</div>; // Or some empty state
     }
     return (
-        <div className="Employee_detail h-75">
+        <div className="container my-2 h-75">
             <div className="mx-2 bg-custom rounded h-100">
+                <div>
+                    
+                </div>
                 <div className="row mx-2 my-2">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
                         <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
@@ -52,7 +55,7 @@ const EmployeeDetail = () => {
                             <form className="row">
                                 <div className="col-md-12">
                                     <label for="inputName" className="form-label">Full name</label>
-                                    <input type="text" className="form-control" id="inputName" value={staff.firstName +' ' + staff.lastName + ' ' + staff.address} />
+                                    <input type="text" className="form-control" id="inputName" value={staff.firstName + ' ' + staff.lastName + ' ' + staff.address} />
                                 </div>
                                 <div className="col-md-8 mt-2">
                                     <label for="inputEmail" className="form-label">Email</label>

@@ -1,17 +1,6 @@
 // React related imports
 import React, { useState } from 'react';
-import MenuPage from './product/MenuPage';
-import EmployeePage from './staff/EmployeePage';
-import NavBar from '../../components/NavBar';
-import SearchBar from '../../components/SearchBar';
-import EmployeeDetail from './staff/EmployeeDetail';
-import Order from './product/Order';
-import ProductDetail from './product/ProductDetail';
-import avata from '../../assets/images/user.png';
-import ProductList from './product/ProductList';
-import Menuitem from './product/MenuItem';
-import bg from '../../assets/images/bg.jpg';
-import { render } from '@testing-library/react';
+import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
 // Testing library
@@ -65,9 +54,7 @@ const ManagerPage = () => {
     return (
         <div className="ManagerPage">
             <div className="d-flex">
-                <div className='nav_bar'>
-                    <NavBar></NavBar>
-                </div>
+                <NavBar></NavBar>
                 <div className="main_display" style={{
                     backgroundImage: `url(${bg})`,
                     backgroundSize: 'cover', // This will make the image cover the full screen
@@ -87,7 +74,13 @@ const ManagerPage = () => {
 
                             <Route path="staffs" element={<EmployeePage />} />
                             <Route path="staffs/:id" element={<EmployeeDetail />} />
-                            <Route path="order" element={<Order />} />
+                            <Route path="add-staff" element={<AddStaff />} />
+
+                            <Route path="customers" element={<Customer />} />
+                            <Route path="customers/:id" element={<CustomerDetail />} />
+                            <Route path="add-customer" element={<AddCustomer />} />
+
+
                             <Route path="products" element={<ProductList />} />
                             <Route path="products/:id" element={<ProductDetail />} />
                             <Route path="add-product" element={<AddProduct />} />
@@ -96,21 +89,29 @@ const ManagerPage = () => {
                             <Route path="condiments/:id" element={<CondimentDetail />} />
                             <Route path="add-condiment" element={<AddCondiment />} />
 
+                            <Route path="receipt" element={<Receipt />} />
+                            
+                            <Route path="cart" element={<Cart />}/>
                             <Route path="order" element={<Order />} />
+
                             {/* <MenuPage></MenuPage> */}
                             {/* <Menuitem></Menuitem>  */}
                             {/* <div className="w-100 h-100">
+                            <Route path="cart" element={<Cart />} />
+                            <Route path="receipt" element={<Receipt />} />
+                            <Route path="addstaff" element={<AddStaff />} />
+                            {/* <div class="w-100 h-100">
                             <Cart></Cart>
                         </div> */}
-                        {/* <ProductDetail></ProductDetail> */}
-                        {/* <ProductList></ProductList> */}
-                        {/* <Customer></Customer> */}
-                        {/* <EmployeePage></EmployeePage> */}
-                        {/*<EmployeeDetail></EmployeeDetail>*/}
-                        </Routes>
-                    </div>
-                </div>
-            </div>
+                            {/* <ProductDetail></ProductDetail> */}
+                            {/* <ProductList></ProductList> */}
+                            {/* <Customer></Customer> */}
+                            {/* <EmployeePage></EmployeePage> */}
+                            {/*<EmployeeDetail></EmployeeDetail>*/}
+                        </Routes >
+                    </div >
+                </div >
+            </div >
         </div >
     );
 }
