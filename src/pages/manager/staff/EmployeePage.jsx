@@ -1,6 +1,8 @@
 import right from '../../../assets/images/right.png'
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+
+import add from '../../../assets/images/add.png'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import StaffService from '../../../services/staff.service'
 
 const EmployeePage = () => {
@@ -21,14 +23,13 @@ const EmployeePage = () => {
             });
     }, []);
 
-
     return (
         <div className="Employee_page">
             <div className="container my-3">
                 <div className="mx-1 my-1 bg-custom p-2 rounded">
-                    <div className="d-flex " id="filter-bar">
-                        <div className="dropdown w-15">
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    <div className="d-flex" id="filter-bar">
+                        <div className="dropdown w-15 d-flex">
+                            <button type="button" className="btn btn-primary dropdown-toggle w-50" data-bs-toggle="dropdown">
                                 {roleFilter}
                             </button>
                             <ul className="dropdown-menu">
@@ -37,11 +38,12 @@ const EmployeePage = () => {
                                 <li><a className="dropdown-item" onClick={() => setRoleFilter('STAFF')}>Staff</a></li>
                             </ul>
                         </div>
-                        <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
-                            <a href="add-staff" className="btn btn-success">
+                        <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
+                            <a class="btn btn-success w-100" href='add-staff'>
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>
+
                     </div>
                     <div className="mt-3">
                         {status === 'process' && <h1>Loading...</h1>}
@@ -74,7 +76,7 @@ const EmployeePage = () => {
                                 </tbody>
                             </table>
                         )}
-                        {status === 'error' && <h1>Error...</h1>}
+                        {status === 'error' && <h1>Đợi 1 xíu...</h1>}
                         {status === 'empty' && <h1>Empty...</h1>}
                     </div>
 
