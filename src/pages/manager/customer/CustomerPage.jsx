@@ -32,7 +32,7 @@ const Customer = () => {
                 <div className="mx-1 my-1 bg-custom p-2 rounded">
                     <div className="d-flex " id="filter-bar">
                         <div className="dropdown w-15">
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" className="btn btn-primary dropdown-toggle w-100" data-bs-toggle="dropdown">
                                 Role
                             </button>
                             <ul className="dropdown-menu">
@@ -40,8 +40,8 @@ const Customer = () => {
                                 <li><a className="dropdown-item" href="">Staff</a></li>
                             </ul>
                         </div>
-                        <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
-                            <a href="add-customer" className="btn btn-success">
+                        <div className="w-15" style={{ marginRight: '0px', marginLeft: 'auto' }}>
+                            <a href="add-customer" className="btn btn-success w-100">
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>

@@ -1,5 +1,7 @@
 import shopping from '../assets/images/shopping-cart.png'
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 const SearchBar = ({ onSearchButtonClick }) => {
     // const handleButtonClick = () => {
     //     // Access the cartDetail element using the ref
@@ -19,12 +21,14 @@ const SearchBar = ({ onSearchButtonClick }) => {
                 </div>
             </div>
             <div style={{ marginLeft: 'auto', marginRight: '1%', userSelect: 'none' }}>
-                <a href='cart'>
-                    <button type="button" className="btn btn-outline-success d-flex justify-content-center align-items-center h-100 mr-0 ml-auto" style={{ userSelect: 'none', width: '15%' }}>
 
+                <button type="button" className="btn btn-outline-success d-flex justify-content-center align-items-center h-100 mr-0 ml-auto" style={{ userSelect: 'none', width: '15%' }}>
+                    <Link to="/manager/cart">
                         <img src={shopping} style={{ width: '50%' }} />
-                    </button>
-                </a>
+                    </Link>
+                </button>
+
+
 
             </div>
 

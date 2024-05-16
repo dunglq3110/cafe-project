@@ -7,7 +7,6 @@ import StaffService from '../../../services/staff.service'
 
 const EmployeePage = () => {
 
-
     const [roleFilter, setRoleFilter] = useState('ALL');
     const [staff, setStaff] = useState(null);
     const [status, setStatus] = useState('process');

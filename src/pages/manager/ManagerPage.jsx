@@ -52,7 +52,7 @@ const ManagerPage = () => {
     };
 
     return (
-        <div className="ManagerPage admin_page">
+        <div className="ManagerPage">
             <div className="d-flex">
                 <NavBar></NavBar>
                 <div className="main_display" style={{
@@ -89,6 +89,9 @@ const ManagerPage = () => {
                             <Route path="condiments/:id" element={<CondimentDetail />} />
                             <Route path="add-condiment" element={<AddCondiment />} />
 
+                            <Route path="receipt" element={<Receipt />} />
+                            
+                            <Route path="cart" element={<Cart />}/>
                             <Route path="order" element={<Order />} />
 
                             {/* <MenuPage></MenuPage> */}

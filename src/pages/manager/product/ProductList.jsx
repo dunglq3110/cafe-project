@@ -1,9 +1,10 @@
-import right from '../../../assets/images/right.png'
 import { useState, useEffect } from 'react';
 import productService from '../../../services/product.service';
 import add from '../../../assets/images/add.png'
 import { Link } from 'react-router-dom';
+
 const ProductList = () => {
+
     const [productStatusFilter, setProductStatusFilter] = useState("ALL")
     const [products, setProducts] = useState(null);
     const [status, setStatus] = useState('process');
@@ -19,6 +20,8 @@ const ProductList = () => {
                 setStatus('error');
             });
     }, []);
+
+
     return (
         <div className="ProductList w-100 thumnail" style={{ height: '90%' }}>
             <div class="my-3 h-100">
@@ -48,6 +51,7 @@ const ProductList = () => {
                         <div id="reset" class="d-flex px-3 rounded align-items-center  bg-warning h-75" style={{ marginBottom: '0px', marginTop: 'auto' }}>
                             Reset
                         </div>
+
                         <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
                             <a class="btn btn-success w-100" href='add-product'>
                                 <img src={add} alt="add" className="button-transition" />
@@ -89,10 +93,7 @@ const ProductList = () => {
                             )}
                             {status === 'error' && <h1>Đợi 1 xíu...</h1>}
                             {status === 'empty' && <h1>Empty...</h1>}
-
                         </div>
-
-
                     </div>
                 </div>
             </div>

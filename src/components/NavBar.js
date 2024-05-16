@@ -11,7 +11,7 @@ const NavBar = () => {
         setIsVisible(!isVisible);
     };
     return (
-        <div className={`"navbar-inner nav_bar ${!isVisible ? 'nav_bar_change' : ''}`}>
+        <div className={`"navbar-inner nav_bar ${!isVisible ? 'nav_bar_change' : ''}`} style={{overflowY: 'scroll'}}>
             <div id="transition" class="user-select-none d-flex justify-content-end">
                 <div id="open" className={`button-transition ${isVisible ? 'd-none' : ''}`} onClick={toggleVisibility}>
                     <span className="material-symbols-outlined">
@@ -46,10 +46,10 @@ const NavBar = () => {
                     <div style={{ width: '100%', height: '1px', background: 'black', marginTop: '5px' }}>
                     </div>
                 </div>
-
-                <div id="side-button" style={{ marginTop: isVisible ? '' : '75%' }}>
+                {/* style={{ overflowY: 'scroll', height: '90%' }} */}
+                <div id="side-button" style={{ marginTop: isVisible ? '' : '75%'}}>
                     <Link to="/manager/home" className="nav-link" >
-                        <div className="side-button text-center" id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className="side-button text-center"  id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout" >
                                 home
                             </div>
@@ -66,7 +66,7 @@ const NavBar = () => {
                         </div>
                     </Link>
 
-                </div>
+
 
                 <Link to="/manager/receipt" className="nav-link" >
                     <div className="side-button text-center active" id="receipt" role="button" aria-pressed="true" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
@@ -119,6 +119,7 @@ const NavBar = () => {
                         <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Customer</p>
                     </div>
                 </Link>
+                </div>
 
             </div>
         </div>
