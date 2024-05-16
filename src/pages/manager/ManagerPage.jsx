@@ -90,8 +90,9 @@ const ManagerPage = () => {
                             <Route path="add-condiment" element={<AddCondiment />} />
 
                             <Route path="receipt" element={<Receipt />} />
-                            
-                            <Route path="cart" element={<Cart />}/>
+
+
+                            <Route path="cart" element={<Cart />} />
                             <Route path="order" element={<Order />} />
 
                             {/* <MenuPage></MenuPage> */}
