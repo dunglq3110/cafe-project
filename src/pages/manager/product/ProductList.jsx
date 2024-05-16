@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import productService from '../../../services/product.service';
 import add from '../../../assets/images/add.png'
 import { Link } from 'react-router-dom';
+import right from '../../../assets/images/right.png'
 
 const ProductList = () => {
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'; // Import useEffect
 import { useNavigate } from 'react-router-dom';
 import AuthService from "../../services/auth.service"
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
@@ -20,7 +20,7 @@ const SignIn = () => {
                 const decodedToken = jwtDecode(data.result.token);
                 const userRole = decodedToken.scope;
 
-                switch(userRole) {
+                switch (userRole) {
                     case 'MANAGER':
                         navigate("/manager");
                         break;
@@ -66,7 +66,7 @@ const SignIn = () => {
                                             <div className="form-outline mb-2">
                                                 <label className="form-label" htmlFor="form2Example11">Username</label>
                                                 <input type="text" id="form2Example11" className="form-control"
-                                                       placeholder="Your staff username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                                    placeholder="Your staff username" value={username} onChange={(e) => setUsername(e.target.value)} />
                                             </div>
 
                                             <div className="form-outline mb-4">
@@ -76,7 +76,7 @@ const SignIn = () => {
 
                                             <div className="text-center pt-1 mb-2 align-items-center">
                                                 <button className="btn btn-primary btn-block fa-lg gradient-custom-2 px-3 ml-5"
-                                                        type="submit">Login</button>
+                                                    type="submit">Login</button>
                                             </div>
                                         </form>
 

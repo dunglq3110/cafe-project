@@ -1,13 +1,30 @@
 import coffeecup from '../../../assets/images/coffee-cup.png'
+import productService from '../../../services/product.service';
 import MenuItem from './MenuItem';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 const Order = () => {
 
     const [showOrderDetail, setShowOrderDetail] = useState(false);
-
+    const [receiptId, setReceiptId] = useState(second)
     const handleClick = () => {
         setShowOrderDetail(true);
     };
+
+    const [products, setProducts] = useState(null);
+    const [status, setStatus] = useState('process');
+
+    useEffect(() => {
+        productService.getAll()
+            .then(data => {
+                setProducts(data);
+                setStatus('finish');
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setStatus('error');
+            });
+    }, []);
 
     return (
         <div class="h-100">
@@ -26,19 +43,27 @@ const Order = () => {
                                     <div className="side-button center-layout">Drink 1</div>
                                 </div>
                                 <div id="list-food" className="grid-container">
-                                    <div class="card item-drink d-flex align-items-center">
-                                        <img src={coffeecup}
-                                            class="card-img-top w-75 h-75" alt="Laptop" />
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <h5 class="mb-0">Espresso </h5>
-                                                <h5 class="text-dark mb-0 mx-3">$44</h5>
-                                            </div>
-                                            <div id="orderbtn">
-                                                <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={handleClick}>Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {status === 'process' && <h1>Loading...</h1>}
+                                    {status === 'finish' && (
+                                        <>
+                                            {products.map((product, index) => (
+                                                <div class="card item-drink d-flex align-items-center">
+                                                    <img src={coffeecup}
+                                                        class="card-img-top w-75 h-75" alt="Laptop" />
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-between">
+                                                            <h5 class="mb-0">{product.name} </h5>
+                                                        </div>
+                                                        <div id="orderbtn">
+                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={handleClick}>Order</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
+                                    {status === 'error' && <h1>Đợi 1 xíu...</h1>}
+                                    {status === 'empty' && <h1>Empty...</h1>}
                                 </div>
                             </div>
                         </div>
