@@ -33,11 +33,11 @@ const ProductDetail = () => {
         return <div>No data found</div>; // Or some empty state
     }
     return (
-        <div className="Product_detail h-75 w-100">
+        <div className="Product_detail w-100" style={{height:"80%"}}>
             <div className="mx-3 bg-custom rounded h-100">
-                <div className="row mx-2 my-3">
+                <div className="row mx-2 my-3 h-100">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">
-                        <img src={coffee} className="rounded mx-auto d-block w-75 h-100 img-thumbnail" />
+                        <img src={coffee} className="rounded mx-auto d-block w-75 img-thumbnail" />
                     </div>
                     <div className="col col-8">
                         <div className="row">

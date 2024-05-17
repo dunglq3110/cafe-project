@@ -2,11 +2,12 @@ import coffeecup from '../../../assets/images/coffee-cup.png'
 import productService from '../../../services/product.service';
 import MenuItem from './MenuItem';
 import React, { useState, useEffect } from 'react';
+import SearchBar from '../../../components/SearchBar';
 
 const Order = () => {
 
     const [showOrderDetail, setShowOrderDetail] = useState(false);
-    const [receiptId, setReceiptId] = useState(second)
+    const [receiptId, setReceiptId] = useState(null)
     const handleClick = () => {
         setShowOrderDetail(true);
     };
@@ -28,10 +29,11 @@ const Order = () => {
 
     return (
         <div class="h-100">
+            <SearchBar>
+            </SearchBar>
             <div className={`Order menu_container w-100 ${showOrderDetail ? 'dim' : ''}`}>
                 <div id="drink-show" className="h-100 w-100 ">
                     <div id="drink-item" className="d-flex w-100">
-
                         <div id="item" className="w-100 rounded">
                             <div id="food-show" className="mt-2">
                                 <div className="title merriweather-regular-italic" id="filter-bar">

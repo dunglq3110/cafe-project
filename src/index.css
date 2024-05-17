@@ -428,6 +428,11 @@
         0px 0px 15px 6px #eae4d7;
 }
 
+.active{
+    background-color: #6d4d3b;
+    box-shadow: 0px 0px 5px 5px #ad8c62,
+        0px 0px 15px 6px #eae4d7;   
+}
 @media (max-width: 950px) {
     .navbar-inner p {
         width: 100%;
@@ -490,7 +495,6 @@
 
 .bg-menu {
     background-color: var(--bs-warning-border-subtle);
-
 }
 
 .item-drink {
@@ -505,8 +509,9 @@
 .grid-container {
     margin: 10px;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 24% 24% 24% 24%;
     grid-gap: 10px;
+    justify-content: center;
 }
 
 

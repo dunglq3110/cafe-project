@@ -62,10 +62,6 @@ const ManagerPage = () => {
                     backgroundRepeat: 'no-repeat', // This will prevent the image from repeating
                     height: '100vh' // This makes the div take the full height of the viewport
                 }}>
-                    <div className='search_bar'>
-                        <SearchBar>
-                        </SearchBar>
-                    </div>
                     <div className="display">
                         <Routes>
                             <Route path="home" element={<Home />} />
