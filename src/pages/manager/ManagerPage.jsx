@@ -62,7 +62,6 @@ const ManagerPage = () => {
                     backgroundRepeat: 'no-repeat', // This will prevent the image from repeating
                     height: '100vh' // This makes the div take the full height of the viewport
                 }}>
-
                     <div className="display">
                         <Routes>
                             <Route path="home" element={<Home />} />
@@ -87,7 +86,6 @@ const ManagerPage = () => {
                             <Route path="add-condiment" element={<AddCondiment />} />
 
                             <Route path="receipt" element={<Receipt />} />
-
 
                             <Route path="cart" element={<Cart />} />
                             <Route path="order" element={<Order />} />

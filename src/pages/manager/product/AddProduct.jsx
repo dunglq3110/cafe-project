@@ -1,6 +1,6 @@
 import ech from '../../../assets/images/ech.jpg';
 import { useState, useEffect, useRef } from 'react';
-
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -102,11 +102,15 @@ const AddProduct = () => {
 
 
                                 <div className="mt-4 d-flex justify-content-around">
-                                    <a className='w-15' href='staffs'>
-                                        <button type="button" className="btn btn-danger w-100">CANCEL</button>
-                                    </a>
                                     <a className='w-15'>
-                                        <button type="button" className="btn btn-success w-100" onClick={handleAddClick}>ADD</button>
+                                        <Link to="/manager/products">
+
+                                            <button type="button" className="btn btn-danger w-100">CANCEL</button>
+                                        </Link>
+                                    </a>
+
+                                    <a className='w-15'>
+                                            <button type="button" className="btn btn-success w-100" onClick={handleAddClick}>ADD</button>
                                     </a>
                                 </div>
                             </form>

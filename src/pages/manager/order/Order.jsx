@@ -65,7 +65,6 @@ const Order = () => {
             <div className={`Order menu_container w-100 ${showOrderDetail ? 'dim' : ''}`}>
                 <div id="drink-show" className="h-100 w-100 ">
                     <div id="drink-item" className="d-flex w-100">
-
                         <div id="item" className="w-100 rounded">
                             <div id="food-show" className="mt-2">
                                 <div className="title merriweather-regular-italic" id="filter-bar">

@@ -496,7 +496,6 @@
 
 .bg-menu {
     background-color: var(--bs-warning-border-subtle);
-
 }
 
 .item-drink {
@@ -511,8 +510,9 @@
 .grid-container {
     margin: 10px;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 24% 24% 24% 24%;
     grid-gap: 10px;
+    justify-content: center;
 }
 
 
