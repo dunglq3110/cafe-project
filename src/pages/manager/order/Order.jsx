@@ -2,18 +2,35 @@ import coffeecup from '../../../assets/images/coffee-cup.png'
 import productService from '../../../services/product.service';
 import MenuItem from './MenuItem';
 import React, { useState, useEffect } from 'react';
+import SearchBar from '../../../components/SearchBar';
+import orderService from '../../../services/order.service';
+import add from '../../../assets/images/add.png'
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const Order = () => {
 
+    const [selectedProduct, setSelectedProduct] = useState(null)
     const [showOrderDetail, setShowOrderDetail] = useState(false);
-    const [receiptId, setReceiptId] = useState(second)
-    const handleClick = () => {
-        setShowOrderDetail(true);
-    };
-
+    const [receipt, setReceipt] = useState(null)
     const [products, setProducts] = useState(null);
     const [status, setStatus] = useState('process');
 
+    const handleClick = (product) => {
+        setSelectedProduct(product);
+        setShowOrderDetail(true);
+    };
+
+
+    const newOrder = () => {
+        orderService.newOrder()
+            .then(data => {
+                setReceipt(data); // set the receiptId with the data.id
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }
     useEffect(() => {
         productService.getAll()
             .then(data => {
@@ -24,10 +41,27 @@ const Order = () => {
                 console.error('There was an error!', error);
                 setStatus('error');
             });
+
+    }, []);
+    useEffect(() => {
+        orderService.getLastestProcessOrder()
+            .then(data => {
+                setReceipt(data); // set the receiptId with the data.id
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
     }, []);
 
     return (
         <div class="h-100">
+            <div className='search_bar'>
+                <SearchBar
+                    receipt={receipt}
+                    newOrder={newOrder}>
+                </SearchBar>
+
+            </div>
             <div className={`Order menu_container w-100 ${showOrderDetail ? 'dim' : ''}`}>
                 <div id="drink-show" className="h-100 w-100 ">
                     <div id="drink-item" className="d-flex w-100">
@@ -55,7 +89,7 @@ const Order = () => {
                                                             <h5 class="mb-0">{product.name} </h5>
                                                         </div>
                                                         <div id="orderbtn">
-                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={handleClick}>Order</button>
+                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={() => handleClick(product)}>Order</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -74,15 +108,17 @@ const Order = () => {
             {
                 showOrderDetail && (
                     <div className="order-detail">
-                        <MenuItem></MenuItem>
+                        <MenuItem
+                            selectedProduct={selectedProduct}
+                            receipt={receipt}
+                            closeMenu={() => setShowOrderDetail(false)}
+
+                        />
                     </div>
                 )
             }
-
+            <ToastContainer />
         </div>
-
-
-
     );
 }
 

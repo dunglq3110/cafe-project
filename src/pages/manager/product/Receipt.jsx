@@ -84,6 +84,29 @@ const Receipt = () => {
                                                     <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
                                                 </div>
                                             </div>
+                                            <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }}>
+                                                <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
+                                                    <div className="d-flex align-items-center ">Coffee</div>
+                                                </div>
+                                                <div className="col-md-6 row h-75 mt-2 w-50">
+                                                    <div className='h-100 w-50 col d-inline justify-content-center align-items-center bg-white rounded-circle mx-1' id="size"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                </div>
+                                            </div>
+                                            <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }}>
+                                                <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
+                                                    <div className="d-flex align-items-center ">Coffee</div>
+                                                </div>
+                                                <div className="col-md-6 row h-75 mt-2 w-50">
+                                                    <div className='h-100 w-50 col d-inline justify-content-center align-items-center bg-white rounded-circle mx-1' id="size"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                    <div class="col d-inline bg-white mx-1 rounded fit-content"></div>
+                                                </div>
+                                            </div>
+
 
                                             <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }}>
                                                 <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
