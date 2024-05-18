@@ -35,6 +35,7 @@ class OrderService {
             });
     }
     addProductReceipt(body) {
+
         return axios.post(`${API_URL}/add-product-receipt`, body, { headers: authHeader() })
             .then(response => {
                 if (response.data.result) {
@@ -77,6 +78,37 @@ class OrderService {
                 throw error;
             });
     }
+
+    finishOrder(id) {
+        return axios.put(`${API_URL}/finish-order/${id}`, {}, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+    addCondimentReceipt(productDetailId, condimentId, quantity) {
+        return axios.post(`${API_URL}/add-condiment-receipt`, { productDetailId, condimentId, quantity }, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+
+
 
 
 }
