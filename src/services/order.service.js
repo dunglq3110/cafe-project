@@ -107,6 +107,50 @@ class OrderService {
                 throw error;
             });
     }
+    updateCondimentQuantity(productCondimentDetailId, quantity) {
+        return axios.put(`${API_URL}/update-condiment-receipt`, { productCondimentDetailId, quantity }, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+
+    deleteCondiment(id) {
+        return axios.delete(`${API_URL}/delete-condiment-receipt/${id}`, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+
+    deleteOrder(id) {
+        return axios.delete(`${API_URL}/delete-order/${id}`, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
 
 
 
