@@ -13,7 +13,6 @@ import NavBar from '../../components/NavBar';
 import SearchBar from '../../components/SearchBar';
 
 // Order related imports
-import MenuPage from './order/MenuPage';
 import Order from './order/Order';
 import Menuitem from './order/MenuItem';
 

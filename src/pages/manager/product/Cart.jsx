@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, } from 'react';
 import coffee from '../../../assets/images/coffee-cup.png'
 import orderService from '../../../services/order.service';
 import customerService from '../../../services/customer.service'
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
+
+    const navigate = useNavigate();
 
     const [receipt, setReceipt] = useState(null)
     const [customers, setCustomers] = useState(null)
@@ -30,6 +33,16 @@ const Cart = () => {
             });
     }
 
+    const completeOrder = (id) => {
+        orderService.finishOrder(id)
+            .then(data => {
+                setReceipt(data);
+                navigate('/manager/order') // update the receipt state with the new receipt data
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }
 
 
 
@@ -179,8 +192,14 @@ const Cart = () => {
                                                     <h5>{receipt ? `$${receipt.totalPrice * (1 - receipt.discount)}` : '$0'}</h5>
                                                 </div>
 
-                                                <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-block btn-lg"
-                                                    data-mdb-ripple-color="dark">Finish Order</button>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-dark btn-block btn-lg"
+                                                    onClick={() => completeOrder(receipt.id)}
+                                                >
+                                                    Finish Order
+                                                </button>
+
                                             </div>
                                         </div>
                                     </div>

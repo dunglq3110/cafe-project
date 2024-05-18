@@ -1,11 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useParams, useEffect } from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 
 import { CDBContainer } from 'cdbreact';
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
+import reportService from '../../services/report.service';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Dashboard = () => {
+
+
+    const [report, setReport] = useState(null);
+
+
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
+    useEffect(() => {
+        reportService.getReportByDate(selectedDate)
+            .then(data => {
+                setReport(data);
+            })
+            .catch(error => {   
+                console.error('There was an error!', error);
+            });
+    }, [selectedDate]);
+
     Chart.register(CategoryScale);
     const [dataType, setdataType] = useState('WEEK');
     const [chartType, setChartType] = useState('Bar Chart');
@@ -74,6 +98,15 @@ const Dashboard = () => {
                             <li><a className="dropdown-item" onClick={() => setdataType('YEAR')}>Year</a></li>
                         </ul>
                     </div>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={handleDateChange}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={15}
+                        dateFormat="yyyy-MM-dd HH:mm"
+                        placeholderText="Select a date and time"
+                    />
                 </div>
                 <div className='w-15 mx-5 my-3'>
                     <div class="dropdown w-100 d-flex">

@@ -71,7 +71,7 @@ const Receipt = () => {
                             <div class="my-1 bg-white p-2 rounded h-75 ">
                                 <div class="container w-100 h-100">
                                     <img src={right} style={{ width: '30px', height: '30px' }} onClick={ReceiptDetail} />
-                                    <div class="w-100 h-50 bg-secondary rounded mt-2">
+                                    <div class="w-100 h-50 bg-secondary rounded mt-2 scroll">
                                         <div className='w-100 h-100'>
                                             <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }}>
                                                 <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>

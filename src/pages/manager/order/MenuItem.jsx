@@ -17,7 +17,10 @@ const MenuItem = ({ selectedProduct, receipt, closeMenu, }) => {
     };
 
     const handleQuantityChange = (event) => {
-        setQuantity(event.target.value);
+        if (!isNaN(event.target.value) && event.target.value >= 0) {
+            setQuantity(event.target.value);
+        }
+        else toast.error("Select Again!!");
     };
 
     const handleAddToCart = () => {
@@ -39,15 +42,15 @@ const MenuItem = ({ selectedProduct, receipt, closeMenu, }) => {
     };
 
     return (
-        <div className="w-50 h-75 container bg-white px-0 rounded">
+        <div className="w-50 pb-2 container bg-white px-0 rounded">
 
-            <div className="h-25 w-100 d-flex align-items-center rounded" style={{ backgroundColor: "#885b46" }}>
-                <a class="close text-center align-items-center" onClick={closeMenu}>
+            <div className="w-100 align-items-center rounded pt-2" style={{ backgroundColor: "#885b46" }}>
+                <a class="close text-center align-items-center h-25 w-15 mx-2 my-2" onClick={closeMenu}>
                     <div class="material-symbols-outlined ">
                         close
                     </div>
                 </a>
-                <div className="w-100 d-flex justify-content-center align-items-center" style={{ marginTop: "25%" }}>
+                <div className="container mx-2 d-flex justify-content-center align-items-center">
                     <img src={bg} className="rounded d-block img-thumbnail z-1" style={{ width: "20%", backgroundColor: "#b1835e" }} />
                     <div className='mx-3 fs-2 text-center flex-column mb-0'>
                         <p className="text-start" style={{ color: "#f9f6f3" }}>{selectedProduct.name}</p>

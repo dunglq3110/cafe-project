@@ -7,6 +7,8 @@ import orderService from '../../../services/order.service';
 import add from '../../../assets/images/add.png'
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
+import condimentService from '../../../services/condiment.service';
+import CondimentItem from './CondimentItem';
 
 const Order = () => {
 
@@ -14,7 +16,13 @@ const Order = () => {
     const [showOrderDetail, setShowOrderDetail] = useState(false);
     const [receipt, setReceipt] = useState(null)
     const [products, setProducts] = useState(null);
+    const [condiments, setCondiments] = useState(null);
     const [status, setStatus] = useState('process');
+
+    const [selectedOption, setSelectedOption] = useState('Product');
+
+
+
 
     const handleClick = (product) => {
         setSelectedProduct(product);
@@ -53,6 +61,17 @@ const Order = () => {
             });
     }, []);
 
+    useEffect(() => {
+        condimentService.getAll()
+            .then(data => {
+                setCondiments(data);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }, []);
+
+
     return (
         <div class="h-100">
             <div className='search_bar'>
@@ -70,25 +89,26 @@ const Order = () => {
                                 <div className="title merriweather-regular-italic" id="filter-bar">
                                     Our Menu
                                 </div>
-                                <div id="food-option" className="d-flex flex-row text-align-center justify-content-center my-2">
-                                    <div className="side-button center-layout">Drink 1</div>
-                                    <div className="side-button center-layout">Drink 1</div>
-                                    <div className="side-button center-layout">Drink 1</div>
+                                <div id="food-option" className="d-flex flex-row text-align-center my-2">
+                                    <select className="center-layout form-select w-15" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+                                        <option value="Product">Product</option>
+                                        <option value="Condiment">Condiment</option>
+                                    </select>
                                 </div>
                                 <div id="list-food" className="grid-container">
                                     {status === 'process' && <h1>Loading...</h1>}
                                     {status === 'finish' && (
                                         <>
-                                            {products.map((product, index) => (
+                                            {(selectedOption === 'Product' ? products : condiments).map((item, index) => (
                                                 <div class="card item-drink d-flex align-items-center">
                                                     <img src={coffeecup}
                                                         class="card-img-top w-75 h-75" alt="Laptop" />
                                                     <div class="card-body">
                                                         <div class="d-flex justify-content-between">
-                                                            <h5 class="mb-0">{product.name} </h5>
+                                                            <h5 class="mb-0">{item.name} </h5>
                                                         </div>
                                                         <div id="orderbtn">
-                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={() => handleClick(product)}>Order</button>
+                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={() => handleClick(item)}>Order</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -97,6 +117,7 @@ const Order = () => {
                                     )}
                                     {status === 'error' && <h1>Đợi 1 xíu...</h1>}
                                     {status === 'empty' && <h1>Empty...</h1>}
+
                                 </div>
                             </div>
                         </div>
@@ -104,18 +125,24 @@ const Order = () => {
                 </div>
 
             </div>
-            {
-                showOrderDetail && (
-                    <div className="order-detail">
+            {showOrderDetail && (
+                <div className="order-detail">
+                    {selectedOption === 'Product' ? (
                         <MenuItem
                             selectedProduct={selectedProduct}
                             receipt={receipt}
                             closeMenu={() => setShowOrderDetail(false)}
-
                         />
-                    </div>
-                )
-            }
+                    ) : (
+                        <CondimentItem
+                            selectedProduct={selectedProduct}
+                            receipt={receipt}
+                            closeMenu={() => setShowOrderDetail(false)}
+                        />
+                    )}
+                </div>
+            )}
+
             <ToastContainer />
         </div>
     );

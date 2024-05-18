@@ -675,3 +675,8 @@
     text-decoration: none;
     color: #000;
 }
+
+.scroll{
+    overflow-y: scroll;
+    scrollbar-color: #fcfcea;
+}
