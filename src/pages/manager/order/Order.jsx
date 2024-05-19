@@ -85,12 +85,12 @@ const Order = () => {
                 <div id="drink-show" className="h-100 w-100 ">
                     <div id="drink-item" className="d-flex w-100">
                         <div id="item" className="w-100 rounded">
-                            <div id="food-show" className="mt-2">
+                            <div id="food-show" className="">
                                 <div className="title merriweather-regular-italic" id="filter-bar">
                                     Our Menu
                                 </div>
-                                <div id="food-option" className="d-flex flex-row text-align-center my-2">
-                                    <select className="center-layout form-select w-15" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+                                <div id="food-option" className="d-flex flex-row text-align-center my-4 mx-3">
+                                    <select className="form-select-lg form-select w-15 " value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
                                         <option value="Product">Product</option>
                                         <option value="Condiment">Condiment</option>
                                     </select>
@@ -100,11 +100,11 @@ const Order = () => {
                                     {status === 'finish' && (
                                         <>
                                             {(selectedOption === 'Product' ? products : condiments).map((item, index) => (
-                                                <div class="card item-drink d-flex align-items-center">
+                                                <div class="item-drink">
                                                     <img src={coffeecup}
-                                                        class="card-img-top w-75 h-75" alt="Laptop" />
-                                                    <div class="card-body">
-                                                        <div class="d-flex justify-content-between">
+                                                        class="w-75 h-75" alt="" />
+                                                    <div class="w-100">
+                                                        <div class="d-flex justify-content-center w-100 overflow-hidden">
                                                             <h5 class="mb-0">{item.name} </h5>
                                                         </div>
                                                         <div id="orderbtn">

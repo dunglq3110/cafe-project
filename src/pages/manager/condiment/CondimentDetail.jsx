@@ -2,6 +2,8 @@ import coffee from "../../../assets/images/coffee-cup.png"
 import condimentService from "../../../services/condiment.service";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 const CondimentDetail = () => {
 
 
@@ -34,18 +36,23 @@ const CondimentDetail = () => {
     }
 
     return (
-        <div className="Product_detail h-75 w-100">
-            <div className="mx-3 bg-custom rounded h-100">
-                <div className="row mx-2 my-3">
-                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">
-                        <img src={coffee} className="rounded mx-auto d-block w-75 h-100 img-thumbnail" />
-                    </div>
-                    <div className="col col-8">
-                        <div className="row">
+        <div className="Product_detail h-75 w-50">
+            <div className="container mx-3 bg-custom rounded h-100">
+                <div className="mx-2 my-3 h-100">
+                    <Link to=""></Link>
+                    <a class="material-symbols-outlined handle mt-2">
+                        close
+                    </a>
+                    <div className="h-50 d-flex flex-column justify-content-center align-items-center">
+                        <img src={coffee} className="h-75 my-3 rounded mx-auto img-thumbnail"></img>
+                        <div class="material-symbols-outlined">
+                            add_photo_alternate
                         </div>
-                        <div className="container my-2 mb-4">
+                    </div>
+                    <div className="">
+                        <div className="container">
                             <form className="row">
-                                <div className="col-md-12 mt-5">
+                                <div className="col-md-12">
                                     <label for="inputName" className="form-label">Name</label>
                                     <input type="text" className="form-control" id="inputName" value={condiment.name} />
                                 </div>

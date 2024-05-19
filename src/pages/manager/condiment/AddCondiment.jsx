@@ -52,11 +52,11 @@ const AddCondiment = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <label htmlFor="inputLastName" className="form-label text-uppercase fw-bold">Price</label>
-                                    <input type="text" className="form-control" id="inputLastName" ref={unitPriceRef} />
+                                    <input type="number" className="form-control" id="inputLastName" ref={unitPriceRef} />
                                 </div>
 
                                 <div className="mt-4 d-flex justify-content-around">
-                                    <a className='w-15' href='staffs'>
+                                    <a className='w-15' href='order'>
                                         <button type="button" className="btn btn-danger w-100">CANCEL</button>
                                     </a>
                                     <a className='w-15'>

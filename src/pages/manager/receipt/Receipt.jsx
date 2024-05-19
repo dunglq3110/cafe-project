@@ -1,6 +1,7 @@
 import right from '../../../assets/images/right.png'
 import React, { useState, useEffect } from 'react';
 import receiptService from '../../../services/receipt.service';
+import close from '../../../assets/images/OIP.jpg';
 const Receipt = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [receipts, setReceipts] = useState(null)
@@ -9,7 +10,9 @@ const Receipt = () => {
     const [selectedReceipt, setSelectedReceipt] = useState(null);
 
     const ReceiptDetail = (receipt) => {
-        setIsVisible(!isVisible);
+        if (isVisible === false) {
+            setIsVisible(!isVisible);
+        }
         setSelectedReceipt(receipt);
     };
 
@@ -44,75 +47,81 @@ const Receipt = () => {
             <div className="my-3 h-100">
                 <div className="mx-3 my-1 p-3 bg-custom p-2 rounded h-100">
                     <div className="d-flex " id="filter-bar">
-                        <div className="col-3">
+                        <div className="col-3 d-flex align-items-end">
                             <input type="date" className="form-control w-75" id="inputBirthday" placeholder="" />
                         </div>
                         <div className="dropdown col-3">
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                                Status
-                            </button>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="./Order#">Waiting</a></li>
-                                <li><a className="dropdown-item" href="./Order#">Done</a></li>
-                                <li><a className="dropdown-item" href="./Order#">Execute</a></li>
-                            </ul>
+                            <div className="w-75">
+                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
+                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }} >
+                                    <option value="" selected>ALL</option>
+                                    <option value="0">Processing</option>
+                                    <option value="1">Done</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="dropdown col-3">
-                            <button type="button" className="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
-                                Space
-                            </button>
-                            <ul className="dropdown-menu col-3">
-                                <li><a className="dropdown-item" href="./Order#">1</a></li>
-                                <li><a className="dropdown-item" href="./Order#">2</a></li>
-                                <li><a className="dropdown-item" href="./Order#">3</a></li>
-                            </ul>
+                            <div className='w-75'>
+
+                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Space</label>
+                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }} >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
                         </div>
-                        <div id="reset" className="d-flex px-3 rounded align-items-center bg-warning">
-                            Reset
+                        <div id="reset" className="col-3 rounded d-flex align-items-end">
+                            <button className='bg-warning rounded align-items-bottom'>Reset</button>
                         </div>
                     </div>
-                    <div className='d-flex h-100 my-4'>
+                    <div className='d-flex h-100 my-4 overflow-auto'>
                         <div className={`${isVisible ? 'col-md-8' : 'col-md-12'}`}>
-                            <table className="table table-striped table-bordered rounded table-hover mt-1">
-                                <thead className="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Staff</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">Discount</th>
-                                        <th scope="col">Total Price</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {receipts && receipts.map((receipt, index) => (
-                                        <tr key={receipt.id}>
-                                            <th scope="row">{receipt.id}</th>
-                                            <td>{new Date(receipt.date).toLocaleDateString()}</td>
-                                            <td>{new Date(receipt.date).toLocaleTimeString()}</td>
-                                            <td>{`${receipt.staff.firstName} ${receipt.staff.lastName}`}</td>
-                                            <td>{receipt.customer ? `${receipt.customer.firstName} ${receipt.customer.lastName}` : 'N/A'}</td>
-                                            <td>{`${receipt.discount * 100}%`}</td>
-                                            <td>{`$${(receipt.totalPrice * (1 - receipt.discount)).toFixed(2)}`}</td>
-                                            <td><img src={right} alt="right" className="button-transition" onClick={() => ReceiptDetail(receipt)} /></td>
+                            <div className='overflow-auto' style={{ height: "80%" }}>
+                                <table className="table table-striped table-bordered rounded table-hover">
+                                    <thead className="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Staff</th>
+                                            <th scope="col">Customer</th>
+                                            <th scope="col">Discount</th>
+                                            <th scope="col">Total Price</th>
+                                            <th scope="col"></th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {receipts && receipts.map((receipt, index) => (
+                                            <tr key={receipt.id}>
+                                                <th scope="row">{receipt.id}</th>
+                                                <td>{new Date(receipt.date).toLocaleDateString()}</td>
+                                                <td>{new Date(receipt.date).toLocaleTimeString()}</td>
+                                                <td>{`${receipt.staff.firstName} ${receipt.staff.lastName}`}</td>
+                                                <td>{receipt.customer ? `${receipt.customer.firstName} ${receipt.customer.lastName}` : 'N/A'}</td>
+                                                <td>{`${receipt.discount * 100}%`}</td>
+                                                <td>{`$${(receipt.totalPrice * (1 - receipt.discount)).toFixed(2)}`}</td>
+                                                <td><img src={right} alt="right" className="button-transition handle" onClick={() => ReceiptDetail(receipt)} /></td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                         <div className={`h-100 col-md-4 mx-1 ${!isVisible ? 'd-none' : ''}`}>
-                            <div class="my-1 bg-white p-2 rounded h-75 ">
+                            <div class=" bg-white p-2 rounded" style={{ height: "80%" }}>
                                 <div class="container w-100 h-100">
-                                    <div class="w-100 h-50 bg-secondary rounded mt-2">
-                                        <div className='w-100 h-100'>
+                                    <span className="material-symbols-outlined handle" onClick={() => setIsVisible(false)}>
+                                        close
+                                    </span>
+                                    <div class="h-50 bg-secondary rounded mt-2">
+                                        <div className='h-100 scroll' style={{overflowX:"hidden" }}>
                                             {selectedReceipt && selectedReceipt.productDetails.map((product, index) => (
                                                 <>
                                                     <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }} key={product.id}>
                                                         <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
-                                                            <div className="d-flex align-items-center fit-content ">{product.productSize.productName}</div>
+                                                            <div className="d-flex align-items-center overflow-hidden">{product.productSize.productName}</div>
                                                         </div>
                                                         <div className="h-100 col-md-6 row d-flex mt-2 align-items-center text-align-center justify-content-center">
                                                             {/* for the size name*/}

@@ -2,6 +2,7 @@
 @import "bootstrap/dist/css/bootstrap.css";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"); */
 
 :root {
     --primary-color: #fccb90;
@@ -349,7 +350,7 @@
 .main_display {
     background-color: #E3D7C5;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin-top: 0;
     position: relative;
     display: flex;
@@ -377,7 +378,7 @@
     height: 100%;
     margin-top: 0;
     overflow-y: scroll;
-    scrollbar-color: #928233 #3e3d35;
+    scrollbar-color: #fcfcea;
 }
 
 .search-bar {
@@ -502,9 +503,12 @@
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     border-radius: 5%;
-    padding: 20px;
+    padding: 15px;
     font-size: 30px;
     text-align: center;
+    display: flex; /* Add this line */
+    align-items: center; /* Vertically center the content */
+    flex-direction: column;
 }
 
 .grid-container {
@@ -671,12 +675,17 @@
 
 
 
-.close {
+.handle {
     text-decoration: none;
     color: #000;
+    cursor:pointer;
 }
 
 .scroll{
     overflow-y: scroll;
     scrollbar-color: #fcfcea;
 }
+
+.disaplayInput{
+    display: none;
+    }

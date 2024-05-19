@@ -10,28 +10,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const Dashboard = () => {
 
-
-    const [report, setReport] = useState(null);
-
-
-    const [selectedDate, setSelectedDate] = useState(new Date());
-
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
-
-    useEffect(() => {
-        reportService.getReportByDate(selectedDate)
-            .then(data => {
-                setReport(data);
-            })
-            .catch(error => {   
-                console.error('There was an error!', error);
-            });
-    }, [selectedDate]);
-
     Chart.register(CategoryScale);
-    const [dataType, setdataType] = useState('WEEK');
+    const [dataType, setdataType] = useState("WEEK");
     const [chartType, setChartType] = useState('Bar Chart');
 
     const weekData = {
@@ -88,36 +68,25 @@ const Dashboard = () => {
             <div className='d-flex'>
 
                 <div className='w-15 mx-5 my-3'>
-                    <div class="dropdown w-100 d-flex">
-                        <button type="button" class="btn btn-success dropdown-toggle w-75" data-bs-toggle="dropdown">
-                            {dataType}
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a className="dropdown-item" onClick={() => setdataType('WEEK')}>Week</a></li>
-                            <li><a className="dropdown-item" onClick={() => setdataType('MONTH')}>Month</a></li>
-                            <li><a className="dropdown-item" onClick={() => setdataType('YEAR')}>Year</a></li>
-                        </ul>
-                    </div>
-                    <DatePicker
-                        selected={selectedDate}
-                        onChange={handleDateChange}
-                        showTimeSelect
-                        timeFormat="HH:mm"
-                        timeIntervals={15}
-                        dateFormat="yyyy-MM-dd HH:mm"
-                        placeholderText="Select a date and time"
-                    />
+                    <label class="form-label mb-0" style={{ color: "white", zIndex: "1", marginLeft: "10px" }}>Period</label>
+                    <select className="form-select form-select-lg" style={{ marginTop: '-10px',backgroundColor:'#b5783d' }} onChange={(e) => setdataType(e.target.value)}>
+                        <option value="WEEK">WEEK</option>
+                        <option value="MONTH">MONTH</option>
+                        <option value="YEAR">YEAR</option>
+                    </select>
                 </div>
                 <div className='w-15 mx-5 my-3'>
-                    <div class="dropdown w-100 d-flex">
-                        <button type="button" class="btn btn-success dropdown-toggle w-75" data-bs-toggle="dropdown">
-                            {chartType}
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a className="dropdown-item" onClick={() => setChartType('Bar Chart')}>Bar Chart</a></li>
-                            <li><a className="dropdown-item" onClick={() => setChartType('Pie Chart')}>Pie Chart</a></li>
-                        </ul>
-                    </div>
+                    <label class="form-label mb-0" style={{ color: "white", zIndex: "1", marginLeft: "10px" }}>Type Chart</label>
+                    <select
+                        className="form-select form-select-lg"
+                        style={{ marginTop: '-10px',backgroundColor:"#b5783d" }}
+                        value={chartType}
+                        onChange={(e) => setChartType(e.target.value)}
+                    >
+                        <option value="Bar Chart">Bar Chart</option>
+                        <option value="Pie Chart">Pie Chart</option>
+                    </select>
+
                 </div>
             </div>
             <div className='d-flex'>

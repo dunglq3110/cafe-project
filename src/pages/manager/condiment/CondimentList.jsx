@@ -25,20 +25,22 @@ const CondimentList = () => {
 
 
     return (
-        <div className="ProductList h-100 w-100">
-            <div class="my-3 h-100">
-                <div class="mx-3 h-100 mx-1 my-1 bg-custom p-2 rounded">
+        <div className="ProductList">
+            <div class="my-3 container">
+                <div class="mx-3 mx-1 my-1 bg-custom p-2 rounded">
                     <div class="d-flex " id="filter-bar">
                         <div class="dropdown w-15">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" >
-                                {productStatusFilter}
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" onClick={() => setProductStatusFilter("ALL")}>All</a></li>
-                                <li><a class="dropdown-item" onClick={() => setProductStatusFilter("ABLE")}>Able</a></li>
-                                <li><a class="dropdown-item" onClick={() => setProductStatusFilter("OUTSTOCK")}>Out of stock</a></li>
-                                <li><a class="dropdown-item" onClick={() => setProductStatusFilter("ENABLE")}>Enable</a></li>
-                            </ul>
+                            <select
+                                className="form-select"
+                                value={productStatusFilter}
+                                onChange={(e) => setProductStatusFilter(e.target.value)}
+                            >
+                                <option value="ALL">All</option>
+                                <option value="ABLE">Able</option>
+                                <option value="OUTSTOCK">Out of stock</option>
+                                <option value="ENABLE">Enable</option>
+                            </select>
+
                         </div>
 
                         <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
@@ -48,7 +50,6 @@ const CondimentList = () => {
                         </div>
                     </div>
                     <div className="mt-3">
-
                         {status === 'process' && <h1>Loading...</h1>}
                         {status === 'finish' && (
                             <table className="table table-striped  table-hover">
