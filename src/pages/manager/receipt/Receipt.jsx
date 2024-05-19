@@ -24,7 +24,7 @@ const Receipt = () => {
                 console.error('There was an error!', error);
                 setStatus('error');
             });
-    }, [receipts]);
+    }, []);
 
 
     if (status === 'process') {
@@ -112,15 +112,15 @@ const Receipt = () => {
                                                 <>
                                                     <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }} key={product.id}>
                                                         <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
-                                                            <div className="d-flex align-items-center ">{product.productSize.productName}</div>
+                                                            <div className="d-flex align-items-center fit-content ">{product.productSize.productName}</div>
                                                         </div>
-                                                        <div className="col-md-6 row h-75 mt-2 w-50">
+                                                        <div className="h-100 col-md-6 row d-flex mt-2 align-items-center text-align-center justify-content-center">
                                                             {/* for the size name*/}
-                                                            <div className='h-100 w-50 col d-inline justify-content-center align-items-center bg-white rounded-circle mx-1' id="size">{product.productSize.sizeName}</div>
+                                                            <div className='h-100 col-md-4 d-inline  bg-white rounded-circle px-2' id="size">{product.productSize.sizeName}</div>
                                                             {/* for the product price*/}
-                                                            <div class="col d-inline bg-white mx-1 rounded fit-content">{product.productQuantity}</div>
+                                                            <div class="h-100 col col-md-4 d-inline bg-white px-2 rounded ">{product.productQuantity}</div>
                                                             {/* for the quantity*/}
-                                                            <div class="col d-inline bg-white mx-1 rounded fit-content">${product.productQuantity * product.productPrice}</div>
+                                                            <div class="h-100 col col-md-4 d-inline bg-white px-2 rounded">${product.productQuantity * product.productPrice}</div>
                                                             {/* for the discount of each product*/}
                                                         </div>
                                                     </div>
