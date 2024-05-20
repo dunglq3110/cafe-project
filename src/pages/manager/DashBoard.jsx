@@ -5,6 +5,8 @@ import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 import React, { useEffect, useState } from 'react';
 import reportService from '../../services/report.service';
+import * as XLSX from 'xlsx';
+
 const Dashboard = () => {
     const formatDate = (date) => {
         return date.toISOString().slice(0, 10);
@@ -25,6 +27,13 @@ const Dashboard = () => {
 
     const [responseData, setResponseData] = useState([]);
     const [status, setStatus] = useState('finish');
+
+    const exportToExcel = () => {
+        const ws = XLSX.utils.json_to_sheet(responseData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Report");
+        XLSX.writeFile(wb, "report.xlsx");
+    }
 
 
     const [chartData, setChartData] = useState({
@@ -188,6 +197,21 @@ const Dashboard = () => {
                                     </div>
                                 </>
                             )}
+                            <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                <button className="side-button center-layout" onClick={exportToExcel}>Export</button>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <input class="dropdown-item" type="text" placeholder="Input field" />
+                                    <a class="dropdown-item" href="#">Option 1</a>
+                                    <a class="dropdown-item" href="#">Option 2</a>
+                                    <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                            </div>
+
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (
                             <div class="mt-3" style={{ height: '100%' }} >

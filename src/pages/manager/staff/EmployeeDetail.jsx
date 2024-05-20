@@ -38,7 +38,7 @@ const EmployeeDetail = () => {
         <div className="container my-2 h-75">
             <div className="mx-2 bg-custom rounded h-100">
                 <div>
-                    
+
                 </div>
                 <div className="row mx-2 my-2">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
@@ -55,43 +55,28 @@ const EmployeeDetail = () => {
                             <form className="row">
                                 <div className="col-md-12">
                                     <label for="inputName" className="form-label">Full name</label>
-                                    <input type="text" className="form-control" id="inputName" value={staff.firstName + ' ' + staff.lastName + ' ' + staff.address} />
+                                    <input type="text" className="form-control" id="inputName" value={staff.firstName + ' ' + staff.lastName} />
                                 </div>
                                 <div className="col-md-8 mt-2">
                                     <label for="inputEmail" className="form-label">Email</label>
-                                    <input type="email" className="form-control" id="inputEmail4" />
+                                    <input type="email" className="form-control" id="inputEmail4" value={staff.email} />
                                 </div>
                                 <div className="col-md-4 mt-2">
-                                    <label for="inputState" className="form-label">Gentle</label>
-                                    <select id="inputState" className="form-select">
-                                        <option selected>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
+                                    <label for="inputState" className="form-label">Gender</label>
+                                    <input type="email" className="form-control" id="inputEmail4" value={staff.gender} />
 
+                                </div>
                                 <div className="col-md-6 mt-2">
                                     <label for="inputCity" className="form-label">Phone Number</label>
-                                    <input type="tel" className="form-control" id="inputCity" />
+                                    <input type="tel" className="form-control" id="inputCity" value={staff.phoneNumber} />
                                 </div>
-                                <div className="col-md-4 mt-2">
-                                    <label for="inputState" className="form-label">State</label>
-                                    <select id="inputState" className="form-select">
-                                        <option selected>Active</option>
-                                        <option>Inactive</option>
-                                    </select>
-                                </div>
-                                <div className="col-md-2 mt-2">
+                                <div className="col-md-6 mt-2">
                                     <label for="inputZip" className="form-label">Role</label>
-                                    <input type="text" className="form-control" id="inputRole" />
-                                </div>
-                                <div className="col-12 mt-2">
-                                    <label for="inputAddress" className="form-label">Birthday</label>
-                                    <input type="date" className="form-control" id="inputBirthday" placeholder="" />
+                                    <input type="text" className="form-control" id="inputRole" value={staff.role} />
                                 </div>
                                 <div className="col-12 mt-2">
                                     <label for="inputAddress" className="form-label">Address</label>
-                                    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+                                    <input type="text" className="form-control" id="inputAddress" value={staff.address} />
                                 </div>
                             </form>
                         </div>
