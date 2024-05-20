@@ -114,7 +114,7 @@ const Dashboard = () => {
             <div className="w-100 thumnail" style={{ height: '90%' }}>
                 <div class="my-3 h-100 ">
                     <div class="mx-3 h-100 bg-custom p-2 rounded">
-                        <div class="d-flex h-auto" id="filter-bar">
+                        <div class="d-flex h-auto my-2" id="filter-bar">
                             <div class="w-15">
                                 <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
                                 <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
@@ -166,22 +166,22 @@ const Dashboard = () => {
                             )}
                             {selectedReportCategory === 'product' && (
                                 <>
-                                    <div class="dropdown w-15 mx-3">
+                                    <div class="w-15 mx-3">
                                         <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
                                         <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedStartDate}
                                             onChange={(e) => setSelectedStartDate(e.target.value)} />
                                     </div>
 
-                                    <div class=" w-15">
+                                    <div class=" w-15 mx-3">
                                         <label class="form-label mb-0 " style={{ color: "black", zIndex: "1000", marginLeft: "10px" }}>End date</label>
                                         <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
                                             value={selectedEndDate}
                                             onChange={(e) => setSelectedEndDate(e.target.value)} />
                                     </div>
 
-                                    <div class="w-15">
-                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
+                                    <div class="w-15 mx-3">
+                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
                                         <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedProductCategory}
                                             onChange={(e) => setselectedProductCategory(e.target.value)}>
