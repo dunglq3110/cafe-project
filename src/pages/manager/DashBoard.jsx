@@ -181,7 +181,7 @@ const Dashboard = () => {
                                     </div>
 
                                     <div class="w-15">
-                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
+                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
                                         <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedProductCategory}
                                             onChange={(e) => setselectedProductCategory(e.target.value)}>
