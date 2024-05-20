@@ -120,12 +120,13 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className="ProductList w-100 thumnail" style={{ height: '90%' }}>
-                <div class="my-3 h-100">
-                    <div class="mx-3 h-100 mx-1 my-1 bg-custom p-2 rounded">
+            <div className="w-100 thumnail" style={{ height: '90%' }}>
+                <div class="my-3 h-100 ">
+                    <div class="mx-3 h-100 bg-custom p-2 rounded">
                         <div class="d-flex h-auto" id="filter-bar">
-                            <div class="dropdown w-15 d-flex" style={{ background: '' }}>
-                                <select className="side-button center-layout"
+                            <div class="w-15">
+                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
+                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
                                     value={selectedReportCategory}
                                     onChange={(e) => setSelectedReportCategory(e.target.value)}>
                                     <option value="revenue">Revenue</option>
@@ -135,7 +136,7 @@ const Dashboard = () => {
 
                             {selectedReportCategory === 'revenue' && (
                                 <>
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                    <div class="dropdown w-15 d-flex">
                                         <select className="side-button center-layout"
                                             value={selectedView}
                                             onChange={(e) => setSelectedView(e.target.value)}>
@@ -144,13 +145,13 @@ const Dashboard = () => {
                                         </select>
                                     </div>
 
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                    <div class="dropdown w-15 d-flex">
                                         <select className="side-button center-layout" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
                                             {years.map(year => <option key={year} value={year}>{year}</option>)}
                                         </select>
                                     </div>
 
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                    <div class="dropdown d-flex">
                                         <select className="side-button center-layout"
                                             value={selectedRevenueCategory}
                                             onChange={(e) => setSelectedRevenueCategory(e.target.value)}
@@ -161,7 +162,7 @@ const Dashboard = () => {
                                             <option value="discounted">Discounted</option>
                                         </select>
                                     </div>
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                    <div class="dropdown w-15 d-flex">
                                         <select className="side-button center-layout"
                                             value={selectedChartType}
                                             onChange={(e) => setSelectedChartType(e.target.value)}
@@ -174,20 +175,23 @@ const Dashboard = () => {
                             )}
                             {selectedReportCategory === 'product' && (
                                 <>
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
-                                        <input type="date" className="side-button center-layout"
+                                    <div class="dropdown w-15 mx-3">
+                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
+                                        <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedStartDate}
                                             onChange={(e) => setSelectedStartDate(e.target.value)} />
                                     </div>
 
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
-                                        <input type="date" className="side-button center-layout"
+                                    <div class=" w-15">
+                                        <label class="form-label mb-0 " style={{ color: "black", zIndex: "1000", marginLeft: "10px" }}>End date</label>
+                                        <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
                                             value={selectedEndDate}
                                             onChange={(e) => setSelectedEndDate(e.target.value)} />
                                     </div>
 
-                                    <div class="dropdown w-15 d-flex" style={{ background: '' }}>
-                                        <select className="side-button center-layout"
+                                    <div class="w-15">
+                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
+                                        <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedProductCategory}
                                             onChange={(e) => setselectedProductCategory(e.target.value)}>
                                             <option value="product">Product</option>
@@ -214,11 +218,11 @@ const Dashboard = () => {
 
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (
-                            <div class="mt-3" style={{ height: '100%' }} >
-                                <div style={{ overflowY: 'scroll', height: '90%' }}>
-                                    <div className='d-flex'>
-                                        <div className='mx-5 my-1 p-5 w-100 rounded' style={{ background: "#fef2c7" }}>
-                                            <CDBContainer className='m-2'>
+                            <div class="mt-3 h-75 w-75">
+                                <div className="w-100" >
+                                    <div className='d-flex w-100 h-100'>
+                                        <div className='my-1 p-5 rounded w-100 h-100' style={{ background: "#fef2c7" }}>
+                                            <CDBContainer className='m-2 w-100 h-100'>
                                                 {selectedChartType === 'bar' && <Bar data={chartData} options={{ responsive: true }} />}
                                                 {selectedChartType === 'pie' && <Pie data={chartData} options={{ responsive: true }} />}
                                             </CDBContainer>
