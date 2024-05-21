@@ -48,6 +48,34 @@ class CondimentService {
                 throw error;
             });
     }
+    updateCondiment(id, condiment) {
+        return axios.put(`${API_URL}/${id}`, condiment, { headers: authHeader() })
+            .then(response => {
+                if (response.data.code === 0) {
+                    return response.data.result;
+                } else {
+                    throw new Error('Failed to add staff');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+    deleteCondiment(id) {
+        return axios.delete(`${API_URL}/${id}`, {}, { headers: authHeader() })
+            .then(response => {
+                if (response.data.code === 0) {
+                    return response.data.result;
+                } else {
+                    throw new Error('Failed to add staff');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
 }
 
 export default new CondimentService();

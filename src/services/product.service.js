@@ -48,6 +48,20 @@ class ProductService {
                 throw error;
             });
     }
+    updateProduct(id, product) {
+        return axios.put(`${API_URL}/${id}`, product, { headers: authHeader() })
+            .then(response => {
+                if (response.data.result) {
+                    return response.data.result;
+                } else {
+                    throw new Error('No data found');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
 }
 
 export default new ProductService();

@@ -6,6 +6,7 @@ import Chart from 'chart.js/auto';
 import React, { useEffect, useState } from 'react';
 import reportService from '../../services/report.service';
 import * as XLSX from 'xlsx';
+import DropDown from '../../components/DropDown';
 
 const Dashboard = () => {
     const formatDate = (date) => {
@@ -204,17 +205,8 @@ const Dashboard = () => {
                             <div class="dropdown w-15 d-flex" style={{ background: '' }}>
                                 <button className="side-button center-layout" onClick={exportToExcel}>Export</button>
                             </div>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <input class="dropdown-item" type="text" placeholder="Input field" />
-                                    <a class="dropdown-item" href="#">Option 1</a>
-                                    <a class="dropdown-item" href="#">Option 2</a>
-                                    <a class="dropdown-item" href="#">Option 3</a>
-                                </div>
-                            </div>
+
+
 
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (

@@ -41,10 +41,7 @@ const CustomerDetail = () => {
                 <div className="row mx-2 my-2">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
                         <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
-                        <div className="mt-4 d-flex justify-content-around">
-                            <button type="button" className="btn btn-danger">Remove</button>
-                            <button type="button" className="btn btn-info">Edit</button>
-                        </div>
+
                     </div>
                     <div className="col col-8">
                         <div className="row">
