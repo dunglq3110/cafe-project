@@ -180,11 +180,7 @@ const Dashboard = () => {
                                             onChange={(e) => setSelectedEndDate(e.target.value)} />
                                     </div>
 
-<<<<<<< HEAD
                                     <div class="w-15 mx-3">
-=======
-                                    <div class="w-15">
->>>>>>> fb2bb24e7594815d36d3df1e5cf3b9763b35f2ab
                                         <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
                                         <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
                                             value={selectedProductCategory}
