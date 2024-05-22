@@ -58,11 +58,12 @@ const Dashboard = () => {
                 datasets: [
                     {
                         label: selectedRevenueCategory,
-                        backgroundColor: 'rgba(194, 116, 161, 0.5)',
-                        borderColor: 'rgb(194, 116, 161)',
+                        backgroundColor: '#8c4231',
+                        borderColor: '#361612',
                         data: data,
                     },
                 ],
+
             });
         }
     }, [responseData, selectedRevenueCategory, selectedReportCategory, selectedView]);
@@ -121,12 +122,12 @@ const Dashboard = () => {
     return (
         <>
             <div className="w-100 thumnail" style={{ height: '90%' }}>
-                <div class="my-3 h-100 ">
-                    <div class="mx-3 h-100 bg-custom p-2 rounded">
-                        <div class="d-flex h-auto" id="filter-bar">
+                <div class="my-3">
+                    <div class="mx-3 h-100 bg-custom p-4 rounded" style={{backgroundColor:""}}>
+                        <div class="h-auto my-2" id="filter-bar">
                             <div class="w-15">
-                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
+                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Type of Report</label>
+                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
                                     value={selectedReportCategory}
                                     onChange={(e) => setSelectedReportCategory(e.target.value)}>
                                     <option value="revenue">Revenue</option>
@@ -136,68 +137,76 @@ const Dashboard = () => {
 
                             {selectedReportCategory === 'revenue' && (
                                 <>
-                                    <div class="dropdown w-15 d-flex">
-                                        <select className="side-button center-layout"
-                                            value={selectedView}
-                                            onChange={(e) => setSelectedView(e.target.value)}>
-                                            <option value="chart">Chart</option>
-                                            <option value="table">Table</option>
-                                        </select>
-                                    </div>
+                                    <div class="d-flex my-3">
+                                        <div class="dropdown w-15 d-flex">
+                                            <select className="form-select center-layout w-100" style={{ backgroundColor: '#b5783d' }}
+                                                value={selectedView}
+                                                onChange={(e) => setSelectedView(e.target.value)}>
+                                                <option value="chart">Chart</option>
+                                                <option value="table">Table</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="dropdown w-15 d-flex">
-                                        <select className="side-button center-layout" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-                                            {years.map(year => <option key={year} value={year}>{year}</option>)}
-                                        </select>
-                                    </div>
+                                        <div class="dropdown w-15 d-flex mx-4">
+                                            <select className="form-select center-layout w-100" style={{ backgroundColor: '#b5783d' }} value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+                                                {years.map(year => <option key={year} value={year}>{year}</option>)}
+                                            </select>
+                                        </div>
+                                        {selectedView === 'chart' &&(
+                                            <>
+                                                <div class="dropdown d-flex">
+                                                    <select className="form-select center-layout w-100" style={{ backgroundColor: '#b5783d' }}
+                                                        value={selectedRevenueCategory}
+                                                        onChange={(e) => setSelectedRevenueCategory(e.target.value)}
 
-                                    <div class="dropdown d-flex">
-                                        <select className="side-button center-layout"
-                                            value={selectedRevenueCategory}
-                                            onChange={(e) => setSelectedRevenueCategory(e.target.value)}
-                                            disabled={selectedView === 'table'}>
-                                            <option value="totalRevenue">Total Revenue</option>
-                                            <option value="productQuantity">Product Quantity</option>
-                                            <option value="condimentQuantity">Condiment Quantity</option>
-                                            <option value="discounted">Discounted</option>
-                                        </select>
-                                    </div>
-                                    <div class="dropdown w-15 d-flex">
-                                        <select className="side-button center-layout"
-                                            value={selectedChartType}
-                                            onChange={(e) => setSelectedChartType(e.target.value)}
-                                            disabled={selectedView === 'table'}>
-                                            <option value="bar">Bar chart</option>
-                                            <option value="pie">Pie chart</option>
-                                        </select>
+                                                        >
+                                                        <option value="totalRevenue">Total Revenue</option>
+                                                        <option value="productQuantity">Product Quantity</option>
+                                                        <option value="condimentQuantity">Condiment Quantity</option>
+                                                        <option value="discounted">Discounted</option>
+                                                    </select>
+                                                </div>
+                                                <div class="dropdown w-15 d-flex mx-4">
+                                                    <select className="form-select center-layout w-100" style={{ backgroundColor: '#b5783d' }}
+                                                        value={selectedChartType}
+                                                        onChange={(e) => setSelectedChartType(e.target.value)}
+                                                        disabled={selectedView === 'table'}>
+                                                        <option value="bar">Bar chart</option>
+                                                        <option value="pie">Pie chart</option>
+                                                    </select>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </>
                             )}
                             {selectedReportCategory === 'product' && (
                                 <>
-                                    <div class="dropdown w-15 mx-3">
-                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
-                                        <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
-                                            value={selectedStartDate}
-                                            onChange={(e) => setSelectedStartDate(e.target.value)} />
-                                    </div>
+                                    <div className='d-flex my-3' >
+                                        <div class="w-15">
+                                            <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Start date</label>
+                                            <input type="date" className="form-control w-100" style={{ backgroundColor: '#b5783d', zIndex: "1" }}
+                                                value={selectedStartDate}
+                                                onChange={(e) => setSelectedStartDate(e.target.value)} />
+                                        </div>
 
-                                    <div class=" w-15">
-                                        <label class="form-label mb-0 " style={{ color: "black", zIndex: "1000", marginLeft: "10px" }}>End date</label>
-                                        <input type="date" className="form form-select-lg w-100" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }}
-                                            value={selectedEndDate}
-                                            onChange={(e) => setSelectedEndDate(e.target.value)} />
-                                    </div>
+                                        <div class=" w-15 mx-3">
+                                            <label class="form-label mb-0 " style={{ color: "black", zIndex: "1000", marginLeft: "10px" }}>End date</label>
+                                            <input type="date" className="form-control w-100" style={{ backgroundColor: '#b5783d' }}
+                                                value={selectedEndDate}
+                                                onChange={(e) => setSelectedEndDate(e.target.value)} />
+                                        </div>
 
-                                    <div class="w-15">
-                                        <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
-                                        <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d', zIndex: "1" }}
-                                            value={selectedProductCategory}
-                                            onChange={(e) => setselectedProductCategory(e.target.value)}>
-                                            <option value="product">Product</option>
-                                            <option value="condiment">Condiment</option>
-                                            <option value="productType">Product Type</option>
-                                        </select>
+                                        <div class="w-15">
+                                            <label class="form-label mb-0" style={{ color: "black", zIndex: "2", marginLeft: "10px" }}>Type</label>
+                                            <select className="form-select form-select" style={{ backgroundColor: '#b5783d', zIndex: "1" }}
+                                                value={selectedProductCategory}
+                                                onChange={(e) => setselectedProductCategory(e.target.value)}>
+                                                <option value="product">Product</option>
+                                                <option value="condiment">Condiment</option>
+                                                <option value="productType">Product Type</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </>
                             )}
@@ -218,10 +227,10 @@ const Dashboard = () => {
 
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (
-                            <div class="mt-3 h-75 w-75">
+                            <div class="mt-3 h-100 w-100">
                                 <div className="w-100" >
-                                    <div className='d-flex w-100 h-100'>
-                                        <div className='my-1 p-5 rounded w-100 h-100' style={{ background: "#fef2c7" }}>
+                                    <div className='d-flex w-100 h-100 justify-content-center align-items-center'>
+                                        <div className='my-1 p-5 rounded w-75 h-100' style={{ background: "#e2c8a5" }}>
                                             <CDBContainer className='m-2 w-100 h-100'>
                                                 {selectedChartType === 'bar' && <Bar data={chartData} options={{ responsive: true }} />}
                                                 {selectedChartType === 'pie' && <Pie data={chartData} options={{ responsive: true }} />}
