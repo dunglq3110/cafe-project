@@ -22,7 +22,17 @@ const EmployeePage = () => {
                 setStatus('error');
             });
     }, []);
+    if (status === 'process') {
+        return <div>Loading...</div>; // Or some loading spinner
+    }
 
+    if (status === 'error') {
+        return <div>Error loading data</div>; // Or some error message
+    }
+
+    if (status === 'empty' || !staff) {
+        return <div>No data found</div>; // Or some empty state
+    }
     return (
         <div className="Employee_page">
             <div className="container my-3">
@@ -46,38 +56,32 @@ const EmployeePage = () => {
 
                     </div>
                     <div className="mt-3">
-                        {status === 'process' && <h1>Loading...</h1>}
-                        {status === 'finish' && (
-                            <table className="table table-striped  table-hover">
-                                <thead className="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Phone Number</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {staff.slice(1).filter(employee => roleFilter === 'ALL' || employee.role === roleFilter).map((employee, index) => (
 
-                                        <tr key={index}>
-                                            <th scope="row">{employee.id}</th>
-                                            <td>{employee.firstName}</td>
-                                            <td>{employee.lastName}</td>
-                                            <td>{employee.role}</td>
-                                            <td>{employee.phoneNumber}</td>
-                                            <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right"
-                                                className="button-transition" /></Link>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        )}
-                        {status === 'error' && <h1>Đợi 1 xíu...</h1>}
-                        {status === 'empty' && <h1>Empty...</h1>}
+                        <table className="table table-striped  table-hover">
+                            <thead className="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {staff.slice(1).filter(employee => (roleFilter === 'ALL' || employee.role === roleFilter) && employee.userName).map((employee, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">{employee.id}</th>
+                                        <td>{employee.firstName}</td>
+                                        <td>{employee.lastName}</td>
+                                        <td>{employee.role}</td>
+                                        <td>{employee.phoneNumber}</td>
+                                        <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right" className="button-transition" /></Link></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
                     </div>
 
                 </div>

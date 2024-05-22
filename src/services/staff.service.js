@@ -48,6 +48,35 @@ class StaffService {
                 throw error;
             });
     }
+
+    updateStaff(staff, id) {
+        return axios.put(`${API_URL}/${id}`, staff, { headers: authHeader() })
+            .then(response => {
+                if (response.data.code === 0) {
+                    return response.data.result;
+                } else {
+                    throw new Error('Failed to add staff');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+    deleteStaff(id) {
+        return axios.delete(`${API_URL}/${id}`, { headers: authHeader() })
+            .then(response => {
+                if (response.data.code === 0) {
+                    return response.data.result;
+                } else {
+                    throw new Error('Failed to add staff');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
 }
 
 export default new StaffService();

@@ -5,6 +5,9 @@ import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 import React, { useEffect, useState } from 'react';
 import reportService from '../../services/report.service';
+import * as XLSX from 'xlsx';
+import DropDown from '../../components/DropDown';
+
 const Dashboard = () => {
     const formatDate = (date) => {
         return date.toISOString().slice(0, 10);
@@ -25,6 +28,13 @@ const Dashboard = () => {
 
     const [responseData, setResponseData] = useState([]);
     const [status, setStatus] = useState('finish');
+
+    const exportToExcel = () => {
+        const ws = XLSX.utils.json_to_sheet(responseData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Report");
+        XLSX.writeFile(wb, "report.xlsx");
+    }
 
 
     const [chartData, setChartData] = useState({
@@ -201,6 +211,12 @@ const Dashboard = () => {
                                     </div>
                                 </>
                             )}
+                            <div class="dropdown w-15 d-flex" style={{ background: '' }}>
+                                <button className="side-button center-layout" onClick={exportToExcel}>Export</button>
+                            </div>
+
+
+
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (
                             <div class="mt-3 h-100 w-100">

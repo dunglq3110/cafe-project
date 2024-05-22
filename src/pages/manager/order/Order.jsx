@@ -21,9 +21,6 @@ const Order = () => {
 
     const [selectedOption, setSelectedOption] = useState('Product');
 
-
-
-
     const handleClick = (product) => {
         setSelectedProduct(product);
         setShowOrderDetail(true);

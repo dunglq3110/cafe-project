@@ -83,7 +83,7 @@ const AddProduct = () => {
                                         <option value="MILKTEA">Milk Tea</option>
                                         <option value="SOFTDRINK" >Soft Drink</option>
                                         <option value="SMOOTHIE">Smoothie</option>
-                                        <option value="Food">Food</option>
+                                        <option value="FOOD">Food</option>
                                     </select>
                                 </div>
                                 <div className="col-md-4 mt-2">
@@ -110,7 +110,7 @@ const AddProduct = () => {
                                     </a>
 
                                     <a className='w-15'>
-                                            <button type="button" className="btn btn-success w-100" onClick={handleAddClick}>ADD</button>
+                                        <button type="button" className="btn btn-success w-100" onClick={handleAddClick}>ADD</button>
                                     </a>
                                 </div>
                             </form>
