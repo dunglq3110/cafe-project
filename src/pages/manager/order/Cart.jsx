@@ -196,7 +196,7 @@ const Cart = () => {
         return <div>No data found</div>; // Or some empty state
     }
     return (
-        <div id="cartDetail" className={`Cart container w-75 ${showGiftMenu ? 'dim' : ''}`} role="dialog" >
+        <div id="cartDetail" className={`Cart container w-100 ${showGiftMenu ? 'dim' : ''}`} role="dialog" >
             <div className="h-100 rounded" style={{ backgroundColor: '#a47152' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -207,9 +207,10 @@ const Cart = () => {
                                         <div className="col-lg-8">
                                             <div className="p-5">
                                                 <div className="d-flex justify-content-between align-items-center mb-5">
-                                                    <h1 className="fw-bold mb-0 text-black">Cart Detail</h1>
-
-                                                    <h6 className="mb-0 text-muted">{receipt && receipt.productDetails ? receipt.productDetails.length : 0} items</h6>
+                                                    <div className="d-flex justify-content-between align-items-center mb-5">
+                                                        <h1 className="fw-bold mb-0 text-black">Cart Detail</h1>
+                                                        <h6 className="mb-0 text-muted">{`${receipt.productDetails.length}`} items</h6>
+                                                    </div>
 
                                                 </div>
 
@@ -225,7 +226,7 @@ const Cart = () => {
                                                             <div className="col-md-3 col-lg-3 col-xl-3">
                                                                 <h6 className="text-black mb-0">{`${product.productSize.productName} (${product.productSize.sizeName})`}</h6>
                                                             </div>
-                                                            <div className="col-md-4 col-lg-4 col-xl-3 d-flex flex-column">
+                                                            <div className="col-md-2 col-lg-2 col-xl-2 d-flex flex-column">
                                                                 <div>
 
 
@@ -243,32 +244,26 @@ const Cart = () => {
                                                                 </div>
 
                                                             </div>
-                                                            <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                            <div className="col-md-3 col-lg-2 col-xl-3 d-flex justify-content-between">
                                                                 <h6 className="mb-0">{`$${product.productPrice}`}</h6>
-                                                            </div>
-                                                            <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                                                 <h6 className="mb-0">{`${product.productDiscount * 100}%`}</h6>
-                                                            </div>
-                                                            <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                                <h6 className="mb-0">{`$${product.productQuantity * product.productPrice}`}</h6>
-                                                            </div>
-                                                            <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                                                 <h6 className="mb-0">{`$${(product.productQuantity * product.productPrice * (1 - product.productDiscount)).toFixed(2)}`}</h6>
                                                             </div>
 
 
+
                                                             <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                                                 <a className="float-end text-black" onClick={() => deleteProduct(product.id)}>
-                                                                    <i className="fas fa-times">
-                                                                        <span className="material-symbols-outlined">
-                                                                            close
-                                                                        </span>
-                                                                    </i>
+
+                                                                    <span className="material-symbols-outlined">
+                                                                        close
+                                                                    </span>
+
                                                                 </a>
                                                             </div>
                                                         </div>
                                                         {product.productCondimentDetails.map((condimentDetail, index) => (
-                                                            <div className="row mb-4 d-flex justify-content-between align-items-center">
+                                                            <div className="row my-2 d-flex" style={{ marginLeft: "4%" }}>
                                                                 <div className="col-md-2 col-lg-2 col-xl-2">
                                                                     <img
                                                                         src={coffee}
@@ -277,7 +272,7 @@ const Cart = () => {
                                                                 <div className="col-md-3 col-lg-3 col-xl-3">
                                                                     <h6 className="text-black mb-0">{`${condimentDetail.condiment.name}`}</h6>
                                                                 </div>
-                                                                <div className="col-md-4 col-lg-4 col-xl-3 d-flex flex-column">
+                                                                <div className="col-md-4 col-lg-4 col-xl-2 d-flex flex-column">
                                                                     <div>
                                                                         <input
                                                                             id="form1"
@@ -292,27 +287,28 @@ const Cart = () => {
 
                                                                 </div>
 
-                                                                <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                                <div className="col-md-3 col-lg-2 col-xl-2">
                                                                     <h6 className="mb-0">{`$${condimentDetail.condimentPrice}`}</h6>
                                                                 </div>
-                                                                <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                                <div className="col-md-3 col-lg-2 col-xl-2">
                                                                     <h6 className="mb-0">{`$${(condimentDetail.condimentPrice * condimentDetail.quantity).toFixed(2)}`}</h6>
                                                                 </div>
 
 
                                                                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                                                     <a className="float-end text-black" onClick={() => deleteCondiment(condimentDetail.id)}>
-                                                                        <i className="fas fa-times">
-                                                                            <span className="material-symbols-outlined">
-                                                                                close
-                                                                            </span>
-                                                                        </i>
+
+                                                                        <span className="material-symbols-outlined">
+                                                                            close
+                                                                        </span>
+
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         ))}
                                                     </>
                                                 ))}
+
 
                                                 <hr className="my-4"></hr>
 
@@ -327,10 +323,10 @@ const Cart = () => {
                                             <div className="p-5">
                                                 <h3 className="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                                 <div className="d-flex flex-column justify-content-between mb-4">
-                                                    <h5>{`Date: ${receipt.date}`}</h5>
+                                                    <h5>Date :  {receipt ? `${receipt.date}` : ''}</h5>
                                                 </div>
                                                 <div className="d-flex flex-column justify-content-between mb-4">
-                                                    <h5>{`Staff name: ${receipt.staff.firstName + ' ' + receipt.staff.lastName}`}</h5>
+                                                    <h5> Staff name : {receipt ? ` ${receipt.staff.firstName + ' ' + receipt.staff.lastName}` : ''}</h5>
                                                 </div>
                                                 <hr className="my-4"></hr>
                                                 <div className="mb-4 pb-2">
@@ -369,21 +365,22 @@ const Cart = () => {
                                                     <h5 className="text-uppercase">Total price</h5>
                                                     <h5>{`$${receipt.totalPrice * (1 - receipt.discount)}`}</h5>
                                                 </div>
-
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-dark btn-block btn-lg"
-                                                    onClick={() => completeOrder(receipt.id)}
-                                                >
-                                                    Finish Order
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-dark btn-block btn-lg"
-                                                    onClick={() => deleteOrder(receipt.id)}
-                                                >
-                                                    Delete Order
-                                                </button>
+                                                <div className='w-100 d-flex flex-column align-items-center justify-content-center'>
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-dark btn-block w-75"
+                                                        onClick={() => completeOrder(receipt.id)}
+                                                    >
+                                                        Finish Order
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-dark btn-block w-75 mt-3"
+                                                        onClick={() => deleteOrder(receipt.id)}
+                                                    >
+                                                        Delete Order
+                                                    </button>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -394,16 +391,18 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
-            {showGiftMenu && (
-                <div className="order-detail">
-                    <FoodItem
-                        receipt={receipt}
-                        setReceipt={setReceipt}
-                        closeMenu={() => setShowGiftMenu(false)}
-                    />
-                </div>
-            )}
-        </div>
+            {
+                showGiftMenu && (
+                    <div className="order-detail">
+                        <FoodItem
+                            receipt={receipt}
+                            setReceipt={setReceipt}
+                            closeMenu={() => setShowGiftMenu(false)}
+                        />
+                    </div>
+                )
+            }
+        </div >
     )
 }
 

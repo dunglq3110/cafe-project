@@ -6,6 +6,7 @@ const Receipt = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [receipts, setReceipts] = useState(null)
     const [status, setStatus] = useState('process');
+    const [date, setDate] = useState(null);
 
     const [selectedReceipt, setSelectedReceipt] = useState(null);
 
@@ -15,6 +16,7 @@ const Receipt = () => {
         }
         setSelectedReceipt(receipt);
     };
+
 
 
     useEffect(() => {
@@ -28,6 +30,10 @@ const Receipt = () => {
                 setStatus('error');
             });
     }, []);
+    useEffect(() => {
+
+    }, []);
+
 
 
     if (status === 'process') {
@@ -45,43 +51,18 @@ const Receipt = () => {
     return (
         <div className="Receipt" class="h-100">
             <div className="my-3 h-100">
-                <div className="mx-3 my-1 p-3 bg-custom p-2 rounded h-100">
+                <div className="mx-3 my-1 p-3 p-2 rounded h-100" style={{backgroundColor:"#bdbdbd"}}>
                     <div className="d-flex " id="filter-bar">
-                        <div className="col-3 d-flex align-items-end">
-                            <input type="date" className="form-control w-75" id="inputBirthday" placeholder="" />
-                        </div>
-                        <div className="dropdown col-3">
-                            <div className="w-75">
-                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }} >
-                                    <option value="" selected>ALL</option>
-                                    <option value="0">Processing</option>
-                                    <option value="1">Done</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="dropdown col-3">
-                            <div className='w-75'>
-
-                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Space</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#b5783d' }} >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div id="reset" className="col-3 rounded d-flex align-items-end">
-                            <button className='bg-warning rounded align-items-bottom'>Reset</button>
+                        <div className="col-3 d-flex align-items-end ">
+                            <input type="date" className="form-control w-75 border border-dark" id="inputBirthday" placeholder="" onChange={(e) => setDate(e.target.value || null)} />
                         </div>
                     </div>
                     <div className='d-flex h-100 my-4 overflow-auto'>
-                        <div className={`${isVisible ? 'col-md-8' : 'col-md-12'}`}>
-                            <div className='overflow-auto' style={{ height: "80%" }}>
+                        <div className={`${isVisible ? 'col-md-6' : 'col-md-12'}`}>
+                            <div className='overflow-auto m-1' style={{ height: "80%" }}>
                                 <table className="table table-striped table-bordered rounded table-hover">
                                     <thead className="thead-dark">
                                         <tr>
-                                            <th scope="col">#</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Time</th>
                                             <th scope="col">Staff</th>
@@ -92,59 +73,96 @@ const Receipt = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {receipts && receipts.map((receipt, index) => (
-                                            <tr key={receipt.id}>
-                                                <th scope="row">{receipt.id}</th>
-                                                <td>{new Date(receipt.date).toLocaleDateString()}</td>
-                                                <td>{new Date(receipt.date).toLocaleTimeString()}</td>
-                                                <td>{`${receipt.staff.firstName} ${receipt.staff.lastName}`}</td>
-                                                <td>{receipt.customer ? `${receipt.customer.firstName} ${receipt.customer.lastName}` : 'N/A'}</td>
-                                                <td>{`${receipt.discount * 100}%`}</td>
-                                                <td>{`$${(receipt.totalPrice * (1 - receipt.discount)).toFixed(2)}`}</td>
-                                                <td><img src={right} alt="right" className="button-transition handle" onClick={() => ReceiptDetail(receipt)} /></td>
-                                            </tr>
-                                        ))}
+                                        {receipts && receipts
+                                            .filter(receipt => {
+                                                if (date == null) {
+                                                    return receipt;
+                                                }
+                                                else if (new Date(receipt.date).toLocaleDateString() === new Date(date).toLocaleDateString()) {
+                                                    return receipt;
+                                                }
+                                            })
+                                            .map((receipt, index) => (
+                                                <tr key={receipt.id}>
+                                                    <td>{new Date(receipt.date).toLocaleDateString()}</td>
+                                                    <td>{new Date(receipt.date).toLocaleTimeString()}</td>
+                                                    <td>{`${receipt.staff.firstName} ${receipt.staff.lastName}`}</td>
+                                                    <td>{receipt.customer ? `${receipt.customer.firstName} ${receipt.customer.lastName}` : 'N/A'}</td>
+                                                    <td>{`${receipt.discount * 100}%`}</td>
+                                                    <td>{`$${(receipt.totalPrice * (1 - receipt.discount)).toFixed(2)}`}</td>
+                                                    <td><img src={right} alt="right" className="button-transition handle" onClick={() => ReceiptDetail(receipt)} /></td>
+                                                </tr>
+                                            ))}
                                     </tbody>
                                 </table>
                             </div>
 
                         </div>
-                        <div className={`h-100 col-md-4 mx-1 ${!isVisible ? 'd-none' : ''}`}>
+                        <div className={`h-100 col-md-6 ${!isVisible ? 'd-none' : ''}`}>
                             <div class=" bg-white p-2 rounded" style={{ height: "80%" }}>
                                 <div class="container w-100 h-100">
                                     <span className="material-symbols-outlined handle" onClick={() => setIsVisible(false)}>
                                         close
                                     </span>
                                     <div class="h-50 bg-secondary rounded mt-2">
-                                        <div className='h-100 scroll' style={{overflowX:"hidden" }}>
+                                        <div className='h-100 scroll' style={{ overflowX: "hidden" }}>
+                                            <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }}>
+                                                <div className='w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
+                                                    <div className="d-flex overflow-hidden fw-bold text-white">Name
+                                                    </div>
+                                                </div>
+                                                <div className="h-100 col-md-6 row d-flex mt-2 px-0 align-items-center text-align-center justify-content-center">
+                                                    {/* for the size name*/}
+                                                    <div className='h-100 col-md-3  d-flex justify-content-center text-align-center align-items-center text-center rounded-circle px-2 fw-bold text-white' id="size">Size</div>
+                                                    {/* for the product price*/}
+                                                    <div class="h-100  col-md-3 mx-3 d-flex justify-content-center text-align-center align-items-center text-center px-2 rounded fw-bold text-white">Quantity</div>
+                                                    {/* for the quantity*/}
+                                                    <div class="h-100  col-md-3  d-flex justify-content-center text-align-center align-items-center text-center px-2 rounded fw-bold text-white">Price</div>
+                                                    {/* for the discount of each product*/}
+                                                </div>
+                                            </div>
                                             {selectedReceipt && selectedReceipt.productDetails.map((product, index) => (
                                                 <>
-                                                    <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }} key={product.id}>
-                                                        <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
-                                                            <div className="d-flex align-items-center overflow-hidden">{product.productSize.productName}</div>
-                                                        </div>
-                                                        <div className="h-100 col-md-6 row d-flex mt-2 align-items-center text-align-center justify-content-center">
-                                                            {/* for the size name*/}
-                                                            <div className='h-100 col-md-4 d-inline  bg-white rounded-circle px-2' id="size">{product.productSize.sizeName}</div>
-                                                            {/* for the product price*/}
-                                                            <div class="h-100 col col-md-4 d-inline bg-white px-2 rounded ">{product.productQuantity}</div>
-                                                            {/* for the quantity*/}
-                                                            <div class="h-100 col col-md-4 d-inline bg-white px-2 rounded">${product.productQuantity * product.productPrice}</div>
-                                                            {/* for the discount of each product*/}
+                                                    <div className="d-inline" key={product.id}>
+                                                        <div className='py-2 my-1 mx-1 rounded fs-5' style={{ backgroundColor: "#bdbdbd" }}>
+                                                            <div class="w-100 mx-2 d-flex align-items-center" style={{ height: "15%" }}>
+                                                                <div className='bg-white w-50 h-100 rounded col col-md-6 d-flex align-items-center border border-dark'>
+                                                                    <div className="d-flex align-items-center overflow-hidden p-2">{product.productSize.productName}
+                                                                    </div>
+                                                                </div>
+                                                                <div className="h-100 col-md-6 row d-flex align-items-center text-align-center justify-content-center">
+                                                                    {/* for the size name*/}
+                                                                    <div className='h-100 col-md-3  d-flex justify-content-center border border-dark text-align-center align-items-center text-center bg-white rounded-circle px-2 p-2' id="size">{product.productSize.sizeName}</div>
+                                                                    {/* for the product price*/}
+                                                                    <div class="h-100  col-md-3 mx-3 d-flex justify-content-center border border-dark text-align-center align-items-center text-center bg-white px-2 rounded p-2 ">{product.productQuantity}</div>
+                                                                    {/* for the quantity*/}
+                                                                    <div class="h-100  col-md-3  d-flex justify-content-center border border-dark text-align-center align-items-center text-center bg-white px-2 rounded p-2">${product.productQuantity * product.productPrice}</div>
+                                                                    {/* for the discount of each product*/}
+                                                                </div>
+                                                            </div>
+                                                            {product.productCondimentDetails.map((condimentDetail, index) => (
+                                                                <>
+                                                                    <div className="w-100 mx-2 mt-1 d-flex align-items-center h-100" key={condimentDetail.id}>
+                                                                        <div className=' w-50 h-100 col col-md-6 d-flex '>
+                                                                            <div class="w-25 fs-6 d-flex align-items-center">Topping</div>
+                                                                            <div className="d-flex w-75 align-items-center overflow-hidden bg-white rounded  align-items-center border border-dark p-2">{condimentDetail.condiment.name}
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="h-100 col-md-6 row d-flex align-items-center text-align-center justify-content-center">
+                                                                            {/* for the size name*/}
+                                                                            <div className='h-100 col-md-3  d-flex justify-content-center text-align-center align-items-center text-center px-2 p-2' id="size"></div>
+                                                                            {/* for the product price*/}
+                                                                            <div class="h-100  col-md-3 mx-3 d-flex justify-content-center border border-dark text-align-center align-items-center text-center bg-white px-2 rounded p-2 ">{condimentDetail.quantity}</div>
+                                                                            {/* for the quantity*/}
+                                                                            <div class="h-100  col-md-3  d-flex justify-content-center border border-dark text-align-center align-items-center text-center bg-white px-2 rounded p-2">${condimentDetail.quantity * condimentDetail.condimentPrice}</div>
+                                                                            {/* for the discount of each product*/}
+                                                                        </div>
+                                                                    </div>
+
+                                                                </>
+                                                            ))}
                                                         </div>
                                                     </div>
-                                                    {product.productCondimentDetails.map((condimentDetail, index) => (
-                                                        <div className="row w-100 mx-2 my-2 d-flex align-items-center" style={{ height: '15%' }} key={condimentDetail.id}>
-                                                            <div className='bg-white w-50 h-100 mt-2 rounded col col-md-6 d-flex align-items-center'>
-                                                                <div className="d-flex align-items-center ">{condimentDetail.condiment.name}</div>
-                                                            </div>
-                                                            <div className="col-md-6 row h-75 mt-2 w-50">
-                                                                <div class="col d-inline bg-white mx-1 rounded fit-content">{condimentDetail.quantity}</div>
-                                                                {/* for the quantity*/}
-                                                                <div class="col d-inline bg-white mx-1 rounded fit-content">${condimentDetail.quantity * condimentDetail.condimentPrice}</div>
-                                                            </div>
-                                                        </div>
-                                                    ))}
                                                 </>
                                             ))}
                                         </div>
@@ -152,23 +170,23 @@ const Receipt = () => {
                                     <div className="col mt-3">
                                         <form className="row d-flex justify-content-center align-items-center">
                                             <div className="col-md-6">
-                                                <label for="inputCustomer" className="form-label">Customer</label>
+                                                <label for="inputCustomer" className="form-label fw-bold my-1">Customer</label>
                                                 <input type="text" className="form-control" id="inputName" value={selectedReceipt && selectedReceipt.customer ? `${selectedReceipt.customer.firstName} ${selectedReceipt.customer.lastName}` : 'N/A'} readOnly />
                                             </div>
                                             <div className="col-md-6">
-                                                <label for="inputStaff" className="form-label">Staff</label>
+                                                <label for="inputStaff" className="form-label fw-bold my-1">Staff</label>
                                                 <input type="text" className="form-control" id="inputName" value={selectedReceipt ? `${selectedReceipt.staff.firstName} ${selectedReceipt.staff.lastName}` : ''} readOnly />
                                             </div>
                                             <div className="col-md-6">
-                                                <label for="inputTotal" className="form-label">Subtotal</label>
+                                                <label for="inputTotal" className="form-label fw-bold my-1">Subtotal</label>
                                                 <input type="number" className="form-control" id="inputName" placeholder='$' value={selectedReceipt ? selectedReceipt.totalPrice : ''} readOnly />
                                             </div>
                                             <div className="col-md-6">
-                                                <label for="inputDiscount" className="form-label">Discount</label>
+                                                <label for="inputDiscount" className="form-label fw-bold my-1">Discount</label>
                                                 <input type="text" className="form-control" id="inputName" value={selectedReceipt ? `${selectedReceipt.discount * 100}%` : ''} readOnly />
                                             </div>
                                             <div className="col-md-12">
-                                                <label for="inputDiscount" className="form-label">Total Price</label>
+                                                <label for="inputDiscount" className="form-label fw-bold my-1">Total Price</label>
                                                 <input type="text" className="form-control" id="inputName" value={selectedReceipt ? `$${selectedReceipt.totalPrice * (1 - selectedReceipt.discount)}` : ''} readOnly />
                                             </div>
                                         </form>

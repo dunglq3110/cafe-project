@@ -9,7 +9,7 @@ const CondimentItem = ({ selectedProduct, receipt, closeMenu, }) => {
 
     const [unitPrice, setUnitPrice] = useState(selectedProduct.unitPrice);
     const [quantity, setQuantity] = useState(1);
-    const [selectedProductDetail, setSelectedProductDetail] = useState(null);
+    const [selectedProductDetail, setSelectedProductDetail] = useState(receipt.productDetails[0]);
 
 
     const handleQuantityChange = (event) => {
