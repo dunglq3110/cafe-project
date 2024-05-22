@@ -74,7 +74,7 @@ const ProductDetail = () => {
             <div className="mx-3 bg-custom rounded h-100">
                 <div className="row mx-2 my-3 h-100">
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">
-                        <img src={coffee} className="rounded mx-auto d-block w-75 img-thumbnail" />
+                        <img src="https://firebasestorage.googleapis.com/v0/b/cafe-firebase-2f4b9.appspot.com/o/539290fc-eb7b-494e-9ec5-6cfb4a536429.jpg?alt=media" className="rounded mx-auto d-block w-75 img-thumbnail" />
                     </div>
                     <div className="col col-8">
                         <div className="row">
@@ -88,11 +88,11 @@ const ProductDetail = () => {
                                 <div className="col-md-4 mt-4">
                                     <label for="inputType" className="form-label">Type</label>
                                     <select id="inputType" className="form-control" defaultValue={product.productType} ref={typeRef} disabled={!editMode}>
-                                        <option value="1">Cafe</option>
-                                        <option value="2">Milk Tea</option>
-                                        <option value="3">Soft Drink</option>
-                                        <option value="4">Smoothie</option>
-                                        <option value="5">Food</option>
+                                        <option value="0">Cafe</option>
+                                        <option value="1">Milk Tea</option>
+                                        <option value="2">Soft Drink</option>
+                                        <option value="3">Smoothie</option>
+                                        <option value="4">Food</option>
                                     </select>
                                 </div>
                                 <div className="col-md-4 mt-4">
