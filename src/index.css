@@ -392,7 +392,7 @@
     /* Ensure it stays on top of other content */
 }
 
-.text-center {
+.text-custom {
     display: flex;
     text-align: center;
     font-size: 26px;
@@ -534,7 +534,7 @@
 
 /* Employee detail */
 .bg-custom {
-    background-color: #f7e7dd;
+    background-color: #e6e4e2;
 }
 
 

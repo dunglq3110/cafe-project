@@ -28,7 +28,7 @@ const NavBar = () => {
             <div className="w-100">
                 <div className="h-100 w-100" id="user" style={{ display: isVisible ? '' : 'none' }}>
                     <div className='h-100 w-100 user' id="infor_user">
-                        <img className="image_user text-center img-thumbnail rounded-circle"
+                        <img className="image_user text-custom img-thumbnail rounded-circle"
                             src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png'
                             alt='image user' />
                         <div className="w-100 user">
@@ -50,7 +50,7 @@ const NavBar = () => {
                 {/* style={{ overflowY: 'scroll', height: '90%' }} */}
                 <div id="side-button" style={{ marginTop: isVisible ? '' : '75%' }}>
                     <Link to="/manager/home" className="nav-link" >
-                        <div className={`side-button text-center ${activeLink === 'home' ? 'active' : ''}`} onClick={() => setActiveLink('home')} id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className={`side-button text-custom ${activeLink === 'home' ? 'active' : ''}`} onClick={() => setActiveLink('home')} id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout" >
                                 home
                             </div>
@@ -59,7 +59,7 @@ const NavBar = () => {
                     </Link>
                     <Link to="/manager/dashboard" className="nav-link" >
 
-                        <div className={`side-button text-center ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveLink('dashboard')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className={`side-button text-custom ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveLink('dashboard')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout">
                                 dashboard
                             </div>
@@ -70,8 +70,8 @@ const NavBar = () => {
 
 
                     <Link to="/manager/receipt" className='nav-link'>
-                        <div className={`side-button text-center ${activeLink === 'receipt' ? 'active' : ''}`} onClick={() => setActiveLink('receipt')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div class="material-symbols-outlined center-layout text-center">
+                        <div className={`side-button text-custom ${activeLink === 'receipt' ? 'active' : ''}`} onClick={() => setActiveLink('receipt')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                            <div class="material-symbols-outlined center-layout text-custom">
                                 receipt_long
                             </div>
                             <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Receipt</p>
@@ -79,8 +79,8 @@ const NavBar = () => {
                     </Link>
 
                     <Link to="/manager/order" className="nav-link">
-                        <div className={`side-button text-center ${activeLink === 'order' ? 'active' : ''}`} onClick={() => setActiveLink('order')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout text-center">
+                        <div className={`side-button text-custom ${activeLink === 'order' ? 'active' : ''}`} onClick={() => setActiveLink('order')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                            <div className="material-symbols-outlined center-layout text-custom">
                                 dvr
                             </div>
                             <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Order</p>
@@ -88,7 +88,7 @@ const NavBar = () => {
                     </Link>
 
                     <Link to="/manager/products" className="nav-link">
-                        <div className={`side-button text-center ${activeLink === 'products' ? 'active' : ''}`} onClick={() => setActiveLink('products')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className={`side-button text-custom ${activeLink === 'products' ? 'active' : ''}`} onClick={() => setActiveLink('products')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout">
                                 category
                             </div>
@@ -96,7 +96,7 @@ const NavBar = () => {
                         </div>
                     </Link>
                     <Link to="/manager/condiments" className="nav-link">
-                        <div className={`side-button text-center ${activeLink === 'condiments' ? 'active' : ''}`} onClick={() => setActiveLink('condiments')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className={`side-button text-custom ${activeLink === 'condiments' ? 'active' : ''}`} onClick={() => setActiveLink('condiments')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout">
                                 category
                             </div>
@@ -104,7 +104,7 @@ const NavBar = () => {
                         </div>
                     </Link>
                     <Link to="/manager/staffs" className="nav-link">
-                        <div className={`side-button text-center ${activeLink === 'staffs' ? 'active' : ''}`} onClick={() => setActiveLink('staffs')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                        <div className={`side-button text-custom ${activeLink === 'staffs' ? 'active' : ''}`} onClick={() => setActiveLink('staffs')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout">
                                 group
                             </div>
@@ -113,8 +113,8 @@ const NavBar = () => {
                     </Link>
 
                     <Link to="/manager/customers" className="nav-link">
-                        <div className={`side-button text-center ${activeLink === 'customers' ? 'active' : ''}`} onClick={() => setActiveLink('customers')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout text-center">
+                        <div className={`side-button text-custom ${activeLink === 'customers' ? 'active' : ''}`} onClick={() => setActiveLink('customers')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
+                            <div className="material-symbols-outlined center-layout text-custom">
                                 account_circle
                             </div>
                             <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Customer</p>
