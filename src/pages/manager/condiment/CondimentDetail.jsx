@@ -1,17 +1,16 @@
-import coffee from "../../../assets/images/coffee-cup.png"
+import coffee from "../../../assets/images/coffee-cup.png";
 import { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import condimentService from '../../../services/condiment.service';
-import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import productService from "../../../services/product.service";
 
 const CondimentDetail = () => {
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     const { id } = useParams();
     const [condiment, setCondiment] = useState(null);
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState('process');
+    const [selectedImage, setSelectedImage] = useState(null);
 
     // Create refs
     const nameRef = useRef();
@@ -32,27 +31,45 @@ const CondimentDetail = () => {
 
     const handleEdit = () => {
         setEditMode(true);
-    }
+    };
 
+    const handleImageChange = (e) => {
+        setSelectedImage(e.target.files[0]);
+    };
 
     const handleFinish = () => {
         const updatedCondiment = {
             ...condiment,
             name: nameRef.current.value,
             unitPrice: parseFloat(priceRef.current.value),
-            image: "sample_condiment_url",
+            image: condiment.image,
             productStatus: parseInt(statusRef.current.value)
         };
 
-        condimentService.updateCondiment(id, updatedCondiment)
-            .then(data => {
-                setCondiment(data);
-                setEditMode(false);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
-    }
+        const updateCondimentDetails = () => {
+            condimentService.updateCondiment(id, updatedCondiment)
+                .then(data => {
+                    setCondiment(data);
+                    setEditMode(false);
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                });
+        };
+
+        if (selectedImage) {
+            productService.uploadImage(selectedImage)
+                .then(url => {
+                    updatedCondiment.image = url;
+                    updateCondimentDetails();
+                })
+                .catch(error => {
+                    console.error('Image upload failed!', error);
+                });
+        } else {
+            updateCondimentDetails();
+        }
+    };
 
     if (status === 'process') {
         return <div>Loading...</div>; // Or some loading spinner
@@ -71,47 +88,44 @@ const CondimentDetail = () => {
             <div className="container mx-3 bg-custom rounded h-100">
                 <div className="mx-2 my-3 h-100">
                     <Link to=""></Link>
-                    <a class="material-symbols-outlined handle mt-2">
+                    <a className="material-symbols-outlined handle mt-2" onClick={() => navigate(-1)}>
                         close
                     </a>
                     <div className="h-50 d-flex flex-column justify-content-center align-items-center">
-                        <img src={coffee} className="h-75 my-3 rounded mx-auto img-thumbnail"></img>
-                        <div class="material-symbols-outlined">
-                            add_photo_alternate
-                        </div>
+                        <img src={condiment.image ? condiment.image : coffee} className="h-75 my-3 rounded mx-auto img-thumbnail" />
+                        {editMode && (
+                            <div className="mt-2">
+                                <input type="file" onChange={handleImageChange} />
+                            </div>
+                        )}
                     </div>
-                    <div className="">
+                    <div>
                         <div className="container">
                             <form className="row">
                                 <div className="col-md-12">
-                                    <label for="inputName" className="form-label">Name</label>
+                                    <label htmlFor="inputName" className="form-label">Name</label>
                                     <input type="text" className="form-control" id="inputName" defaultValue={condiment.name} ref={nameRef} disabled={!editMode} />
                                 </div>
                                 <div className="col-md-6 mt-4">
-                                    <label for="inputType" className="form-label">Price</label>
+                                    <label htmlFor="inputType" className="form-label">Price</label>
                                     <input type="text" className="form-control" id="inputPrice" defaultValue={condiment.unitPrice} ref={priceRef} disabled={!editMode} />
                                 </div>
                                 <div className="col-md-6 mt-4">
-                                    <label for="inputStatus" className="form-label">Status</label>
+                                    <label htmlFor="inputStatus" className="form-label">Status</label>
                                     <select id="inputStatus" className="form-control" defaultValue={condiment.productStatus} ref={statusRef} disabled={!editMode}>
                                         <option value="0">Able</option>
                                         <option value="1">Enable</option>
                                         <option value="2">Out of stock</option>
                                     </select>
                                 </div>
-
                                 <div className="mt-4 d-flex justify-content-around">
-
-
                                     <button type="button" className="btn btn-info w-15" onClick={handleEdit}>Edit</button>
                                     {editMode && <button type="button" className="btn btn-success w-15" onClick={handleFinish}>Finish</button>}
                                 </div>
-
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );

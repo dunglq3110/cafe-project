@@ -48,6 +48,24 @@ class ProductService {
                 throw error;
             });
     }
+    uploadImage(imageFile) {
+        const formData = new FormData();
+        formData.append('image', imageFile);
+
+        return axios.post(`${API_URL}/upload-image`, formData, { headers: authHeader() })
+            .then(response => {
+                if (response.data.code == 0) {
+                    return response.data.result;
+                } else {
+                    throw new Error('Failed to upload image');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                throw error;
+            });
+    }
+
     updateProduct(id, product) {
         return axios.put(`${API_URL}/${id}`, product, { headers: authHeader() })
             .then(response => {

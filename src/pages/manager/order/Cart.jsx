@@ -338,9 +338,11 @@ const Cart = () => {
                                                     )}
                                                     <input
                                                         value={inputValue}
+                                                        type='number'
                                                         onChange={handleInputChange}
                                                         onFocus={() => setFilteredCustomers(customers.filter(customer => customer.phoneNumber.includes(inputValue)).slice(0, 5))}
                                                         onBlur={() => setTimeout(() => setFilteredCustomers([]), 200)}
+                                                        className='form-control'
                                                     />
                                                     {filteredCustomers.length > 0 && (
                                                         <div style={{ position: 'absolute', backgroundColor: 'white', zIndex: 1 }}>
