@@ -25,26 +25,33 @@ const AddCondiment = () => {
             .then(data => {
                 console.log('Condiment added:', data);
                 toast.success('Condiment added successfully!');
+                window.location.href = 'condiments';
 
             })
             .catch(error => {
                 console.error('Failed to add Condiment:', error);
                 toast.error('Failed to add Condiment');
+                window.location.href = 'condiments';
             });
     };
 
 
     return (
-        <div className="">
-            <div className="mx-5 my-2 bg-custom rounded h-100">
-                <div className="row mx-2 my-2">
-                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
-                        <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
+        <div className="h-100 d-flex justify-content-center">
+            <div className="w-75 ">
+                <div className="row my-4 py-3 bg-custom rounded w-100">
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='condiments' class="handle h-100">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
+                    <div className="col col-4 d-inline align-items-center justify-content-center mb-2">
+                        <img src={ech} className="rounded mx-auto d-block w-75 h-100 img-thumbnail" />
                     </div>
                     <div className="col col-8">
-                        <div className="row">
-                        </div>
-                        <div className="container my-2 mb-4">
+                        <div className="container mb-4">
                             <form className="row">
                                 <div className="col-md-6">
                                     <label htmlFor="inputFirstName" className="form-label text-uppercase fw-bold">Name</label>
@@ -56,7 +63,7 @@ const AddCondiment = () => {
                                 </div>
 
                                 <div className="mt-4 d-flex justify-content-around">
-                                    <a className='w-15' href='order'>
+                                    <a className='w-15' href='condiments'>
                                         <button type="button" className="btn btn-danger w-100">CANCEL</button>
                                     </a>
                                     <a className='w-15'>

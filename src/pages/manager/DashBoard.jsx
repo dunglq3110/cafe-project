@@ -124,16 +124,21 @@ const Dashboard = () => {
         <>
             <div className="w-100 thumnail" style={{ height: '90%' }}>
                 <div class="my-3">
-                    <div class="mx-3 h-100 bg-custom p-4 rounded" style={{backgroundColor:""}}>
+                    <div class="mx-3 h-100 bg-custom p-4 rounded" style={{ backgroundColor: "" }}>
                         <div class="h-auto my-2" id="filter-bar">
-                            <div class="w-15">
-                                <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Type of Report</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
-                                    value={selectedReportCategory}
-                                    onChange={(e) => setSelectedReportCategory(e.target.value)}>
-                                    <option value="revenue">Revenue</option>
-                                    <option value="product">Product</option>
-                                </select>
+                            <div className='d-flex align-items-end'>
+                                <div class="w-15">
+                                    <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Type of Report</label>
+                                    <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
+                                        value={selectedReportCategory}
+                                        onChange={(e) => setSelectedReportCategory(e.target.value)}>
+                                        <option value="revenue">Revenue</option>
+                                        <option value="product">Product</option>
+                                    </select>
+                                </div>
+                                <div class="mx-5 w-15 ">
+                                    <button className="center-layout btn btn-success " onClick={exportToExcel}>Export</button>
+                                </div>
                             </div>
 
                             {selectedReportCategory === 'revenue' && (
@@ -153,14 +158,14 @@ const Dashboard = () => {
                                                 {years.map(year => <option key={year} value={year}>{year}</option>)}
                                             </select>
                                         </div>
-                                        {selectedView === 'chart' &&(
+                                        {selectedView === 'chart' && (
                                             <>
                                                 <div class="dropdown d-flex">
                                                     <select className="form-select center-layout w-100" style={{ backgroundColor: '#b5783d' }}
                                                         value={selectedRevenueCategory}
                                                         onChange={(e) => setSelectedRevenueCategory(e.target.value)}
 
-                                                        >
+                                                    >
                                                         <option value="totalRevenue">Total Revenue</option>
                                                         <option value="productQuantity">Product Quantity</option>
                                                         <option value="condimentQuantity">Condiment Quantity</option>
@@ -211,11 +216,6 @@ const Dashboard = () => {
                                     </div>
                                 </>
                             )}
-                            <div class="dropdown w-15 d-flex" style={{ background: '' }}>
-                                <button className="side-button center-layout" onClick={exportToExcel}>Export</button>
-                            </div>
-
-
 
                         </div>
                         {selectedReportCategory === 'revenue' && selectedView === 'chart' && (

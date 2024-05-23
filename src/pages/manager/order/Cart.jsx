@@ -196,8 +196,8 @@ const Cart = () => {
         return <div>No data found</div>; // Or some empty state
     }
     return (
-        <div id="cartDetail" className={`Cart container w-100 ${showGiftMenu ? 'dim' : ''}`} role="dialog" >
-            <div className="h-100 rounded" style={{ backgroundColor: '#a47152' }}>
+        <div id="cartDetail" className=" container mt-2 w-100  ">
+            <div className={`Cart h-100 rounded ${showGiftMenu ? 'dim' : ''}`} role="dialog" style={{ backgroundColor: '#a47152' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-12">
@@ -206,11 +206,11 @@ const Cart = () => {
                                     <div className="row g-0">
                                         <div className="col-lg-8">
                                             <div className="p-5">
-                                                <div className="d-flex justify-content-between align-items-center mb-5">
-                                                    <div className="d-flex justify-content-between align-items-center mb-5">
+                                                <div className="d-flex justify-content-between align-items-center">
+                                                    <div className="d-flex justify-content-between align-items-center">
                                                         <h1 className="fw-bold mb-0 text-black">Cart Detail</h1>
-                                                        <h6 className="mb-0 text-muted">{`${receipt.productDetails.length}`} items</h6>
                                                     </div>
+                                                    <h6 className="mb-0 text-muted">{`${receipt.productDetails.length}`} items</h6>
 
                                                 </div>
 
@@ -253,7 +253,7 @@ const Cart = () => {
 
 
                                                             <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                                <a className="float-end text-black" onClick={() => deleteProduct(product.id)}>
+                                                                <a className="float-end text-black handle" onClick={() => deleteProduct(product.id)}>
 
                                                                     <span className="material-symbols-outlined">
                                                                         close
@@ -297,11 +297,9 @@ const Cart = () => {
 
                                                                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                                                     <a className="float-end text-black" onClick={() => deleteCondiment(condimentDetail.id)}>
-
-                                                                        <span className="material-symbols-outlined">
+                                                                        <span className="material-symbols-outlined handle">
                                                                             close
                                                                         </span>
-
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -331,19 +329,25 @@ const Cart = () => {
                                                 <hr className="my-4"></hr>
                                                 <div className="mb-4 pb-2">
                                                     <label className="form-label" for="phonenumber">
-                                                        Customer Name: {receipt.customer ? receipt.customer.lastName : 'None'}
+                                                        Customer Name : {receipt.customer ? receipt.customer.lastName : 'None'}
                                                     </label>
                                                     {receipt.customer && (
-                                                        <button onClick={() => removeCustomer(receipt.id)}>x</button>
+                                                        <a className="float-end text-black handle" onClick={() => removeCustomer(receipt.id)}>
+                                                            <span className="material-symbols-outlined">
+                                                                close
+                                                            </span>
+                                                        </a>
                                                     )}
                                                     <input
+                                                        className='form-control'
+                                                        type='text'
                                                         value={inputValue}
                                                         onChange={handleInputChange}
                                                         onFocus={() => setFilteredCustomers(customers.filter(customer => customer.phoneNumber.includes(inputValue)).slice(0, 5))}
                                                         onBlur={() => setTimeout(() => setFilteredCustomers([]), 200)}
                                                     />
                                                     {filteredCustomers.length > 0 && (
-                                                        <div style={{ position: 'absolute', backgroundColor: 'white', zIndex: 1 }}>
+                                                        <div className='rounded p-3 mt-1' style={{ position: 'absolute', backgroundColor: 'white', zIndex: 1, width:"25%" }}>
                                                             {filteredCustomers.map((customer) => (
                                                                 <div key={customer.id} onClick={() => handleCustomerClick(customer.id)}>
                                                                     {customer.firstName} {customer.lastName}

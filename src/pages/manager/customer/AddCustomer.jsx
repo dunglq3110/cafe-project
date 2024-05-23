@@ -34,12 +34,13 @@ const AddCustomer = () => {
             .then(data => {
                 console.log('Customer added:', data);
                 toast.success('Customer added successfully!');
-
+                window.location.href = 'customers';
             })
             .catch(error => {
                 console.error('Failed to add Customer:', error);
                 toast.error('Failed to add Customer');
             });
+        // window.location.href = 'customers';
     };
 
 
@@ -47,6 +48,13 @@ const AddCustomer = () => {
         <div className="">
             <div className="mx-5 my-2 bg-custom rounded h-100">
                 <div className="row mx-2 my-2">
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='customers' class="handle h-100">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
                         <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
                     </div>
@@ -80,7 +88,7 @@ const AddCustomer = () => {
                                 </div>
 
                                 <div className="mt-4 d-flex justify-content-around">
-                                    <a className='w-15' href='staffs'>
+                                    <a className='w-15' href='customers'>
                                         <button type="button" className="btn btn-danger w-100">CANCEL</button>
                                     </a>
                                     <a className='w-15'>
@@ -96,6 +104,7 @@ const AddCustomer = () => {
 
             </div>
             <ToastContainer />
+
         </div>
     );
 }

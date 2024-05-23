@@ -21,11 +21,16 @@ const Order = () => {
 
     const [selectedOption, setSelectedOption] = useState('Product');
 
-    const handleClick = (product) => {
-        setSelectedProduct(product);
-        setShowOrderDetail(true);
+    const handleClick = async (product) => {
+        if (receipt) {
+            setSelectedProduct(product);
+            setShowOrderDetail(true);
+        } else {
+            await newOrder();
+            setSelectedProduct(product);
+            setShowOrderDetail(true);
+        }
     };
-
 
     const newOrder = () => {
         orderService.newOrder()
@@ -83,7 +88,7 @@ const Order = () => {
                     <div id="drink-item" className="d-flex w-100">
                         <div id="item" className="w-100 rounded">
                             <div id="food-show" className="">
-                                <div className="title merriweather-regular-italic" id="filter-bar">
+                                <div className="title merriweather-regular-italic " id="filter-bar">
                                     Our Menu
                                 </div>
                                 <div id="food-option" className="d-flex flex-row text-align-center my-4 mx-3">
@@ -96,20 +101,25 @@ const Order = () => {
                                     {status === 'process' && <h1>Loading...</h1>}
                                     {status === 'finish' && (
                                         <>
-                                            {(selectedOption === 'Product' ? products : condiments).map((item, index) => (
-                                                <div class="item-drink">
-                                                    <img src={coffeecup}
-                                                        class="w-75 h-75" alt="" />
-                                                    <div class="w-100">
-                                                        <div class="d-flex justify-content-center w-100 overflow-hidden">
-                                                            <h5 class="mb-0">{item.name} </h5>
-                                                        </div>
-                                                        <div id="orderbtn">
-                                                            <button type="button" className="btn btn-info border border-2 border-dark rounded" onClick={() => handleClick(item)}>Order</button>
+                                            {(selectedOption === 'Product' ? products : condiments)
+                                                .filter(item => {
+                                                    if (item.productStatus === "ABLE") return item;
+                                                }
+                                                )
+                                                .map((item, index) => (
+                                                    <div class="item-drink">
+                                                        <img src={coffeecup}
+                                                            class="w-75 h-75 image-item" alt="" />
+                                                        <div class="w-100">
+                                                            <div class="d-flex justify-content-center w-100 overflow-hidden">
+                                                                <h5 class="mb-0">{item.name} </h5>
+                                                            </div>
+                                                            <div id="orderbtn">
+                                                                <button type="button" className="btn border border-2 border-dark rounded order" style={{ backgroundColor: "#f5d9b3" }} onClick={() => handleClick(item)}>Order</button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            ))}
+                                                ))}
                                         </>
                                     )}
                                     {status === 'error' && <h1>Đợi 1 xíu...</h1>}

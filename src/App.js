@@ -6,6 +6,7 @@ import StaffPage from './pages/staff/StaffPage'
 import VisitPage from './pages/VisitPage'
 import Home from './pages/manager/Home';
 import DashBoard from './pages/manager/DashBoard';
+import PageNotFound from './components/404page/404';
 
 function App() {
     return (
@@ -14,9 +15,8 @@ function App() {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/manager/*" element={<ManagerPage />} />
                 <Route path="/staff" element={<StaffPage />} />
-                {/* <Route path="/" element={<VisitPage/>}/> */}
                 <Route path="/" element={<SignIn />} />
-
+                <Route path="*" element={<PageNotFound/>} />
             </Routes>
         </Router>
     );

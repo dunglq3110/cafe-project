@@ -42,12 +42,15 @@ const AddProduct = () => {
         productService.addProduct(product)
             .then(data => {
                 console.log('Product added:', data);
-                toast.success('Condiment added successfully!');
+                toast.success('Product added successfully!');
+                window.location.href = 'products';
+
 
             })
             .catch(error => {
                 console.error('Failed to add Product:', error);
                 toast.error('Failed to add Product');
+                window.location.href = 'products';
             });
     };
 
@@ -56,6 +59,13 @@ const AddProduct = () => {
         <div className="">
             <div className="mx-5 my-2 bg-custom rounded h-100">
                 <div className="row mx-2 my-2">
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='products' class="handle h-100">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
                         <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
                     </div>
