@@ -108,7 +108,7 @@ const Order = () => {
                                                 )
                                                 .map((item, index) => (
                                                     <div class="item-drink">
-                                                        <img src={coffeecup}
+                                                        <img src={item.image ? item.image : coffeecup}
                                                             class="w-75 h-75 image-item" alt="" />
                                                         <div class="w-100">
                                                             <div class="d-flex justify-content-center w-100 overflow-hidden">

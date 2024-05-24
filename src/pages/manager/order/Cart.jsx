@@ -220,7 +220,7 @@ const Cart = () => {
                                                         <div className="row mb-4 d-flex justify-content-between align-items-center">
                                                             <div className="col-md-2 col-lg-2 col-xl-2">
                                                                 <img
-                                                                    src={coffee}
+                                                                    src={product.productSize.image ? product.productSize.image : coffee}
                                                                     className="img-fluid rounded-3" alt="Cotton T-shirt" />
                                                             </div>
                                                             <div className="col-md-3 col-lg-3 col-xl-3">
@@ -266,7 +266,7 @@ const Cart = () => {
                                                             <div className="row my-2 d-flex" style={{ marginLeft: "4%" }}>
                                                                 <div className="col-md-2 col-lg-2 col-xl-2">
                                                                     <img
-                                                                        src={coffee}
+                                                                        src={condimentDetail.condiment.image ? condimentDetail.condiment.image : coffee}
                                                                         className="img-fluid rounded-3" alt="Cotton T-shirt" />
                                                                 </div>
                                                                 <div className="col-md-3 col-lg-3 col-xl-3">
