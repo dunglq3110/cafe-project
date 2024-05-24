@@ -55,10 +55,7 @@ const AddCustomer = () => {
                             </div>
                         </a>
                     </div>
-                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
-                        <img src={ech} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
-                    </div>
-                    <div className="col col-8">
+                    <div className="col col-12">
                         <div className="row">
                         </div>
                         <div className="container my-2 mb-4">

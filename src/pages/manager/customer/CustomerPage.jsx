@@ -39,9 +39,10 @@ const Customer = () => {
                 <div className="mx-1 my-1 bg-custom p-2 rounded">
                     <div className="d-flex container align-items-end" id="filter-bar">
                         <div class="d-flex h-25 " role="search">
-                            <input class="form-control me-2" type="search"
+                            <input class="form-control me-2"
+                                type="search"
                                 placeholder="Search" aria-label="Search" value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)
+                                onChange={(e) => (setInputValue(e.target.value), console.log(inputValue))
                                 } />
                         </div>
                         <div className="mx-5 w-15">
@@ -80,10 +81,13 @@ const Customer = () => {
                                 <tbody>
                                     {customer
                                         .filter(customer => {
-                                            console.log(inputValue);
-                                            if (inputValue === null && rankFilter==="ALL") return customer;
-                                            else if(rankFilter===null && customer.phoneNumber.includes(inputValue))return customer;
-                                            else if (rankFilter===customer.rankName && inputValue === null) return customer;
+                                            if ((inputValue === null || customer.phoneNumber.includes(inputValue)) &&
+                                                (rankFilter === "ALL" || rankFilter === customer.rankName)) {
+                                                return customer;
+                                            } else {
+                                                return null; // or any other value
+                                            }
+
                                         })
                                         .map((customer, index) => (
 

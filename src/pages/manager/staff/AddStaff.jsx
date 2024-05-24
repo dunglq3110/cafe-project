@@ -62,14 +62,7 @@ const AddStaff = () => {
                             </div>
                         </a>
                     </div>
-                    <div className="col col-4 d-flex flex-column align-items-center justify-content-center mt-4">
-                        <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
-                        <button type="button" className="btn btn-outline-success mt-1 d-flex flex-column align-items-center justify-content-center"><span class="material-symbols-outlined">
-                            add_a_photo
-                        </span></button>
-
-                    </div>
-                    <div className="col col-8">
+                    <div className="col col-12">
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-4">

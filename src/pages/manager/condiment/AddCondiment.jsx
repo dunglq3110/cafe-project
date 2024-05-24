@@ -54,14 +54,7 @@ const AddCondiment = () => {
                             </div>
                         </a>
                     </div>
-                    <div className="col col-4 d-inline align-items-center justify-content-center mb-2">
-                        <img src={selectedImage ? URL.createObjectURL(selectedImage) : ech} className="rounded mx-auto d-block w-75 h-100 img-thumbnail" />
-                        <input type="file" onChange={handleImageChange} style={{ display: 'none' }} id="imageUpload" />
-                        <label htmlFor="imageUpload" className="material-symbols-outlined">
-                            add_photo_alternate
-                        </label>
-                    </div>
-                    <div className="col col-8">
+                    <div className="col col-12">
                         <div className="container mb-4">
                             <form className="row">
                                 <div className="col-md-12">
