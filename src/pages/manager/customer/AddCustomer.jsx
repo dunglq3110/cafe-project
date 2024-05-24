@@ -38,9 +38,8 @@ const AddCustomer = () => {
             })
             .catch(error => {
                 console.error('Failed to add Customer:', error);
-                toast.error('Failed to add Customer');
+                toast.error(error.response.data.message);
             });
-        // window.location.href = 'customers';
     };
 
 

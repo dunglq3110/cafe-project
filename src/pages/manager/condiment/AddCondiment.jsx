@@ -39,7 +39,8 @@ const AddCondiment = () => {
             window.location.href = 'condiments';
         } catch (error) {
             console.error('Failed to add condiment:', error);
-            toast.error('Failed to add condiment');
+            toast.error(error.response.data.message);
+
         }
     };
 
