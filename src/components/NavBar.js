@@ -12,7 +12,7 @@ const NavBar = () => {
         setIsVisible(!isVisible);
     };
     return (
-        <div className={`"navbar-inner nav_bar ${!isVisible ? 'nav_bar_change' : ''}`} style={{ overflowY: 'scroll' }}>
+        <div className={`navbar-inner nav_bar ${!isVisible ? 'nav_bar_change' : ''}`} style={{ overflowY: 'scroll' }}>
             <div id="transition" class="user-select-none d-flex justify-content-end mt-2">
                 <div id="open" className={`door button-transition ${isVisible ? 'd-none' : ''}`} onClick={toggleVisibility}>
                     <span className="material-symbols-outlined fs-2">
@@ -25,8 +25,8 @@ const NavBar = () => {
                     </span>
                 </div>
             </div>
-            <div className="w-100">
-                <div id="side-button" style={{ marginTop: isVisible ? '5%' : '5%' }}>
+            <div className="center-layout h-auto">
+                <div id="side-button">
                     <Link to="/manager/home" className="nav-link" >
                         <div className={`side-button text-custom ${activeLink === 'home' ? 'active' : ''}`} onClick={() => setActiveLink('home')} id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout" >
@@ -83,7 +83,7 @@ const NavBar = () => {
                     </Link>
                     <Link to="/manager/staffs" className="nav-link">
                         <div className={`side-button text-custom ${activeLink === 'staffs' ? 'active' : ''}`} onClick={() => setActiveLink('staffs')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
-                            <div className="material-symbols-outlined center-layout">
+                            <div className="material-symbols-outlined center-layout">   
                                 group
                             </div>
                             <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Employee</p>

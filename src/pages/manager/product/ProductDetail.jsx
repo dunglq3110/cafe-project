@@ -98,11 +98,13 @@ const ProductDetail = () => {
         <div className="Product_detail w-100" style={{ height: "80%" }}>
             <div className="mx-3 bg-custom rounded h-100">
                 <div className="row mx-2 my-3 h-100">
-                    <a href='./' class="mx-1 my-2 handle">
-                        <div class="material-symbols-outlined fs-2" >
-                            close
-                        </div>
-                    </a>
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='./' class="h-100">
+                            <div class="material-symbols-outlined fs-2 handle" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">
                         <img src={product.image ? product.image : coffee} className="rounded mx-auto d-block w-75 img-thumbnail" />
                         {editMode && (
@@ -140,14 +142,18 @@ const ProductDetail = () => {
                                     <label htmlFor="inputDiscount" className="form-label">Discount</label>
                                     <input type="number" step="0.01" min="0" max="1" className="form-control" id="inputDiscount" defaultValue={product.discount} ref={discountRef} disabled={!editMode} />
                                 </div>
+                                <div className="col-md-2 mt-3">
+                                    <label htmlFor="inputSizeName" className="form-label">Size name</label>
+                                </div>
+                                <div className="col-md-2 mt-3 mx-5">
+                                    <label htmlFor="inputPrice" className="form-label">Price</label>
+                                </div>
                                 {product.sizes.map((productSize, index) => (
-                                    <div key={index}>
-                                        <div className="col-md-6 mt-4">
-                                            <label htmlFor="inputSizeName" className="form-label">Size name</label>
+                                    <div className='d-flex' key={index}>
+                                        <div className="col-md-2 mt-3">
                                             <input type="text" className="form-control" id="inputSizeName" defaultValue={productSize.name} disabled />
                                         </div>
-                                        <div className="col-md-6 mt-4">
-                                            <label htmlFor="inputPrice" className="form-label">Price</label>
+                                        <div className="col-md-2 mt-3 mx-5">
                                             <input type="number" className="form-control" id="inputPrice" defaultValue={productSize.price} ref={el => priceRefs.current[index] = el} disabled={!editMode} />
                                         </div>
                                     </div>

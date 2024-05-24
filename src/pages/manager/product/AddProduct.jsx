@@ -58,23 +58,23 @@ const AddProduct = () => {
     return (
         <div className="">
             <div className="mx-5 my-2 bg-custom rounded h-100">
-                <div className="row mx-2 my-2">
+                <div className="row mx-2 my-3">
                     <div class="mx-1 my-2" style={{ height: "5%" }}>
-                        <a href='products' class="handle h-100">
-                            <div class="material-symbols-outlined fs-2" >
+                        <a href='products' class="h-100">
+                            <div class="material-symbols-outlined fs-2 handle" >
                                 close
                             </div>
                         </a>
                     </div>
-                    <div className="col col-4 d-inline align-items-center justify-content-center mt-4">
-                        <img src={selectedImage ? URL.createObjectURL(selectedImage) : coffee} className="rounded mx-auto d-block w-100 h-100 img-thumbnail" />
+                    <div className="col col-4 h-100 d-flex">
+                        <img src={selectedImage ? URL.createObjectURL(selectedImage) : coffee} className="rounded mx-auto d-block h-100 img-thumbnail" />
                         <input type="file" onChange={handleImageChange} style={{ display: 'none' }} id="imageUpload" />
-                        <label htmlFor="imageUpload" class="material-symbols-outlined">
+                        <label htmlFor="imageUpload" class="material-symbols-outlined w-100">
                             add_photo_alternate
                         </label>
                     </div>
 
-                    <div className="col col-8">
+                    <div className="col col-7" style={{marginRight:"0px",marginLeft:"auto"}}>
                         <div className="row">
                         </div>
                         <div className="container my-2 mb-4">

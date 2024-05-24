@@ -40,14 +40,15 @@ const CustomerDetail = () => {
         <div className="Employee_detail h-100 w-100">
             <div className="mx-5 rounded bg-custom w-50 h-auto">
                 <div className="row mx-2 my-5 py-4">
-                    <a href='./' class="mx-1  handle">
-                        <div class="material-symbols-outlined fs-2" >
-                            close
-                        </div>
-                    </a>
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='./' class="handle h-100">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="col col-12 mt-3">
-                        <div className="row">
-                        </div>
+
                         <div className="container my-2 mb-4">
                             <form className="row">
                                 <div className="col-md-8">

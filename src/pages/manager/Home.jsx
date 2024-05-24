@@ -1,12 +1,12 @@
 import ech from '../../assets/images/ech.jpg'
 const Home = () => {
     return (
-        <div className='h-75 d-flex'>
+        <div className='d-flex'>
             <div className=''>
                 <div class="w-100 mx-2">
                     {/* style="background-color: #f4f5f7;" */}
-                    <div class="py-5 h-100 ">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="py-5">
+                        <div class="row d-flex justify-content-center align-items-center">
                             <div class="col col-lg-12 mb-2 mb-lg-0">
                                 <div class="card mb-2">
                                     {/* style="border-radius: .5rem;" */}
