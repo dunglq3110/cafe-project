@@ -1,5 +1,5 @@
 // React related imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
@@ -43,12 +43,39 @@ import bg from '../../assets/images/bg.jpg';
 import Home from './Home';
 import DashBoard from './DashBoard';
 
+import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import authService from '../../services/auth.service';
+import PageNotFound from '../../components/404page/404'
 
 const ManagerPage = () => {
-    const handleSearchButtonClick = () => {
-        // Logic to open the desired component
-        console.log('');
-    };
+    const navigate = useNavigate();
+    const [isManager, setIsManager] = useState(true);
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.result.token) {
+            authService.introspect(user.result.token).then((data) => {
+                if (data.result.valid) {
+                    const decodedToken = jwtDecode(user.result.token);
+                    const userRole = decodedToken.scope;
+                    if (userRole === 'MANAGER') {
+                        setIsManager(true);
+                    } else {
+                        navigate("/pagenotfound");
+                    }
+                } else {
+                    navigate("/pagenotfound");
+                }
+            });
+        } else {
+            navigate("/pagenotfound");
+        }
+    }, []);
+
+    if (!isManager) {
+        return <PageNotFound />;
+    }
 
     return (
         <div className="ManagerPage">
@@ -88,6 +115,7 @@ const ManagerPage = () => {
 
                             <Route path="cart" element={<Cart />} />
                             <Route path="order" element={<Order />} />
+
                         </Routes >
                     </div >
                 </div >

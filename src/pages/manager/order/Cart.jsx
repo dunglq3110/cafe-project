@@ -342,14 +342,12 @@ const Cart = () => {
                                                         className='form-control'
                                                         type='text'
                                                         value={inputValue}
-                                                        type='number'
                                                         onChange={handleInputChange}
                                                         onFocus={() => setFilteredCustomers(customers.filter(customer => customer.phoneNumber.includes(inputValue)).slice(0, 5))}
                                                         onBlur={() => setTimeout(() => setFilteredCustomers([]), 200)}
-                                                        className='form-control'
                                                     />
                                                     {filteredCustomers.length > 0 && (
-                                                        <div className='rounded p-3 mt-1' style={{ position: 'absolute', backgroundColor: 'white', zIndex: 1, width:"25%" }}>
+                                                        <div className='rounded p-3 mt-1' style={{ position: 'absolute', backgroundColor: 'white', zIndex: 1, width: "25%" }}>
                                                             {filteredCustomers.map((customer) => (
                                                                 <div key={customer.id} onClick={() => handleCustomerClick(customer.id)}>
                                                                     {customer.firstName} {customer.lastName}

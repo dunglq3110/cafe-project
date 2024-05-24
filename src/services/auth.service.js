@@ -18,19 +18,19 @@ class AuthService {
                 return response.data;
             });
     }
+    introspect(token) {
+        return axios
+            .post(API_URL + "introspect", {
+                token
+            })
+            .then(response => {
+                return response.data;
+            });
+    }
 
     logout() {
         localStorage.removeItem("user");
     }
-
-    register(username, email, password) {
-        return axios.post(API_URL + "signup", {
-            username,
-            email,
-            password
-        });
-    }
-
     getCurrentUser() {
         return JSON.parse(localStorage.getItem('user'));;
     }
