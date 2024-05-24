@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import condimentService from '../../../services/condiment.service';
 import productService from "../../../services/product.service";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const CondimentDetail = () => {
     const navigate = useNavigate();
@@ -51,6 +53,7 @@ const CondimentDetail = () => {
                 .then(data => {
                     setCondiment(data);
                     setEditMode(false);
+                    window.location.href = './';
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
@@ -87,10 +90,13 @@ const CondimentDetail = () => {
         <div className="Product_detail h-75 w-50">
             <div className="container mx-3 bg-custom rounded h-100">
                 <div className="mx-2 my-3 h-100">
-                    <Link to=""></Link>
-                    <a className="material-symbols-outlined handle mt-2" onClick={() => navigate(-1)}>
-                        close
-                    </a>
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='./' class="handle h-100 w-15">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="h-50 d-flex flex-column justify-content-center align-items-center">
                         <img src={condiment.image ? condiment.image : coffee} className="h-75 my-3 rounded mx-auto img-thumbnail" />
                         {editMode && (
@@ -119,12 +125,15 @@ const CondimentDetail = () => {
                                     </select>
                                 </div>
                                 <div className="mt-4 d-flex justify-content-around">
-                                    <button type="button" className="btn btn-info w-15" onClick={handleEdit}>Edit</button>
+
+
+                                    {!editMode && <button type="button" className="btn btn-info w-15" onClick={handleEdit}>Edit</button>}
                                     {editMode && <button type="button" className="btn btn-success w-15" onClick={handleFinish}>Finish</button>}
                                 </div>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

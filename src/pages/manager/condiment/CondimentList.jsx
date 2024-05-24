@@ -7,7 +7,7 @@ import add from '../../../assets/images/add.png'
 
 const CondimentList = () => {
 
-    const [productStatusFilter, setProductStatusFilter] = useState("ALL")
+    const [condimentStatusFilter, setCondimentStatusFilter] = useState("ALL")
     const [condiments, setCondiments] = useState(null);
     const [status, setStatus] = useState('process');
 
@@ -26,14 +26,14 @@ const CondimentList = () => {
 
     return (
         <div className="ProductList">
-            <div class="my-3 container">
+            <div class="my-3">
                 <div class="mx-3 mx-1 my-1 bg-custom p-2 rounded">
                     <div class="d-flex " id="filter-bar">
                         <div class="dropdown w-15">
                             <select
                                 className="form-select"
-                                value={productStatusFilter}
-                                onChange={(e) => setProductStatusFilter(e.target.value)}
+                                value={condimentStatusFilter}
+                                onChange={(e) => setCondimentStatusFilter(e.target.value)}
                             >
                                 <option value="ALL">All</option>
                                 <option value="ABLE">Able</option>
@@ -42,9 +42,8 @@ const CondimentList = () => {
                             </select>
 
                         </div>
-
-                        <div className="" style={{ marginRight: '0px', marginLeft: 'auto' }}>
-                            <a href="add-condiment" className="btn btn-success">
+                        <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
+                            <a class="btn btn-success w-100" href='add-condiment'>
                                 <img src={add} alt="add" className="button-transition" />
                             </a>
                         </div>
@@ -54,8 +53,8 @@ const CondimentList = () => {
                         {status === 'finish' && (
                             <table className="table table-striped  table-hover">
                                 <thead className="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
+                                    <tr className='text-center'>
+                                        <th style={{paddingLeft:"50px"}} scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Status</th>
@@ -63,15 +62,21 @@ const CondimentList = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {condiments.map((condiments, index) => (
+                                    {condiments
+                                    .filter(condiment => {
+                                        if(condimentStatusFilter==="ALL")return condiment;
+                                        else if (condimentStatusFilter===condiment.productStatus)return condiment;
+                                
+                                    })
+                                    .map((condiments, index) => (
 
-                                        <tr key={index}>
-                                            <th scope="row">{condiments.id}</th>
+                                        <tr class="text-center" key={index}>
+                                            <th style={{paddingLeft:"50px"}} scope="row">{condiments.id}</th>
                                             <td>{condiments.name}</td>
                                             <td>{"$" + condiments.unitPrice}</td>
                                             <td>{condiments.productStatus}</td>
-                                            <td><Link to={`/manager/condiments/${condiments.id}`}><img src={right} alt="right"
-                                                className="button-transition" /></Link>
+                                            <td className='d-flex justify-content-end'><Link to={`/manager/condiments/${condiments.id}`}><img src={right} alt="right"
+                                                className="button-transition"/></Link>
                                             </td>
                                         </tr>
                                     ))}

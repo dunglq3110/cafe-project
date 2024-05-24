@@ -54,22 +54,22 @@ const FoodItem = ({ receipt, setReceipt, closeMenu, }) => {
 
 
     return (
-        <div className="w-50 h-75 container bg-white px-0 rounded">
+        <div className="w-50 h-50 container bg-white px-0 rounded">
 
             <div className="h-25 w-100 d-flex align-items-center rounded" style={{ backgroundColor: "#885b46" }}>
-                <a class="close text-center align-items-center" onClick={closeMenu}>
-                    <div class="material-symbols-outlined ">
+                <a class="handle text-center align-items-center mx-2" onClick={closeMenu}>
+                    <div class="material-symbols-outlined" >
                         close
                     </div>
                 </a>
-                <div className="w-100 d-flex justify-content-center align-items-center" style={{ marginTop: "25%" }}>
+                <div className="w-100 d-flex justify-content-center align-items-center" style={{ marginTop: "15%" }}>
                     <img src={bg} className="rounded d-block img-thumbnail z-1" style={{ width: "20%", backgroundColor: "#b1835e" }} />
                     <div className='mx-3 fs-2 text-center flex-column mb-0'>
-                        <p className="text-start" style={{ color: "#f9f6f3" }}>Food name:</p>
+                        <p className="text-start" style={{ color: "#f9f6f3" }}></p>
                     </div>
                 </div>
             </div>
-            <div className="mx-4 my-3 h-75">
+            <div className="p-4 my-3 h-75 w-100">
                 <div class="col pt-5">
                     <form class="row d-flex justify-content-center align-items-center">
                         <div className="col-md-12">

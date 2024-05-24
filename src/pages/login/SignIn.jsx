@@ -22,7 +22,7 @@ const SignIn = () => {
 
                 switch (userRole) {
                     case 'MANAGER':
-                        navigate("/manager");
+                        navigate("/manager/home");
                         break;
                     case 'ADMIN':
                         navigate("/admin");

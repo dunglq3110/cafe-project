@@ -39,11 +39,13 @@ const AddStaff = () => {
             .then(data => {
                 console.log('Staff added:', data);
                 toast.success('Staff added successfully!');
+                window.location.href = 'staffs';
 
             })
             .catch(error => {
                 console.error('Failed to add staff:', error);
                 toast.error('Failed to add staff');
+                window.location.href = 'staffs';
             });
     };
 
@@ -51,12 +53,15 @@ const AddStaff = () => {
     return (
         <div className="container my-2 h-75">
             <div className="mx-2 bg-custom rounded h-100">
+
                 <div className="row mx-2 my-2 h-100">
-                    <a href='staffs' class="close text-center align-items-center">
-                        <div class="material-symbols-outlined ">
-                            close
-                        </div>
-                    </a>
+                    <div class="mx-1 my-2" style={{ height: "5%" }}>
+                        <a href='staffs' class="handle h-100">
+                            <div class="material-symbols-outlined fs-2" >
+                                close
+                            </div>
+                        </a>
+                    </div>
                     <div className="col col-4 d-flex flex-column align-items-center justify-content-center mt-4">
                         <img src={ech} className="rounded mx-auto d-block w-75 h-75 img-thumbnail" />
                         <button type="button" className="btn btn-outline-success mt-1 d-flex flex-column align-items-center justify-content-center"><span class="material-symbols-outlined">
@@ -67,13 +72,20 @@ const AddStaff = () => {
                     <div className="col col-8">
                         <div className="container my-2 mb-4">
                             <form className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-4">
                                     <label htmlFor="inputFirstName" className="form-label text-uppercase fw-bold">First Name</label>
                                     <input type="text" className="form-control" id="inputFirstName" ref={firstNameRef} />
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-4">
                                     <label htmlFor="inputLastName" className="form-label text-uppercase fw-bold">Last Name</label>
                                     <input type="text" className="form-control" id="inputLastName" ref={lastNameRef} />
+                                </div>
+                                <div className="col-4">
+                                    <label htmlFor="inputGender" className="form-label text-uppercase fw-bold">Gender</label>
+                                    <select id="inputGender" className="form-select" ref={genderRef}>
+                                        <option value="MALE" selected>Male</option>
+                                        <option value="FEMALE">Female</option>
+                                    </select>
                                 </div>
                                 <div className="col-md-6 mt-2">
                                     <label htmlFor="inputUsername" className="form-label text-uppercase fw-bold">Username</label>
@@ -95,13 +107,7 @@ const AddStaff = () => {
                                     <label htmlFor="inputAddress" className="form-label text-uppercase fw-bold">Address</label>
                                     <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" ref={addressRef} />
                                 </div>
-                                <div className="col-12 mt-2">
-                                    <label htmlFor="inputGender" className="form-label text-uppercase fw-bold">Gender</label>
-                                    <select id="inputGender" className="form-select" ref={genderRef}>
-                                        <option value="MALE" selected>Male</option>
-                                        <option value="FEMALE">Female</option>
-                                    </select>
-                                </div>
+
 
                                 <div className="mt-4 d-flex justify-content-around">
                                     <a className='w-15' href='staffs'>

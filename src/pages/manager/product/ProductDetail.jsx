@@ -2,6 +2,10 @@ import coffee from '../../../assets/images/coffee-cup.png';
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import productService from '../../../services/product.service';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+
+
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -57,6 +61,7 @@ const ProductDetail = () => {
                 .then(data => {
                     setProduct(data);
                     setEditMode(false);
+                    window.location.href = './';
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
@@ -93,6 +98,11 @@ const ProductDetail = () => {
         <div className="Product_detail w-100" style={{ height: "80%" }}>
             <div className="mx-3 bg-custom rounded h-100">
                 <div className="row mx-2 my-3 h-100">
+                    <a href='./' class="mx-1 my-2 handle">
+                        <div class="material-symbols-outlined fs-2" >
+                            close
+                        </div>
+                    </a>
                     <div className="col col-4 d-inline align-items-center justify-content-center mt-4 mb-4">
                         <img src={product.image ? product.image : coffee} className="rounded mx-auto d-block w-75 img-thumbnail" />
                         {editMode && (
@@ -102,11 +112,10 @@ const ProductDetail = () => {
                         )}
                     </div>
                     <div className="col col-8">
-                        <div className="row"></div>
-                        <div className="container my-2 mb-4">
+                        <div className="container mb-4">
                             <form className="row">
-                                <div className="col-md-12 mt-5">
-                                    <label htmlFor="inputName" className="form-label">Name</label>
+                                <div className="col-md-12">
+                                    <label for="inputName" className="form-label">Name</label>
                                     <input type="text" className="form-control" id="inputName" defaultValue={product.name} ref={nameRef} disabled={!editMode} />
                                 </div>
                                 <div className="col-md-4 mt-4">
@@ -151,8 +160,9 @@ const ProductDetail = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+            <ToastContainer />
+        </div >
     );
 }
 

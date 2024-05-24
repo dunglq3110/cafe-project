@@ -13,42 +13,20 @@ const NavBar = () => {
     };
     return (
         <div className={`"navbar-inner nav_bar ${!isVisible ? 'nav_bar_change' : ''}`} style={{ overflowY: 'scroll' }}>
-            <div id="transition" class="user-select-none d-flex justify-content-end">
-                <div id="open" className={`button-transition ${isVisible ? 'd-none' : ''}`} onClick={toggleVisibility}>
-                    <span className="material-symbols-outlined">
+            <div id="transition" class="user-select-none d-flex justify-content-end mt-2">
+                <div id="open" className={`door button-transition ${isVisible ? 'd-none' : ''}`} onClick={toggleVisibility}>
+                    <span className="material-symbols-outlined fs-2">
                         double_arrow
                     </span>
                 </div>
-                <div id="close" className={`button-transition ${isVisible ? '' : 'd-none'}`} onClick={toggleVisibility}>
-                    <span className="material-symbols-outlined">
+                <div id="close" className={`door button-transition ${isVisible ? '' : 'd-none'}`} onClick={toggleVisibility}>
+                    <span className="material-symbols-outlined  fs-2">
                         keyboard_double_arrow_left
                     </span>
                 </div>
             </div>
             <div className="w-100">
-                <div className="h-100 w-100" id="user" style={{ display: isVisible ? '' : 'none' }}>
-                    <div className='h-100 w-100 user' id="infor_user">
-                        <img className="image_user text-custom img-thumbnail rounded-circle"
-                            src='https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png'
-                            alt='image user' />
-                        <div className="w-100 user">
-                            <div className="w-75 bg-secondary d-flex justify-content-center fw-bold" style={{
-                                background: "#B1855E",
-                                borderRadius: '5px',
-                                border: '2px solid black'
-                            }}>
-                                User Name
-                            </div>
-                            <Link to="/signin" className="button-out w-50 mt-2">
-                                Logout
-                            </Link>
-                        </div>
-                    </div>
-                    <div style={{ width: '100%', height: '1px', background: 'black', marginTop: '5px' }}>
-                    </div>
-                </div>
-                {/* style={{ overflowY: 'scroll', height: '90%' }} */}
-                <div id="side-button" style={{ marginTop: isVisible ? '' : '75%' }}>
+                <div id="side-button" style={{ marginTop: isVisible ? '5%' : '5%' }}>
                     <Link to="/manager/home" className="nav-link" >
                         <div className={`side-button text-custom ${activeLink === 'home' ? 'active' : ''}`} onClick={() => setActiveLink('home')} id="home" style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex' }}>
                             <div className="material-symbols-outlined center-layout" >
@@ -120,6 +98,17 @@ const NavBar = () => {
                             <p className="m-0 px-2 center-layout" style={{ display: isVisible ? '' : 'none' }}>Customer</p>
                         </div>
                     </Link>
+
+
+                    <div className="nav-link mt-5">
+                        <div className={`side-button text-custom door ${activeLink === 'signin' ? 'active' : ''}`} onClick={() => setActiveLink('signin')} style={{ justifyContent: isVisible ? '' : 'center', alignItems: isVisible ? '' : 'center', display: isVisible ? '' : 'flex', width: "30%", marginRight: "10px", marginLeft: "auto" }}>
+                            <Link to="/signin" className="material-symbols-outlined center-layout text-custom handle">
+                                logout
+                            </Link>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>

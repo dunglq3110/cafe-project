@@ -23,11 +23,10 @@ const SearchBar = ({ receipt, newOrder }) => {
                         </Link>
                     </button>
                 ) : (
-                    <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
-                        <a class="btn btn-success w-100" onClick={newOrder}>
-                            <img src={add} alt="add" className="button-transition" />
-                        </a>
-                    </div>
+
+                    <button onClick={newOrder} type="button" className="btn btn-outline-success d-flex justify-content-center align-items-center h-100 mr-0 ml-auto" style={{ userSelect: 'none', width: '15%' }}>
+                        <img src={shopping} style={{ width: '50%' }} />
+                    </button>
                 )}
             </div>
         </div>

@@ -45,8 +45,8 @@ const MenuItem = ({ selectedProduct, receipt, closeMenu, }) => {
         <div className="w-50 pb-2 container bg-white px-0 rounded">
 
             <div className="w-100 align-items-center rounded pt-2" style={{ backgroundColor: "#885b46" }}>
-                <a class="close text-center align-items-center h-25 w-15 mx-2 my-2 handle" onClick={closeMenu}>
-                    <div class="material-symbols-outlined ">
+                <a class="close text-center align-items-center h-25 w-15 mx-2 my-2 " onClick={closeMenu}>
+                    <div class="material-symbols-outlined handle mx-1 my-2 ">
                         close
                     </div>
                 </a>
@@ -82,6 +82,7 @@ const MenuItem = ({ selectedProduct, receipt, closeMenu, }) => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
 
         </div>
     )

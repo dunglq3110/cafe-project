@@ -37,16 +37,16 @@ const EmployeePage = () => {
         <div className="Employee_page">
             <div className="container my-3">
                 <div className="mx-1 my-1 bg-custom p-2 rounded">
-                    <div className="d-flex" id="filter-bar">
-                        <div className="dropdown w-15 d-flex">
-                            <button type="button" className="btn btn-primary dropdown-toggle w-50" data-bs-toggle="dropdown">
-                                {roleFilter}
-                            </button>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" onClick={() => setRoleFilter('ALL')}>All</a></li>
-                                <li><a className="dropdown-item" onClick={() => setRoleFilter('MANAGER')}>Manager</a></li>
-                                <li><a className="dropdown-item" onClick={() => setRoleFilter('STAFF')}>Staff</a></li>
-                            </ul>
+                    <div className="d-flex container align-items-center" id="filter-bar">
+                        <div className="w-15">
+                            <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Role</label>
+                            <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
+                                value={roleFilter}
+                                onChange={(e) => setRoleFilter(e.target.value)}>
+                                <option value="ALL">ALL</option>
+                                <option value="MANAGER">MANAGER</option>
+                                <option value="STAFF">STAFF</option>
+                            </select>
                         </div>
                         <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
                             <a class="btn btn-success w-100" href='add-staff'>
@@ -55,8 +55,7 @@ const EmployeePage = () => {
                         </div>
 
                     </div>
-                    <div className="mt-3">
-
+                    <div className="mt-3 container">
                         <table className="table table-striped  table-hover">
                             <thead className="thead-dark">
                                 <tr>
@@ -69,16 +68,21 @@ const EmployeePage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {staff.slice(1).filter(employee => (roleFilter === 'ALL' || employee.role === roleFilter) && employee.userName).map((employee, index) => (
-                                    <tr key={index}>
-                                        <th scope="row">{employee.id}</th>
-                                        <td>{employee.firstName}</td>
-                                        <td>{employee.lastName}</td>
-                                        <td>{employee.role}</td>
-                                        <td>{employee.phoneNumber}</td>
-                                        <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right" className="button-transition" /></Link></td>
-                                    </tr>
-                                ))}
+                                {staff.slice(1)
+                                    .filter(employee => {
+                                        if(roleFilter==="ALL")return employee;
+                                        else if(employee.role===roleFilter)return employee;
+                                    })
+                                    .filter(employee => (roleFilter === 'ALL' || employee.role === roleFilter) && employee.userName).map((employee, index) => (
+                                        <tr key={index}>
+                                            <th scope="row">{employee.id}</th>
+                                            <td>{employee.firstName}</td>
+                                            <td>{employee.lastName}</td>
+                                            <td>{employee.role}</td>
+                                            <td>{employee.phoneNumber}</td>
+                                            <td><Link to={`/manager/staffs/${employee.id}`}><img src={right} alt="right" className="button-transition" /></Link></td>
+                                        </tr>
+                                    ))}
                             </tbody>
                         </table>
 
