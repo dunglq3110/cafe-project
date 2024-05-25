@@ -51,7 +51,7 @@ const MenuItem = ({ selectedProduct, receipt, closeMenu, }) => {
                     </div>
                 </a>
                 <div className="container mx-2 d-flex justify-content-center align-items-center">
-                    <img src={bg} className="rounded d-block img-thumbnail z-1" style={{ width: "20%", backgroundColor: "#b1835e" }} />
+                    <img src={selectedProduct.image ? selectedProduct.image : bg} className="rounded d-block img-thumbnail z-1" style={{ width: "20%", backgroundColor: "#b1835e" }} />
                     <div className='mx-3 fs-2 text-center flex-column mb-0 w-75'>
                         <p className="text-start overflow-auto" style={{ color: "#f9f6f3" }}>{selectedProduct.name}</p>
                     </div>

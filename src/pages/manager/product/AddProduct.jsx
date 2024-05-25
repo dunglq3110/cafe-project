@@ -76,7 +76,7 @@ const AddProduct = () => {
                         </label>
                     </div>
 
-                    <div className="col col-7" style={{marginRight:"0px",marginLeft:"auto"}}>
+                    <div className="col col-7" style={{ marginRight: "0px", marginLeft: "auto" }}>
                         <div className="row">
                         </div>
                         <div className="container my-2 mb-4">
@@ -102,8 +102,8 @@ const AddProduct = () => {
                                 <div className="col-md-4">
                                     <label htmlFor="inputGender" className="form-label text-uppercase fw-bold">Product Status</label>
                                     <select id="inputGender" className="form-select" ref={productStatusRef}>
-                                        <option value="ABLE" selected>Able</option>
-                                        <option value="ENABLE">Enable</option>
+                                        <option value="ABLE" selected>Avaiable</option>
+                                        <option value="ENABLE">Unavailable</option>
                                         <option value="OUTOFSTOCK" >Out of Stock</option>
                                     </select>
                                 </div>

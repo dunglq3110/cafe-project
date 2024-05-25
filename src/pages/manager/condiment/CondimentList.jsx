@@ -36,9 +36,9 @@ const CondimentList = () => {
                                 onChange={(e) => setCondimentStatusFilter(e.target.value)}
                             >
                                 <option value="ALL">All</option>
-                                <option value="ABLE">Able</option>
+                                <option value="ABLE">Available</option>
                                 <option value="OUTSTOCK">Out of stock</option>
-                                <option value="ENABLE">Enable</option>
+                                <option value="ENABLE">Unavailable</option>
                             </select>
 
                         </div>
@@ -54,7 +54,7 @@ const CondimentList = () => {
                             <table className="table table-striped  table-hover">
                                 <thead className="thead-dark">
                                     <tr className='text-center'>
-                                        <th style={{paddingLeft:"50px"}} scope="col">#</th>
+                                        <th style={{ paddingLeft: "50px" }} scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Status</th>
@@ -63,23 +63,30 @@ const CondimentList = () => {
                                 </thead>
                                 <tbody>
                                     {condiments
-                                    .filter(condiment => {
-                                        if(condimentStatusFilter==="ALL")return condiment;
-                                        else if (condimentStatusFilter===condiment.productStatus)return condiment;
-                                
-                                    })
-                                    .map((condiments, index) => (
+                                        .filter(condiment => {
+                                            if (condimentStatusFilter === "ALL") return condiment;
+                                            else if (condimentStatusFilter === condiment.productStatus) return condiment;
 
-                                        <tr class="text-center" key={index}>
-                                            <th style={{paddingLeft:"50px"}} scope="row">{condiments.id}</th>
-                                            <td>{condiments.name}</td>
-                                            <td>{"$" + condiments.unitPrice}</td>
-                                            <td>{condiments.productStatus}</td>
-                                            <td className='d-flex justify-content-end'><Link to={`/manager/condiments/${condiments.id}`}><img src={right} alt="right"
-                                                className="button-transition"/></Link>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                        })
+                                        .map((condiments, index) => (
+
+                                            <tr class="text-center" key={index}>
+                                                <th style={{ paddingLeft: "50px" }} scope="row">{condiments.id}</th>
+                                                <td>{condiments.name}</td>
+                                                <td>{"$" + condiments.unitPrice}</td>
+                                                <td>
+                                                    {
+                                                        condiments.productStatus === 'ABLE' ? 'Available' :
+                                                            condiments.productStatus === 'OUTSTOCK' ? 'Out of stock' :
+                                                                condiments.productStatus === 'ENABLE' ? 'Unavailable' :
+                                                                    'Unknown status'
+                                                    }
+                                                </td>
+                                                <td className='d-flex justify-content-end'><Link to={`/manager/condiments/${condiments.id}`}><img src={right} alt="right"
+                                                    className="button-transition" /></Link>
+                                                </td>
+                                            </tr>
+                                        ))}
                                 </tbody>
                             </table>
                         )}

@@ -1,11 +1,9 @@
-import SearchBar from "../../components/SearchBar";
-import NavBar from "../../components/NavBar";
+
+import Indev from "../../components/404page/Indev";
 const StaffPage = () => {
     return (
         <>
-            <div>
-                <h1>this is staff page</h1>
-            </div>
+            <Indev></Indev>
         </>
     )
 }

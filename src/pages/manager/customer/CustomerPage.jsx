@@ -51,9 +51,12 @@ const Customer = () => {
                                 value={rankFilter}
                                 onChange={(e) => setRankFilter(e.target.value)}>
                                 <option value="ALL">ALL</option>
-                                <option value="UNRANK">UNRANK</option>
-                                <option value="SILVER">SILVER</option>
-                                <option value="GOLD">GOLD</option>
+                                <option value="Unrank">Unrank</option>
+                                <option value="Bronze">Bronze</option>
+                                <option value="Silver">Silver</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Emerald">Emerald</option>
+                                <option value="Diamond">Diamond</option>
                             </select>
                         </div>
                         <div className="w-15" style={{ marginRight: '0px', marginLeft: 'auto' }}>

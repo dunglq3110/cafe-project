@@ -56,7 +56,7 @@ const CondimentItem = ({ selectedProduct, receipt, closeMenu, }) => {
                         </div>
                         <div className="col-md-6">
                             <label for="inputTotal" className="form-label">Price</label>
-                            <input type="number" className="form-control" id="inputQuantity" value={unitPrice * quantity} />
+                            <input type="number" className="form-control" id="inputQuantity" value={(unitPrice * quantity).toFixed(2)} />
                         </div>
                         <div className="col-md-12">
                             <label for="inputTotal" className="form-label">Product want to add</label>

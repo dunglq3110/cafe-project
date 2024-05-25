@@ -47,34 +47,41 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import authService from '../../services/auth.service';
 import PageNotFound from '../../components/404page/404'
+import UnauthPage from '../../components/404page/UnauthPage';
 
 const ManagerPage = () => {
     const navigate = useNavigate();
-    const [isManager, setIsManager] = useState(true);
+    const [isManager, setIsManager] = useState(false);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-        if (user && user.result.token) {
-            authService.introspect(user.result.token).then((data) => {
-                if (data.result.valid) {
-                    const decodedToken = jwtDecode(user.result.token);
-                    const userRole = decodedToken.scope;
-                    if (userRole === 'MANAGER') {
-                        setIsManager(true);
-                    } else {
-                        navigate("/pagenotfound");
-                    }
-                } else {
-                    navigate("/pagenotfound");
-                }
-            });
-        } else {
-            navigate("/pagenotfound");
+
+        if (!user || !user.result.token) {
+            console.log("No user or token found in local storage.");
+            return;
         }
+
+        authService.introspect(user.result.token).then((data) => {
+            if (!data.result.valid) {
+                console.log("Token is not valid.");
+                return;
+            }
+
+            const decodedToken = jwtDecode(user.result.token);
+            const userRole = decodedToken.scope;
+
+            if (userRole !== 'MANAGER') {
+                console.log("User is not a manager.");
+                return;
+            }
+
+            setIsManager(true);
+        });
     }, []);
 
+
     if (!isManager) {
-        return <PageNotFound />;
+        return <UnauthPage />;
     }
 
     return (

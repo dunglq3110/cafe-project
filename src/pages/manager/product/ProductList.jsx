@@ -32,29 +32,29 @@ const ProductList = () => {
                     <div class="h-auto container d-flex" id="filter-bar">
                         <div class="w-15" style={{ background: '' }}>
                             <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Status</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
-                                    value={productStatusFilter}
-                                    onChange={(e) =>setProductStatusFilter(e.target.value)}>
-                                    <option value="ALL">All</option>
-                                    <option value="ABLE">Able</option>
-                                    <option value="OUTSTOCK">Out of stock</option>
-                                    <option value="ENABLE">Enable</option>
-                                </select>
+                            <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
+                                value={productStatusFilter}
+                                onChange={(e) => setProductStatusFilter(e.target.value)}>
+                                <option value="ALL">All</option>
+                                <option value="ABLE">Available</option>
+                                <option value="OUTSTOCK">Out of stock</option>
+                                <option value="ENABLE">Unavailable</option>
+                            </select>
                         </div>
                         <div class="w-15 mx-5" style={{ background: '' }}>
                             <label class="form-label mb-0" style={{ color: "black", zIndex: "1", marginLeft: "10px" }}>Type</label>
-                                <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
-                                    value={productTypeFilter}
-                                    onChange={(e) =>setProductTypeFilter(e.target.value)}>
-                                    <option value="ALL">All</option>
-                                    <option value="CAFE">CAFE</option>
-                                    <option value="MILKTEA">MILKTEA</option>
-                                    <option value="SOFTDRINK">SOFTDRINK</option>
-                                    <option value="SMOOTHIE">SMOOTHIE</option>
-                                    <option value="FOOD">FOOD</option>
-                                </select>
+                            <select className="form-select form-select-lg" style={{ marginTop: '-10px', backgroundColor: '#e2c8a5' }}
+                                value={productTypeFilter}
+                                onChange={(e) => setProductTypeFilter(e.target.value)}>
+                                <option value="ALL">All</option>
+                                <option value="CAFE">Cafe</option>
+                                <option value="MILKTEA">Milk Tea</option>
+                                <option value="SOFTDRINK">Softdrink</option>
+                                <option value="SMOOTHIE">Smoothie</option>
+                                <option value="FOOD">Food</option>
+                            </select>
                         </div>
-                        
+
                         <div class="" style={{ marginRight: '0px', marginLeft: 'auto', width: '10%' }}>
                             <a class="btn btn-success w-100" href='add-product'>
                                 <img src={add} alt="add" className="button-transition" />
@@ -62,7 +62,7 @@ const ProductList = () => {
                         </div>
                     </div>
                     <div class="mt-3 container" style={{ height: '100%' }} >
-                        <div style={{ overflowY: 'scroll', height: '80%',overflowX:"hidden" }}>
+                        <div style={{ overflowY: 'scroll', height: '80%', overflowX: "hidden" }}>
 
                             {status === 'process' && <h1>Loading...</h1>}
                             {status === 'finish' && (
@@ -79,32 +79,40 @@ const ProductList = () => {
                                     </thead>
                                     <tbody>
                                         {products
-                                        .filter(product => {
-                                            if (productStatusFilter === "ALL" && productTypeFilter === "ALL") {
-                                                return product;
-                                            }
-                                            else if (productTypeFilter === "ALL" && productStatusFilter === product.productStatus ) {
-                                                return product;
-                                            }
-                                            else if (productStatusFilter === "ALL" && productTypeFilter === product.productType){
-                                                return product;
-                                            }
-                                            else if (productStatusFilter === product.productStatus && productTypeFilter === product.productType) {
-                                                return product;
-                                            }
-                                        }).map((product, index) => (
+                                            .filter(product => {
+                                                if (productStatusFilter === "ALL" && productTypeFilter === "ALL") {
+                                                    return product;
+                                                }
+                                                else if (productTypeFilter === "ALL" && productStatusFilter === product.productStatus) {
+                                                    return product;
+                                                }
+                                                else if (productStatusFilter === "ALL" && productTypeFilter === product.productType) {
+                                                    return product;
+                                                }
+                                                else if (productStatusFilter === product.productStatus && productTypeFilter === product.productType) {
+                                                    return product;
+                                                }
+                                            }).map((product, index) => (
 
-                                            <tr key={index}>
-                                                <th scope="row">{product.id}</th>
-                                                <td>{product.name}</td>
-                                                <td>{product.productType}</td>
-                                                <td>{product.discount}</td>
-                                                <td>{product.productStatus}</td>
-                                                <td><Link to={`/manager/products/${product.id}`}><img src={right} alt="right"
-                                                    className="button-transition" /></Link>
-                                                </td>
-                                            </tr>
-                                        ))}
+                                                <tr key={index}>
+                                                    <th scope="row">{product.id}</th>
+                                                    <td>{product.name}</td>
+                                                    <td>{product.productType}</td>
+                                                    <td>{product.discount}</td>
+                                                    <td>
+                                                        {
+                                                            product.productStatus === 'ABLE' ? 'Available' :
+                                                                product.productStatus === 'OUTSTOCK' ? 'Out of stock' :
+                                                                    product.productStatus === 'ENABLE' ? 'Unavailable' :
+                                                                        'Unknown status'
+                                                        }
+                                                    </td>
+
+                                                    <td><Link to={`/manager/products/${product.id}`}><img src={right} alt="right"
+                                                        className="button-transition" /></Link>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                     </tbody>
                                 </table>
                             )}

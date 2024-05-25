@@ -119,8 +119,8 @@ const CondimentDetail = () => {
                                 <div className="col-md-6 mt-4">
                                     <label htmlFor="inputStatus" className="form-label">Status</label>
                                     <select id="inputStatus" className="form-control" defaultValue={condiment.productStatus} ref={statusRef} disabled={!editMode}>
-                                        <option value="0">Able</option>
-                                        <option value="1">Enable</option>
+                                        <option value="0">Available</option>
+                                        <option value="1">Unavailable</option>
                                         <option value="2">Out of stock</option>
                                     </select>
                                 </div>

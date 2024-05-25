@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import condimentService from '../../../services/condiment.service';
 import productService from '../../../services/product.service';
+import coffee from "../../../assets/images/coffee-cup.png"
+
 
 const AddCondiment = () => {
     const navigate = useNavigate();
@@ -55,6 +57,13 @@ const AddCondiment = () => {
                             </div>
                         </a>
                     </div>
+                    <div className="col col-4 h-100 d-flex">
+                        <img src={selectedImage ? URL.createObjectURL(selectedImage) : coffee} className="rounded mx-auto d-block h-100 img-thumbnail" />
+                        <input type="file" onChange={handleImageChange} style={{ display: 'none' }} id="imageUpload" />
+                        <label htmlFor="imageUpload" class="material-symbols-outlined w-100">
+                            add_photo_alternate
+                        </label>
+                    </div>
                     <div className="col col-12">
                         <div className="container mb-4">
                             <form className="row">
@@ -69,8 +78,8 @@ const AddCondiment = () => {
                                 <div className="col-md-6">
                                     <label htmlFor="inputGender" className="form-label text-uppercase fw-bold">Product Status</label>
                                     <select id="inputGender" className="form-select" ref={productStatusRef}>
-                                        <option value="ABLE" selected>Able</option>
-                                        <option value="ENABLE">Enable</option>
+                                        <option value="ABLE" selected>Available</option>
+                                        <option value="ENABLE">Unavailable</option>
                                         <option value="OUTOFSTOCK">Out of Stock</option>
                                     </select>
                                 </div>
