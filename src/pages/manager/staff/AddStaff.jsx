@@ -44,8 +44,8 @@ const AddStaff = () => {
             })
             .catch(error => {
                 console.error('Failed to add staff:', error);
-                toast.error('Failed to add staff');
-                window.location.href = 'staffs';
+                toast.error(error.response.data.message);
+                // window.location.href = 'staffs';
             });
     };
 

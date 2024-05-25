@@ -51,6 +51,8 @@ const AddProduct = () => {
             window.location.href = 'products';
         } catch (error) {
             console.error('Error creating product:', error);
+            toast.error(error.response.data.message);
+
         }
     };
 
